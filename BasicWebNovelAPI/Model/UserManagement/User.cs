@@ -26,5 +26,8 @@ namespace BasicWebNovelAPI.Model.UserManagement
         public ICollection<Novel> Novels { get; set; }
 
         public ICollection<UserLibrary> Library { get; set; }
+
+        //first try to pull commit
+        
     }
 }
