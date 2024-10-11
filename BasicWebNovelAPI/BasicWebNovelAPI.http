@@ -1,0 +1,6 @@
+@BasicWebNovelAPI_HostAddress = http://localhost:5089
+
+GET {{BasicWebNovelAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
