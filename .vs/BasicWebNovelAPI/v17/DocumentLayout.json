@@ -260,7 +260,7 @@
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\appsettings.json",
               "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\appsettings.json",
               "RelativeToolTip": "BasicWebNovelAPI\\appsettings.json",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-10-11T17:25:30.635Z",
               "EditorCaption": ""
@@ -299,8 +299,7 @@
               "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\NovelRepository.cs",
               "ViewState": "AgIAAIwAAAAAAAAAAAAAAKEAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T17:07:44.944Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-09T17:07:44.944Z"
             },
             {
               "$type": "Document",
