@@ -42,6 +42,28 @@ namespace BasicWebNovelAPI.Service.Implementations
             return _mapper.Map<GetNovelDto>(novel);
         }
 
+        public async Task<List<GetNovelDto>> GetNovelByName(string title)
+        {
+            var novels = await _context.Novels
+                .Where(n => n.Title.ToLower().Contains(title.ToLower()))
+                .Include(n => n.Chapters)
+                .ToListAsync();
+
+            return _mapper.Map<List<GetNovelDto>>(novels);
+        }
+
+
+        public async Task<List<GetNovelDto>> GetUserAllNovel(int userId)
+        {
+            var novels = await _context.Novels
+                .Where(n => n.UserId == userId)
+                .Include(n => n.Chapters)
+                .ToListAsync();
+
+            return _mapper.Map<List<GetNovelDto>>(novels);
+            
+        }
+
         
         public async Task<GetNovelDto> CreateNovel(CreateNovelDto createNovelDto)
         {

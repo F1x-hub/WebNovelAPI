@@ -40,9 +40,6 @@ namespace BasicWebNovelAPI.Migrations
                     b.Property<int>("NovelId")
                         .HasColumnType("int");
 
-                    b.Property<string>("PdfFilePath")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

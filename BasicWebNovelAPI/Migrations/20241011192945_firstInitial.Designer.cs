@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BasicWebNovelAPI.Migrations
 {
     [DbContext(typeof(BasicWebNovelContext))]
-    [Migration("20241011165022_FirstInitials")]
-    partial class FirstInitials
+    [Migration("20241011192945_firstInitial")]
+    partial class firstInitial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,10 +42,6 @@ namespace BasicWebNovelAPI.Migrations
 
                     b.Property<int>("NovelId")
                         .HasColumnType("int");
-
-                    b.Property<string>("PdfFilePath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()

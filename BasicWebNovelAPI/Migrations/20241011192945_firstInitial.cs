@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BasicWebNovelAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstInitials : Migration
+    public partial class firstInitial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -118,8 +118,7 @@ namespace BasicWebNovelAPI.Migrations
                     ChapterNumber = table.Column<int>(type: "int", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NovelId = table.Column<int>(type: "int", nullable: false),
-                    PdfFilePath = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    NovelId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

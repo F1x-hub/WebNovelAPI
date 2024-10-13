@@ -327,6 +327,38 @@
   },
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.NovelController",
+    "Method": "GetAllUserNovel",
+    "RelativePath": "api/Novel/get-all-user-novel/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.NovelController",
+    "Method": "GetNovelByName",
+    "RelativePath": "api/Novel/get-novel-by-name",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.NovelController",
     "Method": "GetNovelById",
     "RelativePath": "api/Novel/get-novel/{id}",
     "HttpMethod": "GET",

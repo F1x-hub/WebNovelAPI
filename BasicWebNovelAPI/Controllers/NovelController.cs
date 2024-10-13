@@ -22,6 +22,10 @@ namespace BasicWebNovelAPI.Controllers
         public async Task<IActionResult> GetNovels()
         {
             var novels = await _novelRepository.GetNovels();
+            if (novels == null)
+            {
+                return NotFound("Novel not found.");
+            }
             return Ok(novels);
         }
 
@@ -35,6 +39,30 @@ namespace BasicWebNovelAPI.Controllers
                 return NotFound("Novel not found.");
             }
             return Ok(novel);
+        }
+
+        [HttpGet("get-novel-by-name")]
+        public async Task<IActionResult> GetNovelByName(string name)
+        {
+            var novels = await _novelRepository.GetNovelByName(name);
+            if (novels.Count <= 0)
+            {
+                return NotFound("Novel not found.");
+            }
+
+            return Ok(novels);
+        }
+
+        [HttpGet("get-all-user-novel/{id}")]
+        public async Task<IActionResult> GetAllUserNovel(int id)
+        {
+            var novels = await _novelRepository.GetUserAllNovel(id);
+            if (novels == null)
+            {
+                return NotFound("Novel not found.");
+            }
+
+            return Ok(novels);
         }
 
         
