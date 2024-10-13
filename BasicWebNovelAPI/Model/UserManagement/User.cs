@@ -27,10 +27,6 @@ namespace BasicWebNovelAPI.Model.UserManagement
 
         public ICollection<UserLibrary> Library { get; set; }
 
-<<<<<<< HEAD
-        
-        
-=======
->>>>>>> 69c67b63236f53e19e7be90c4f597cb76cd2bbea
+
     }
 }
