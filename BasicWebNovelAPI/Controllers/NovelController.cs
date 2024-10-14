@@ -74,34 +74,9 @@ namespace BasicWebNovelAPI.Controllers
             return Ok(createdNovel);
         }
 
-        [HttpPost("add-novel-image/{id}")]
-        public async Task<IActionResult> UploadNovelImages(int id, IFormFile? imageFiles)
-        {
-            try
-            {
-                await _novelRepository.AddNovelImagesAsync(id, imageFiles);
+        
 
-                return Ok(new { Message = "Images uploaded successfully!" });
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { Message = ex.Message });
-            }
-        }
-
-        [HttpPost("create-genre")]
-        public async Task<IActionResult> CreateGenre([FromBody] CreateGenreDto createGenreDto)
-        {
-            try
-            {
-                var createdGenre = await _novelRepository.CreateGenre(createGenreDto);
-                return Ok(createdGenre);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-        }
+        
 
         [HttpPut("update-novel/{id}")]
         public async Task<IActionResult> UpdateNovel(int id, [FromBody] UpdateNovelDto updateNovelDto)
@@ -129,36 +104,6 @@ namespace BasicWebNovelAPI.Controllers
         }
 
         
-        [HttpPost("add-chapter/{novelId}")]
-        public async Task<IActionResult> AddChapterToNovel(int novelId, [FromBody] CreateChapterDto chapterDto)
-        {
-            var chapter = await _novelRepository.AddChapterToNovelAsync(novelId, chapterDto );
-
-            return CreatedAtAction(nameof(AddChapterToNovel), new { novelId = novelId, chapterId = chapter.Id }, chapter);
-        }
-
         
-        [HttpPut("update-chapter/{novelId}/{chapterId}")]
-        public async Task<IActionResult> UpdateChapter(int novelId, int chapterId, [FromBody] Chapter chapter)
-        {
-            var isUpdated = await _novelRepository.UpdateChapter(novelId, chapterId, chapter);
-            if (!isUpdated)
-            {
-                return NotFound("Novel or chapter not found.");
-            }
-            return Ok("Chapter updated successfully.");
-        }
-
-        
-        [HttpDelete("delete-chapter/{novelId}/{chapterId}")]
-        public async Task<IActionResult> DeleteChapter(int novelId, int chapterId)
-        {
-            var isDeleted = await _novelRepository.DeleteChapter(novelId, chapterId);
-            if (!isDeleted)
-            {
-                return NotFound("Novel or chapter not found.");
-            }
-            return Ok("Chapter deleted successfully.");
-        }
     }
 }

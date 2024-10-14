@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BasicWebNovelAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ffa5e61bec15ec5d51081bb7387c6c04db7f6f41")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57b77f10d4db724b743fffc63b59651f1fe4268d")]
 [assembly: System.Reflection.AssemblyProductAttribute("BasicWebNovelAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BasicWebNovelAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

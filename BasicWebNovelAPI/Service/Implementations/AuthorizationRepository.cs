@@ -17,103 +17,23 @@ namespace BasicWebNovelAPI.Service.Implementations
     public class AuthorizationRepository : IAuthorizationRepository
     {
         private readonly BasicWebNovelContext _context;
-        private readonly IMapper _mapper;
+        
         private readonly ITokenRepository _tokenRepository;
         private readonly IEmailRepository _emailRepository;
-        private readonly IImageRepository _imageRepository;
+        
 
         public AuthorizationRepository(BasicWebNovelContext context, 
-                                       IMapper mapper, 
-                                       ITokenRepository tokenRepository, 
-                                       IImageRepository imageRepository,
+                                       ITokenRepository tokenRepository,
                                        IEmailRepository emailRepository)
         {
             _context = context;
-            _mapper = mapper;
+            
             _tokenRepository = tokenRepository;
-            _imageRepository = imageRepository;
+            
             _emailRepository = emailRepository;
         }
 
-        public async Task<List<User>> GetUsers()
-        {
-            return await _context.Users.ToListAsync();
-        }
-
-
-        public async Task<User> GetUserId(int userId)
-        {
-            return await _context.Users
-                         .FirstOrDefaultAsync(u => u.Id == userId);
-        }
-
-
-        public async Task<bool> UpdateUser(User updatedUser)
-        {
-            _context.Users.Update(updatedUser);
-            await _context.SaveChangesAsync();
-
-
-            return true;
-        }
-
-
-        public async Task<User> DeleteUserId(int userId)
-        {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
-            if (user != null)
-            {
-                _context.Users.Remove(user);
-                await _context.SaveChangesAsync();
-            }
-            return user;
-        }
-
-
-        public async Task<GetUserDto> Registration(RegisterUserDto registerUserDto)
-        {
-            var userExists = await _context.Users.AnyAsync(u => u.Email == registerUserDto.Email);
-            if (userExists)
-                throw new Exception("User already exists!");
-
-            var newUser = _mapper.Map<User>(registerUserDto);
-
-            newUser.RoleId = registerUserDto.RoleId;
-
-
-            newUser.PasswordHash = registerUserDto.Password.PasswordHash();
-
-            await _context.Users.AddAsync(newUser);
-            await _context.SaveChangesAsync();
-
-            
-            var userDto = _mapper.Map<GetUserDto>(newUser);
-            return userDto;
-        }
-
-        public async Task AddUserImagesAsync(int userId, IFormFile? imageFiles)
-        {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
-
-            if (user == null)
-            {
-                throw new Exception("User Not Found");
-            }
-
-            if (imageFiles != null)
-            {
-                var userImage = new UserImages
-                {
-                    UserId = user.Id,
-                    ImageSource = await _imageRepository.GenerateUserImageSource(imageFiles)
-                };
-                await _imageRepository.SaveUserImageInDatabase(userImage);
-                
-            }
-              
-           
-        }
-
+        
 
         public async Task<string> LogIn(GetLoginDto getLoginDto)
         {
@@ -172,24 +92,7 @@ namespace BasicWebNovelAPI.Service.Implementations
             return payload;
         }
 
-        public async Task<bool> GoogleRegister(string accessToken)
-        {
-            var payload = await GetPayLoad(accessToken);
-
-            var exitUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == payload.Email);
-
-            if(exitUser != null)
-                return false;
-
-            var user = _mapper.Map<User>(payload);
-            user.AuthIssuer = AuthIssuer.GOOGLE;
-            user.PasswordHash = "Google".PasswordHash();
-            
-            await _context.Users.AddAsync(user);
-            await _context.SaveChangesAsync();
-
-            return true;
-        }
+        
 
         public async Task<string> GoogleAuthorization(string accessToken)
         {
@@ -228,20 +131,7 @@ namespace BasicWebNovelAPI.Service.Implementations
             return user;
         }
 
-        public async Task<bool> FaceBookRegister(string accesToken)
-        {
-            var user = await GetGraphData(accesToken);
-            if (user == null)
-                return false;
-
-            user.AuthIssuer = AuthIssuer.FACEBOOK;
-            user.PasswordHash = "Facebook".PasswordHash();
-
-            await _context.Users.AddAsync(user);
-            await _context.SaveChangesAsync();
-
-            return true;
-        }
+        
 
         public async Task<string> FaceBookAuthorization(string accessToken)
         {

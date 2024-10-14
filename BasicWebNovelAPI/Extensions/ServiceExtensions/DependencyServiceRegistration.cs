@@ -13,6 +13,11 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
             services.AddScoped<IImageRepository, ImageRepository>();
             services.AddScoped<IEmailRepository, EmailRepository>();
             services.AddScoped<INovelRepository, NovelRepository>();
+            services.AddScoped<IGenreRepository, GenreRepository>();
+            services.AddScoped<IChapterRepository, ChapterRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IRegistrationRepository, RegistrationRepository>();
+
 
             //background services
             services.AddHostedService<CodeExpireService>();

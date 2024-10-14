@@ -14,5 +14,10 @@ namespace BasicWebNovelAPI.Service.Abstractions
         Task SaveUserImageInDatabase(UserImages userImage);
 
 
+        Task AddNovelImagesAsync(int novelId, IFormFile? imageFiles);
+
+        Task AddUserImagesAsync(int userId, IFormFile? imageFiles);
+
+
     }
 }

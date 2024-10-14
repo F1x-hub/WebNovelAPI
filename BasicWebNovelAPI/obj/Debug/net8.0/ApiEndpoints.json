@@ -1,43 +1,6 @@
 [
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
-    "Method": "UploadUserImages",
-    "RelativePath": "api/Auth/add-user-image/{id}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "imageFiles",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
-    "Method": "DeleteUser",
-    "RelativePath": "api/Auth/delete/{userId}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
     "Method": "AuthorizationFacebook",
     "RelativePath": "api/Auth/facebook-authorization",
     "HttpMethod": "POST",
@@ -54,66 +17,8 @@
   },
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
-    "Method": "RegistrationFacebook",
-    "RelativePath": "api/Auth/facebook-registration",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "accessToken",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
-    "Method": "GetUsers",
-    "RelativePath": "api/Auth/get-all-user",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
-    "Method": "GetUserId",
-    "RelativePath": "api/Auth/get-user/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
     "Method": "AuthorizationGoogle",
     "RelativePath": "api/Auth/google-authorization",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "accessToken",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
-    "Method": "RegistrationGoogle",
-    "RelativePath": "api/Auth/google-registration",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -144,73 +49,6 @@
   },
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
-    "Method": "RegisterUser",
-    "RelativePath": "api/Auth/register",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Email",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Password",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "FirstName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "LastName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Age",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Phone",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "RoleId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
-    "Method": "UpdateUser",
-    "RelativePath": "api/Auth/update/{userId}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "userDto",
-        "Type": "BasicWebNovelAPI.Model.Dto.User.GetUserDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
     "Method": "VerifyCode",
     "RelativePath": "api/Auth/verify-code",
     "HttpMethod": "POST",
@@ -226,9 +64,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BasicWebNovelAPI.Controllers.NovelController",
+    "ContainingType": "BasicWebNovelAPI.Controllers.ChapterController",
     "Method": "AddChapterToNovel",
-    "RelativePath": "api/Novel/add-chapter/{novelId}",
+    "RelativePath": "api/Chapter/add-chapter/{novelId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -247,9 +85,93 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BasicWebNovelAPI.Controllers.NovelController",
+    "ContainingType": "BasicWebNovelAPI.Controllers.ChapterController",
+    "Method": "DeleteChapter",
+    "RelativePath": "api/Chapter/delete-chapter/{novelId}/{chapterId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "novelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "chapterId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.ChapterController",
+    "Method": "UpdateChapter",
+    "RelativePath": "api/Chapter/update-chapter/{novelId}/{chapterId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "novelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "chapterId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "chapter",
+        "Type": "BasicWebNovelAPI.Model.Novels.Chapter",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.GenreController",
+    "Method": "CreateGenre",
+    "RelativePath": "api/Genre/create-genre",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createGenreDto",
+        "Type": "BasicWebNovelAPI.Model.Dto.Novel.CreateGenreDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.ImageController",
     "Method": "UploadNovelImages",
-    "RelativePath": "api/Novel/add-novel-image/{id}",
+    "RelativePath": "api/Image/add-novel-image/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "imageFiles",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.ImageController",
+    "Method": "UploadUserImages",
+    "RelativePath": "api/Image/add-user-image/{id}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -269,22 +191,6 @@
   },
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.NovelController",
-    "Method": "CreateGenre",
-    "RelativePath": "api/Novel/create-genre",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "createGenreDto",
-        "Type": "BasicWebNovelAPI.Model.Dto.Novel.CreateGenreDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BasicWebNovelAPI.Controllers.NovelController",
     "Method": "CreateNovel",
     "RelativePath": "api/Novel/create-novel",
     "HttpMethod": "POST",
@@ -294,27 +200,6 @@
       {
         "Name": "createNovelDto",
         "Type": "BasicWebNovelAPI.Model.Dto.Novel.CreateNovelDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BasicWebNovelAPI.Controllers.NovelController",
-    "Method": "DeleteChapter",
-    "RelativePath": "api/Novel/delete-chapter/{novelId}/{chapterId}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "novelId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "chapterId",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -396,32 +281,6 @@
   },
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.NovelController",
-    "Method": "UpdateChapter",
-    "RelativePath": "api/Novel/update-chapter/{novelId}/{chapterId}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "novelId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "chapterId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "chapter",
-        "Type": "BasicWebNovelAPI.Model.Novels.Chapter",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BasicWebNovelAPI.Controllers.NovelController",
     "Method": "UpdateNovel",
     "RelativePath": "api/Novel/update-novel/{id}",
     "HttpMethod": "PUT",
@@ -436,6 +295,147 @@
       {
         "Name": "updateNovelDto",
         "Type": "BasicWebNovelAPI.Model.Dto.Novel.UpdateNovelDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.RegistrationController",
+    "Method": "RegistrationFacebook",
+    "RelativePath": "api/Registration/facebook-registration",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accessToken",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.RegistrationController",
+    "Method": "RegistrationGoogle",
+    "RelativePath": "api/Registration/google-registration",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accessToken",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.RegistrationController",
+    "Method": "RegisterUser",
+    "RelativePath": "api/Registration/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Age",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Phone",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "RoleId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.UserController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/User/delete/{userId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.UserController",
+    "Method": "GetUsers",
+    "RelativePath": "api/User/get-all-user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.UserController",
+    "Method": "GetUserId",
+    "RelativePath": "api/User/get-user/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/User/update/{userId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "userDto",
+        "Type": "BasicWebNovelAPI.Model.Dto.User.GetUserDto",
         "IsRequired": true
       }
     ],
