@@ -161,3 +161,12 @@ D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\Newtonso
 D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\System.Management.dll
 D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Management.dll
 D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\BasicWebNovelAPI.sourcelink.json
+D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\StackExchange.Redis.dll

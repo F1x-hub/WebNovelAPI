@@ -248,6 +248,27 @@
   },
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.NovelController",
+    "Method": "UploadNovelImages",
+    "RelativePath": "api/Novel/add-novel-image/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "imageFiles",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.NovelController",
     "Method": "CreateGenre",
     "RelativePath": "api/Novel/create-genre",
     "HttpMethod": "POST",

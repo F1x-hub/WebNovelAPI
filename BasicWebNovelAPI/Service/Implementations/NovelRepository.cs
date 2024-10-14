@@ -1,31 +1,50 @@
 ﻿using AutoMapper;
 using BasicWebNovelAPI.Data;
+using BasicWebNovelAPI.Extensions;
 using BasicWebNovelAPI.Model.Dto.Novel;
 using BasicWebNovelAPI.Model.Novels;
+using BasicWebNovelAPI.Model.UserManagement;
 using BasicWebNovelAPI.Service.Abstractions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace BasicWebNovelAPI.Service.Implementations
 {
     public class NovelRepository : INovelRepository
     {
         private readonly BasicWebNovelContext _context;
+        private readonly IImageRepository _imageRepository;
+        private readonly IDistributedCache _cache;
         private readonly IMapper _mapper;
+        
 
-        public NovelRepository(BasicWebNovelContext context, IMapper mapper)
+        public NovelRepository(BasicWebNovelContext context, IMapper mapper, IImageRepository imageRepository, IDistributedCache cache)
         {
             _context = context;
             _mapper = mapper;
+            _imageRepository = imageRepository;
+            _cache = cache;   
         }
 
         
         public async Task<List<GetNovelDto>> GetNovels()
         {
+            /*var CacheKey = "novels";
+            var cachedNovels = await _cache.GetValue<List<GetNovelDto>>(CacheKey);
+            if (cachedNovels != null)
+            {
+                return cachedNovels;
+            }*/
+
             var novels = await _context.Novels
                 .Include(n => n.Chapters)
                 .ToListAsync();
 
-            return _mapper.Map<List<GetNovelDto>>(novels);
+            var novelDtos = _mapper.Map<List<GetNovelDto>>(novels);
+
+            //await _cache.SetValue(CacheKey, novelDtos, TimeSpan.FromMinutes(10));
+
+            return novelDtos;
         }
 
         
@@ -39,7 +58,9 @@ namespace BasicWebNovelAPI.Service.Implementations
             if (novel == null)
                 return null;
 
-            return _mapper.Map<GetNovelDto>(novel);
+            var novelDtos = _mapper.Map<GetNovelDto>(novel);
+
+            return novelDtos;
         }
 
         public async Task<List<GetNovelDto>> GetNovelByName(string title)
@@ -49,7 +70,9 @@ namespace BasicWebNovelAPI.Service.Implementations
                 .Include(n => n.Chapters)
                 .ToListAsync();
 
-            return _mapper.Map<List<GetNovelDto>>(novels);
+            var novelDtos = _mapper.Map<List<GetNovelDto>>(novels);
+
+            return novelDtos;
         }
 
 
@@ -60,8 +83,10 @@ namespace BasicWebNovelAPI.Service.Implementations
                 .Include(n => n.Chapters)
                 .ToListAsync();
 
-            return _mapper.Map<List<GetNovelDto>>(novels);
-            
+            var novelDtos = _mapper.Map<List<GetNovelDto>>(novels);
+
+            return novelDtos;
+
         }
 
         
@@ -98,7 +123,32 @@ namespace BasicWebNovelAPI.Service.Implementations
             await _context.Novels.AddAsync(novel);
             await _context.SaveChangesAsync();
 
-            return _mapper.Map<GetNovelDto>(novel);
+            var novelDtos = _mapper.Map<GetNovelDto>(novel);
+
+            return novelDtos;
+
+        }
+
+        public async Task AddNovelImagesAsync(int novelId, IFormFile? imageFiles)
+        {
+            var novel = await _context.Novels.FirstOrDefaultAsync(u => u.Id == novelId);
+
+            if (novel == null)
+            {
+                throw new Exception("Novel Not Found");
+            }
+
+            if (imageFiles != null)
+            {
+                var userImage = new NovelImages
+                {
+                    NovelId = novel.Id,
+                    ImageSource = await _imageRepository.GenerateNovelImageSource(imageFiles)
+                };
+                await _imageRepository.SaveNovelImageInDatabase(userImage);
+
+            }
+
 
         }
 
@@ -118,7 +168,9 @@ namespace BasicWebNovelAPI.Service.Implementations
             await _context.Genres.AddAsync(genre);
             await _context.SaveChangesAsync();
 
-            return _mapper.Map<GetGenreDto>(genre); 
+            var genreDtos = _mapper.Map<GetGenreDto>(genre);
+
+            return genreDtos; 
         }
 
 

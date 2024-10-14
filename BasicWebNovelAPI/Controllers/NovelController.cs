@@ -1,6 +1,7 @@
 ﻿using BasicWebNovelAPI.Model.Dto.Novel;
 using BasicWebNovelAPI.Model.Novels;
 using BasicWebNovelAPI.Service.Abstractions;
+using BasicWebNovelAPI.Service.Implementations;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,7 +23,7 @@ namespace BasicWebNovelAPI.Controllers
         public async Task<IActionResult> GetNovels()
         {
             var novels = await _novelRepository.GetNovels();
-            if (novels == null)
+            if (novels == null || !novels.Any())
             {
                 return NotFound("Novel not found.");
             }
@@ -71,6 +72,21 @@ namespace BasicWebNovelAPI.Controllers
         {
             var createdNovel = await _novelRepository.CreateNovel(createNovelDto);
             return Ok(createdNovel);
+        }
+
+        [HttpPost("add-novel-image/{id}")]
+        public async Task<IActionResult> UploadNovelImages(int id, IFormFile? imageFiles)
+        {
+            try
+            {
+                await _novelRepository.AddNovelImagesAsync(id, imageFiles);
+
+                return Ok(new { Message = "Images uploaded successfully!" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = ex.Message });
+            }
         }
 
         [HttpPost("create-genre")]

@@ -12,6 +12,7 @@ namespace BasicWebNovelAPI.Service.Abstractions
         Task<bool> UpdateNovel(int id, UpdateNovelDto updateNovelDto);
         Task<bool> DeleteNovel(int novelId);
         Task<GetNovelDto> CreateNovel(CreateNovelDto createNovelDto);
+        Task AddNovelImagesAsync(int novelId, IFormFile? imageFiles);
         Task<GetGenreDto> CreateGenre(CreateGenreDto createGenreDto);
         Task<Chapter> AddChapterToNovelAsync(int novelId, CreateChapterDto createChapterDto);
         Task<bool> UpdateChapter(int novelId, int chapterId, Chapter updatedChapter);

@@ -1,6 +1,7 @@
 ﻿using BasicWebNovelAPI.Data;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using System.Reflection;
@@ -16,6 +17,12 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
                 {
                     v.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
                 });
+
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = configuration["Redis:Configuration"];
+                options.InstanceName = configuration["Redis:InstanceName"];
+            });
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
