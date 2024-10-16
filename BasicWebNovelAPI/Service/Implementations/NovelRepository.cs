@@ -28,10 +28,10 @@ namespace BasicWebNovelAPI.Service.Implementations
         
         public async Task<List<GetNovelDto>> GetNovels()
         {
-            var CacheKey = "novels";
-            var cachedNovels = await _cache.GetValue<List<GetNovelDto>>(CacheKey);
+            var cacheKey = "novels";
+            var cachedNovels = await _cache.GetValue<List<GetNovelDto>>(cacheKey);
 
-            if (!string.IsNullOrEmpty(_cache.GetString(CacheKey)))
+            if (!string.IsNullOrEmpty(_cache.GetString(cacheKey)))
             {
                 return cachedNovels;
             }
@@ -42,7 +42,7 @@ namespace BasicWebNovelAPI.Service.Implementations
 
             var novelDtos = _mapper.Map<List<GetNovelDto>>(novels);
 
-            await _cache.SetValue(CacheKey, novelDtos);
+            await _cache.SetValue(cacheKey, novelDtos);
 
             return novelDtos;
         }

@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using BasicWebNovelAPI.Data;
+using BasicWebNovelAPI.Extensions;
 using BasicWebNovelAPI.Model.Dto.Novel;
 using BasicWebNovelAPI.Model.Novels;
 using BasicWebNovelAPI.Service.Abstractions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace BasicWebNovelAPI.Service.Implementations
 {
@@ -11,11 +13,13 @@ namespace BasicWebNovelAPI.Service.Implementations
     {
         private readonly BasicWebNovelContext _context;
         private readonly IMapper _mapper;
+        private readonly IDistributedCache _cache;
 
-        public ChapterRepository(BasicWebNovelContext context, IMapper mapper)
+        public ChapterRepository(BasicWebNovelContext context, IMapper mapper, IDistributedCache cache)
         {
             _context = context;
             _mapper = mapper;
+            _cache = cache;
         }
         public async Task<GetChapterDto> AddChapterToNovelAsync(int novelId, int userId, CreateChapterDto chapterDto)
         {
@@ -103,6 +107,13 @@ namespace BasicWebNovelAPI.Service.Implementations
 
         public async Task<List<GetChapterDto>> GetAllChaptersAsync(int novelId, int userId)
         {
+            var cacheKey = $"chapters_{novelId}_{userId}";
+            var cachedChapters = await _cache.GetValue<List<GetChapterDto>>(cacheKey);
+            if (!string.IsNullOrEmpty(_cache.GetString(cacheKey)))
+            {
+                return cachedChapters;
+            }
+
             var novel = await _context.Novels.Include(n => n.Chapters)
                                              .FirstOrDefaultAsync(n => n.Id == novelId && n.UserId == userId);
 
@@ -111,12 +122,20 @@ namespace BasicWebNovelAPI.Service.Implementations
 
             var chapterDtos = _mapper.Map<List<GetChapterDto>>(novel.Chapters.OrderBy(c => c.ChapterNumber));
 
+            await _cache.SetValue(cacheKey, chapterDtos);
+
             return chapterDtos;
         }
 
         public async Task<GetChapterDto?> GetChapterAsync(int novelId, int chapterNumber, int userId)
         {
-            
+            var cacheKey = $"chapter_{novelId}_{chapterNumber}_{userId}";
+            var cachedChapters = await _cache.GetValue<GetChapterDto>(cacheKey);
+            if (!string.IsNullOrEmpty(_cache.GetString(cacheKey)))
+            {
+                return cachedChapters;
+            }
+
             var chapter = await _context.Chapters
                 .FirstOrDefaultAsync(c => c.NovelId == novelId && c.ChapterNumber == chapterNumber);
 
@@ -139,6 +158,8 @@ namespace BasicWebNovelAPI.Service.Implementations
 
             
             var chapterDto = _mapper.Map<GetChapterDto>(chapter);
+
+            await _cache.SetValue(cacheKey, chapterDto);
 
             return chapterDto;
         }

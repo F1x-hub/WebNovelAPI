@@ -43,7 +43,7 @@ namespace BasicWebNovelAPI.Service.Implementations
         {
             var genre = await _context.Genres
                 .Include(g => g.NovelGenres)
-            .ToListAsync();
+                .ToListAsync();
 
             var genreDto = _mapper.Map<List<GetGenreDto>>(genre);
 
