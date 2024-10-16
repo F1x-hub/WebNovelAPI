@@ -1,8 +1,5 @@
 ﻿using BasicWebNovelAPI.Exceptions;
-using BasicWebNovelAPI.Model.Dto.Novel;
-using BasicWebNovelAPI.Model.UserManagement;
 using BasicWebNovelAPI.Service.Abstractions;
-using BasicWebNovelAPI.Service.Implementations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,28 +8,31 @@ namespace BasicWebNovelAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GenreController : ControllerBase
+    public class RatingController : ControllerBase
     {
-        private readonly IGenreRepository _genreRepository;
+        private readonly IRatingRepository _ratingRepository;
 
-        public GenreController(IGenreRepository genreRepository)
+        public RatingController(IRatingRepository ratingRepository) 
         {
-            _genreRepository = genreRepository;
+            _ratingRepository = ratingRepository;
         }
 
-        [HttpGet("get-all-genre")]
-        public async Task<IActionResult> GetAllGenre()
-        {
-            try
-            {
-                var genre = await _genreRepository.GetGenresAsync();
 
-                if (genre == null || genre.Count == 0)
+
+        [HttpPost("rate-novel/{novelId}/{userId}")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> RateNovel(int novelId, int userId, [FromBody] double ratingValue)
+        {
+            try 
+            {
+                var result = await _ratingRepository.RateNovelAsync(novelId, userId, ratingValue);
+
+                if (!result)
                 {
-                    return NotFound("genre not found");
+                    return BadRequest("Invalid rating. Rating must be between 1 and 5.");
                 }
 
-                return Ok(genre);
+                return Ok("Rating submitted successfully.");
             }
             catch (BadRequestException ex)
             {
@@ -47,16 +47,17 @@ namespace BasicWebNovelAPI.Controllers
 
                 return BadRequest(ex.Message);
             }
+            
         }
 
-        [HttpPost("create-genre")]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> CreateGenre([FromBody] CreateGenreDto createGenreDto)
+        [HttpGet("get-novel-rating/{novelId}")]
+        public async Task<IActionResult> GetNovelRating(int novelId)
         {
-            try
+            try 
             {
-                var createdGenre = await _genreRepository.CreateGenreAsync(createGenreDto);
-                return Ok(createdGenre);
+                var averageRating = await _ratingRepository.GetNovelRatingAsync(novelId);
+
+                return Ok(new { NovelId = novelId, AverageRating = averageRating });
             }
             catch (BadRequestException ex)
             {
@@ -71,6 +72,7 @@ namespace BasicWebNovelAPI.Controllers
 
                 return BadRequest(ex.Message);
             }
+            
         }
     }
 }

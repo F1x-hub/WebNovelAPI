@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BasicWebNovelAPI.Exceptions;
 using BasicWebNovelAPI.Model.Dto.User;
 using BasicWebNovelAPI.Model.UserManagement;
 using BasicWebNovelAPI.Service.Abstractions;
@@ -31,17 +32,46 @@ namespace BasicWebNovelAPI.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> LogIn(GetLoginDto loginDto)
         {
-            string response = await _authorizationRepository.LogIn(loginDto);
-            
-            return Ok($"{response}");
+            try
+            {
+                string response = await _authorizationRepository.LogIn(loginDto);
+                return Ok($"{response}");
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("verify-code")]
         public async Task<IActionResult> VerifyCode(VerifyCodeDto verifyCodeDto)
         {
-            string token = await _authorizationRepository.VerifyCode(verifyCodeDto);
-
-            return Ok($"User successfully logged in. Token: {token}");
+            try
+            {
+                string token = await _authorizationRepository.VerifyCode(verifyCodeDto);
+                return Ok($"User successfully logged in. Token: {token}");
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         
@@ -49,12 +79,26 @@ namespace BasicWebNovelAPI.Controllers
         [HttpPost("google-authorization")]
         public async Task<IActionResult> AuthorizationGoogle(string accessToken)
         {
-            var token = await _authorizationRepository.GoogleAuthorization(accessToken);
+            try
+            {
+                var token = await _authorizationRepository.GoogleAuthorization(accessToken);
+                if (string.IsNullOrEmpty(token))
+                    return BadRequest("Not Authorized");
 
-            if (string.IsNullOrEmpty(token)) 
-                return BadRequest("Not Authorized");
-
-            return Ok($"Success: {token}");
+                return Ok($"Success: {token}");
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         
@@ -62,12 +106,26 @@ namespace BasicWebNovelAPI.Controllers
         [HttpPost("facebook-authorization")]
         public async Task<IActionResult> AuthorizationFacebook(string accessToken)
         {
-            var token = await _authorizationRepository.FaceBookAuthorization(accessToken);
+            try
+            {
+                var token = await _authorizationRepository.FaceBookAuthorization(accessToken);
+                if (string.IsNullOrEmpty(token))
+                    return BadRequest("Not Authorized");
 
-            if (string.IsNullOrEmpty(token))
-                return BadRequest("Not Authorized");
-
-            return Ok($"Success: {token}");
+                return Ok($"Success: {token}");
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 

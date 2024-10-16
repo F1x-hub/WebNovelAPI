@@ -5,8 +5,10 @@ namespace BasicWebNovelAPI.Service.Abstractions
 {
     public interface IChapterRepository
     {
-        Task<Chapter> AddChapterToNovelAsync(int novelId, CreateChapterDto chapterDto);
-        Task<bool> UpdateChapterAsync(int novelId, int chapterId, Chapter updatedChapter);
-        Task<bool> DeleteChapterAsync(int novelId, int chapterId);
+        Task<GetChapterDto> AddChapterToNovelAsync(int novelId, int userId, CreateChapterDto chapterDto);
+        Task<bool> UpdateChapterAsync(int novelId, int userId, int chapterId, UpdateChapterDto updateChapterDto);
+        Task<bool> DeleteChapterAsync(int novelId, int userId, int chapterId);
+        Task<List<GetChapterDto>> GetAllChaptersAsync(int novelId, int userId);
+        Task<GetChapterDto?> GetChapterAsync(int novelId, int chapterNumber, int userId);
     }
 }

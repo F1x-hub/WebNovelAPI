@@ -1,5 +1,7 @@
-﻿using BasicWebNovelAPI.Service.Abstractions;
+﻿using BasicWebNovelAPI.Exceptions;
+using BasicWebNovelAPI.Service.Abstractions;
 using BasicWebNovelAPI.Service.Implementations;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +19,7 @@ namespace BasicWebNovelAPI.Controllers
         }
 
         [HttpPost("add-novel-image/{id}")]
+        [Authorize(Roles = "Admin, User")]
         public async Task<IActionResult> UploadNovelImages(int id, IFormFile? imageFiles)
         {
             try
@@ -25,9 +28,18 @@ namespace BasicWebNovelAPI.Controllers
 
                 return Ok(new { Message = "Images uploaded successfully!" });
             }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
             catch (Exception ex)
             {
-                return BadRequest(new { Message = ex.Message });
+
+                return BadRequest(ex.Message);
             }
         }
 
@@ -40,9 +52,18 @@ namespace BasicWebNovelAPI.Controllers
 
                 return Ok(new { Message = "Images uploaded successfully!" });
             }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
             catch (Exception ex)
             {
-                return BadRequest(new { Message = ex.Message });
+
+                return BadRequest(ex.Message);
             }
         }
 

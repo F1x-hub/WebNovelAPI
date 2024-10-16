@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BasicWebNovelAPI.Exceptions;
 using BasicWebNovelAPI.Model.Dto.User;
 using BasicWebNovelAPI.Service.Abstractions;
 using Microsoft.AspNetCore.Authorization;
@@ -25,14 +26,31 @@ namespace BasicWebNovelAPI.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetUsers()
         {
-            var users = await _userRepository.GetUsersAsync();
-            if (users == null)
+            try 
             {
-                return NotFound("No users found.");
-            }
+                var users = await _userRepository.GetUsersAsync();
+                if (users == null)
+                {
+                    return NotFound("No users found.");
+                }
 
-            var getUserDto = _mapper.Map<IEnumerable<GetUserDto>>(users);
-            return Ok(getUserDto);
+                var getUserDto = _mapper.Map<IEnumerable<GetUserDto>>(users);
+                return Ok(getUserDto);
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+            
         }
 
 
@@ -41,17 +59,34 @@ namespace BasicWebNovelAPI.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetUserId(int id)
         {
-            var user = await _userRepository.GetUserIdAsync(id);
-            if (user == null)
+            try 
             {
-                return NotFound("No users found.");
+                var user = await _userRepository.GetUserIdAsync(id);
+                if (user == null)
+                {
+                    return NotFound("No users found.");
+                }
+
+
+                var getUserDto = _mapper.Map<GetUserDto>(user);
+
+
+                return Ok(getUserDto);
             }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
 
-
-            var getUserDto = _mapper.Map<GetUserDto>(user);
-
-
-            return Ok(getUserDto);
+                return BadRequest(ex.Message);
+            }
+            
         }
 
 
@@ -60,41 +95,62 @@ namespace BasicWebNovelAPI.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUser(int userId)
         {
-            var deletedUser = await _userRepository.DeleteUserIdAsync(userId);
-            if (deletedUser == null)
+            try 
             {
-                return NotFound("User not found.");
-            }
+                var deletedUser = await _userRepository.DeleteUserIdAsync(userId);
+                if (deletedUser == null)
+                {
+                    return NotFound("User not found.");
+                }
 
-            return Ok(new { Message = "User deleted successfully." });
+                return Ok(new { Message = "User deleted successfully." });
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+            
         }
 
 
         [HttpPut("update/{userId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateUser(int userId, GetUserDto userDto)
+        public async Task<IActionResult> UpdateUser(int userId, [FromBody] UpdateUserDto userDto)
         {
-            var user = await _userRepository.GetUserIdAsync(userId);
-
-
-            if (user == null)
+            try 
             {
-                return NotFound("User not found.");
+                bool isUpdated = await _userRepository.UpdateUserAsync(userId, userDto);
+
+                if (!isUpdated)
+                {
+                    return NotFound("User not found or failed to update.");
+                }
+
+                return Ok("User updated successfully.");
             }
-
-
-            _mapper.Map(userDto, user);
-
-
-            bool isUpdated = await _userRepository.UpdateUserAsync(user);
-
-            if (!isUpdated)
+            catch (BadRequestException ex)
             {
-                return BadRequest("Failed to update the user.");
+                return BadRequest(ex.Message);
             }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
 
-
-            return Ok(user);
+                return BadRequest(ex.Message);
+            }
+            
         }
     }
 }

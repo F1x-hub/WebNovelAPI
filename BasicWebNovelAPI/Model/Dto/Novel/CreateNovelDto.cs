@@ -6,7 +6,7 @@
         public string Description { get; set; }
         public DateTime PublishedDate { get; set; }
 
-        public int UserId { get; set; }
+        
         public List<int> GenreIds { get; set; }
     }
 }

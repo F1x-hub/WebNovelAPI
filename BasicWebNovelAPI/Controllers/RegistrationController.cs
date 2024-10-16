@@ -1,4 +1,5 @@
-﻿using BasicWebNovelAPI.Model.Dto.User;
+﻿using BasicWebNovelAPI.Exceptions;
+using BasicWebNovelAPI.Model.Dto.User;
 using BasicWebNovelAPI.Service.Abstractions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,32 +28,74 @@ namespace BasicWebNovelAPI.Controllers
 
                 return Ok(registeredUser);
             }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
             catch (Exception ex)
             {
 
-                return BadRequest(new { Message = ex.Message });
+                return BadRequest(ex.Message);
             }
         }
 
         [HttpPost("google-registration")]
         public async Task<IActionResult> RegistrationGoogle(string accessToken)
         {
-            var result = await _registrationRepository.GoogleRegister(accessToken);
+            try 
+            {
+                var result = await _registrationRepository.GoogleRegister(accessToken);
 
-            if (!result)
-                return BadRequest("Not Registered");
+                if (!result)
+                    return BadRequest("Not Registered");
 
-            return Ok("Success");
+                return Ok("Success");
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+            
         }
 
         [HttpPost("facebook-registration")]
         public async Task<IActionResult> RegistrationFacebook(string accessToken)
         {
-            var result = await _registrationRepository.FaceBookRegister(accessToken);
-            if (!result)
-                return BadRequest("Not Registered");
+            try 
+            {
+                var result = await _registrationRepository.FaceBookRegister(accessToken);
+                if (!result)
+                    return BadRequest("Not Registered");
 
-            return Ok("Success");
+                return Ok("Success");
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+            
         }
     }
 }

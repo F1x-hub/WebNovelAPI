@@ -10,7 +10,7 @@ namespace BasicWebNovelAPI.Extensions
         {
             var options = new DistributedCacheEntryOptions
             {
-                AbsoluteExpirationRelativeToNow = absoluteExpireTime ?? TimeSpan.FromMinutes(10)
+                AbsoluteExpirationRelativeToNow = absoluteExpireTime ?? TimeSpan.FromMinutes(1)
             };
 
             var jsonData = JsonSerializer.Serialize(data);

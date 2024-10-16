@@ -1,4 +1,6 @@
-﻿using BasicWebNovelAPI.Data;
+﻿using AutoMapper;
+using BasicWebNovelAPI.Data;
+using BasicWebNovelAPI.Model.Dto.User;
 using BasicWebNovelAPI.Model.UserManagement;
 using BasicWebNovelAPI.Service.Abstractions;
 using Microsoft.EntityFrameworkCore;
@@ -8,10 +10,12 @@ namespace BasicWebNovelAPI.Service.Implementations
     public class UserRepository : IUserRepository
     {
         private readonly BasicWebNovelContext _context;
+        private readonly IMapper _mapper;
 
-        public UserRepository(BasicWebNovelContext context)
+        public UserRepository(BasicWebNovelContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
 
@@ -28,13 +32,29 @@ namespace BasicWebNovelAPI.Service.Implementations
         }
 
 
-        public async Task<bool> UpdateUserAsync(User updatedUser)
+        public async Task<bool> UpdateUserAsync(int userId, UpdateUserDto userDto)
         {
-            _context.Users.Update(updatedUser);
-            await _context.SaveChangesAsync();
+            var user = await _context.Users
+                         .FirstOrDefaultAsync(u => u.Id == userId);
 
+            if (user == null)
+            {
+                return false; 
+            }
 
-            return true;
+            
+            _mapper.Map(userDto, user);
+
+            try
+            {
+                _context.Users.Update(user);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false; 
+            }
         }
 
 

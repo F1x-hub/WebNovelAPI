@@ -17,10 +17,10 @@ namespace BasicWebNovelAPI.Service.Implementations
             _context = context;
             _mapper = mapper;
         }
-        public async Task<Chapter> AddChapterToNovelAsync(int novelId, CreateChapterDto chapterDto)
+        public async Task<GetChapterDto> AddChapterToNovelAsync(int novelId, int userId, CreateChapterDto chapterDto)
         {
-            var novel = await _context.Novels.FindAsync(novelId);
-            if (novel == null)
+            var novel = await _context.Novels.FirstOrDefaultAsync(u => u.Id == novelId && u.UserId == userId);
+            if (novel == null || novel.UserId != userId)
             {
                 throw new KeyNotFoundException($"Novel with ID {novelId} not found.");
             }
@@ -37,52 +37,110 @@ namespace BasicWebNovelAPI.Service.Implementations
 
             var chapter = _mapper.Map<Chapter>(chapterDto);
             chapter.NovelId = novelId;
+            
             chapter.ChapterNumber = nextChapterNumber;
 
             _context.Chapters.Add(chapter);
             await _context.SaveChangesAsync();
 
-            return chapter;
+            var newChapterDto = _mapper.Map<GetChapterDto>(chapter);
+
+            return newChapterDto;
         }
 
-        // Update an existing chapter in a novel
-        public async Task<bool> UpdateChapterAsync(int novelId, int chapterId, Chapter updatedChapter)
+        
+        public async Task<bool> UpdateChapterAsync(int novelId,int userId, int chapterId, UpdateChapterDto updateChapterDto)
         {
-            var novel = await _context.Novels.Include(n => n.Chapters)
-                                             .FirstOrDefaultAsync(n => n.Id == novelId);
+            var novel = await _context.Novels
+        .Include(n => n.Chapters)
+        .FirstOrDefaultAsync(n => n.Id == novelId && n.UserId == userId);
 
+            
             if (novel == null)
-                throw new Exception("Novel not found");
+                return false;
 
-            var chapter = novel.Chapters.FirstOrDefault(c => c.Id == chapterId);
-            if (chapter == null)
-                throw new Exception("Chapter not found");
+            
+            var existingChapter = novel.Chapters.FirstOrDefault(c => c.Id == chapterId);
 
-            chapter.Title = updatedChapter.Title;
-            chapter.Content = updatedChapter.Content;
-            chapter.ChapterNumber = updatedChapter.ChapterNumber;
+            
+            if (existingChapter == null)
+                return false;
 
-            _context.Chapters.Update(chapter);
+            
+            _mapper.Map(updateChapterDto, existingChapter);
+
+            
+            _context.Chapters.Update(existingChapter);
             await _context.SaveChangesAsync();
+
             return true;
         }
 
-        // Delete a chapter from a novel
-        public async Task<bool> DeleteChapterAsync(int novelId, int chapterId)
+        
+        public async Task<bool> DeleteChapterAsync(int novelId, int userId, int chapterId)
         {
-            var novel = await _context.Novels.Include(n => n.Chapters)
-                                             .FirstOrDefaultAsync(n => n.Id == novelId);
+            var novel = await _context.Novels
+                .Include(n => n.Chapters)
+                .FirstOrDefaultAsync(n => n.Id == novelId && n.UserId == userId);
 
+            
             if (novel == null)
-                throw new Exception("Novel not found");
+                return false;
 
+            
             var chapter = novel.Chapters.FirstOrDefault(c => c.Id == chapterId);
+
+            
             if (chapter == null)
                 return false;
 
-            novel.Chapters.Remove(chapter);
+            
+            _context.Chapters.Remove(chapter);
             await _context.SaveChangesAsync();
+
             return true;
+        }
+
+        public async Task<List<GetChapterDto>> GetAllChaptersAsync(int novelId, int userId)
+        {
+            var novel = await _context.Novels.Include(n => n.Chapters)
+                                             .FirstOrDefaultAsync(n => n.Id == novelId && n.UserId == userId);
+
+            if (novel == null)
+                throw new Exception("Novel not found or access denied.");
+
+            var chapterDtos = _mapper.Map<List<GetChapterDto>>(novel.Chapters.OrderBy(c => c.ChapterNumber));
+
+            return chapterDtos;
+        }
+
+        public async Task<GetChapterDto?> GetChapterAsync(int novelId, int chapterNumber, int userId)
+        {
+            
+            var chapter = await _context.Chapters
+                .FirstOrDefaultAsync(c => c.NovelId == novelId && c.ChapterNumber == chapterNumber);
+
+            if (chapter == null)
+            {
+                return null; 
+            }
+
+            
+            var userLibraryEntry = await _context.UserLibraries
+                .FirstOrDefaultAsync(ul => ul.UserId == userId && ul.NovelId == novelId);
+
+            if (userLibraryEntry != null)
+            {
+                
+                userLibraryEntry.LastReadChapter = chapterNumber;
+                _context.UserLibraries.Update(userLibraryEntry);
+                await _context.SaveChangesAsync();
+            }
+
+            
+            var chapterDto = _mapper.Map<GetChapterDto>(chapter);
+
+            return chapterDto;
         }
     }
 }

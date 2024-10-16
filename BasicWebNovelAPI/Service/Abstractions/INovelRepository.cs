@@ -9,9 +9,9 @@ namespace BasicWebNovelAPI.Service.Abstractions
         Task<GetNovelDto> GetNovelById(int novelId);
         Task<List<GetNovelDto>> GetNovelByName(string title);
         Task<List<GetNovelDto>> GetUserAllNovel(int userId);
-        Task<bool> UpdateNovel(int id, UpdateNovelDto updateNovelDto);
-        Task<bool> DeleteNovel(int novelId);
-        Task<GetNovelDto> CreateNovel(CreateNovelDto createNovelDto);
+        Task<bool> UpdateNovel(int id, int userId, UpdateNovelDto updateNovelDto);
+        Task<bool> DeleteNovel(int novelId, int userId);
+        Task<GetNovelDto> CreateNovel(CreateNovelDto createNovelDto, int userId);
         
         
         

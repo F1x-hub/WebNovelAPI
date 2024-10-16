@@ -41,6 +41,19 @@ namespace BasicWebNovelAPI.Helper
 
             
             CreateMap<Genre, GetGenreDto>();
+
+            //userlibrary
+
+            CreateMap<UserLibraryDto, UserLibrary>();
+            CreateMap<UserLibrary, UserLibraryDto>();
+
+
+            CreateMap<UserLibrary, GetUserLibraryDto>()
+            .ForMember(dest => dest.NovelTitle, opt => opt.MapFrom(src => src.Novel.Title));
+
+            
+            
+            
         }
     }
 }

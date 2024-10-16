@@ -1,4 +1,5 @@
-﻿using BasicWebNovelAPI.Model.UserManagement;
+﻿using BasicWebNovelAPI.Model.Dto.User;
+using BasicWebNovelAPI.Model.UserManagement;
 using Microsoft.EntityFrameworkCore;
 
 namespace BasicWebNovelAPI.Service.Abstractions
@@ -7,7 +8,7 @@ namespace BasicWebNovelAPI.Service.Abstractions
     {
         Task<List<User>> GetUsersAsync();
         Task<User> GetUserIdAsync(int userId);
-        Task<bool> UpdateUserAsync(User updatedUser);
+        Task<bool> UpdateUserAsync(int userId, UpdateUserDto userDto);
         Task<User> DeleteUserIdAsync(int userId);
     }
 }
