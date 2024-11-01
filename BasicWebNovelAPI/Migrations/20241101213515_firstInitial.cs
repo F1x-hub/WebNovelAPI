@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BasicWebNovelAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class firtsInitial : Migration
+    public partial class firstInitial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -132,6 +132,36 @@ namespace BasicWebNovelAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "NovelComments",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DisplayName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PublishedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LikeCount = table.Column<int>(type: "int", nullable: false),
+                    NovelId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_NovelComments", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_NovelComments_Novels_NovelId",
+                        column: x => x.NovelId,
+                        principalTable: "Novels",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_NovelComments_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "NovelGenres",
                 columns: table => new
                 {
@@ -229,6 +259,43 @@ namespace BasicWebNovelAPI.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ChapterComments",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DisplayName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PublishedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LikeCount = table.Column<int>(type: "int", nullable: false),
+                    NovelId = table.Column<int>(type: "int", nullable: false),
+                    ChapterId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChapterComments", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_ChapterComments_Chapters_ChapterId",
+                        column: x => x.ChapterId,
+                        principalTable: "Chapters",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ChapterComments_Novels_NovelId",
+                        column: x => x.NovelId,
+                        principalTable: "Novels",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ChapterComments_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "RoleName" },
@@ -239,9 +306,34 @@ namespace BasicWebNovelAPI.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_ChapterComments_ChapterId",
+                table: "ChapterComments",
+                column: "ChapterId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChapterComments_NovelId",
+                table: "ChapterComments",
+                column: "NovelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChapterComments_UserId",
+                table: "ChapterComments",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Chapters_NovelId",
                 table: "Chapters",
                 column: "NovelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_NovelComments_NovelId",
+                table: "NovelComments",
+                column: "NovelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_NovelComments_UserId",
+                table: "NovelComments",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_NovelGenres_GenreId",
@@ -293,7 +385,10 @@ namespace BasicWebNovelAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Chapters");
+                name: "ChapterComments");
+
+            migrationBuilder.DropTable(
+                name: "NovelComments");
 
             migrationBuilder.DropTable(
                 name: "NovelGenres");
@@ -309,6 +404,9 @@ namespace BasicWebNovelAPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "UserLibraries");
+
+            migrationBuilder.DropTable(
+                name: "Chapters");
 
             migrationBuilder.DropTable(
                 name: "Genres");

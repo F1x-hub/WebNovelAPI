@@ -20,5 +20,8 @@ namespace BasicWebNovelAPI.Model.Novels
 
         public ICollection<NovelImages>? NovelImages { get; set; }
         public ICollection<Rating>? Ratings { get; set; }
+
+        public ICollection<NovelComments> NovelComments { get; set; }
+        
     }
 }

@@ -16,6 +16,9 @@ namespace BasicWebNovelAPI.Data
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<UserLibrary> UserLibraries { get; set; }
+        public DbSet<NovelComments> NovelComments { get; set; }
+        public DbSet<ChapterComments> ChapterComments { get; set; }
+
 
         public BasicWebNovelContext(DbContextOptions options) : base(options) 
         {
@@ -92,6 +95,32 @@ namespace BasicWebNovelAPI.Data
                 .HasForeignKey(c => c.NovelId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.NovelComments)
+                .WithOne(c => c.User)
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.Restrict); 
+
+            
+            modelBuilder.Entity<Novel>()
+                .HasMany(n => n.NovelComments)
+                .WithOne(c => c.Novel)
+                .HasForeignKey(c => c.NovelId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ChapterComments>()
+                .HasOne(cc => cc.User)
+                .WithMany(u => u.ChapterComments)
+                .HasForeignKey(cc => cc.UserId)
+                .OnDelete(DeleteBehavior.Restrict); 
+
+            
+
+            modelBuilder.Entity<ChapterComments>()
+                .HasOne(cc => cc.Chapter)
+                .WithMany(c => c.ChapterComments)
+                .HasForeignKey(cc => cc.ChapterId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Chapter>()
              .HasOne(c => c.Novel)

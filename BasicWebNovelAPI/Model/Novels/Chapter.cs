@@ -14,6 +14,6 @@ namespace BasicWebNovelAPI.Model.Novels
         [JsonIgnore]
         public Novel Novel { get; set; }
 
-        
+        public ICollection<ChapterComments> ChapterComments { get; set; }
     }
 }

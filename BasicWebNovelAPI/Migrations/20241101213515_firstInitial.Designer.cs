@@ -4,6 +4,7 @@ using BasicWebNovelAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BasicWebNovelAPI.Migrations
 {
     [DbContext(typeof(BasicWebNovelContext))]
-    partial class BasicWebNovelContextModelSnapshot : ModelSnapshot
+    [Migration("20241101213515_firstInitial")]
+    partial class firstInitial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,6 +76,9 @@ namespace BasicWebNovelAPI.Migrations
                     b.Property<int>("LikeCount")
                         .HasColumnType("int");
 
+                    b.Property<int>("NovelId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("PublishedDate")
                         .HasColumnType("datetime2");
 
@@ -82,6 +88,8 @@ namespace BasicWebNovelAPI.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("ChapterId");
+
+                    b.HasIndex("NovelId");
 
                     b.HasIndex("UserId");
 
@@ -380,6 +388,12 @@ namespace BasicWebNovelAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BasicWebNovelAPI.Model.Novels.Novel", "Novel")
+                        .WithMany("ChapterComments")
+                        .HasForeignKey("NovelId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("BasicWebNovelAPI.Model.UserManagement.User", "User")
                         .WithMany("ChapterComments")
                         .HasForeignKey("UserId")
@@ -387,6 +401,8 @@ namespace BasicWebNovelAPI.Migrations
                         .IsRequired();
 
                     b.Navigation("Chapter");
+
+                    b.Navigation("Novel");
 
                     b.Navigation("User");
                 });
@@ -521,6 +537,8 @@ namespace BasicWebNovelAPI.Migrations
 
             modelBuilder.Entity("BasicWebNovelAPI.Model.Novels.Novel", b =>
                 {
+                    b.Navigation("ChapterComments");
+
                     b.Navigation("Chapters");
 
                     b.Navigation("NovelComments");
