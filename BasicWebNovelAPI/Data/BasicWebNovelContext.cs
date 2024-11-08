@@ -18,7 +18,7 @@ namespace BasicWebNovelAPI.Data
         public DbSet<UserLibrary> UserLibraries { get; set; }
         public DbSet<NovelComments> NovelComments { get; set; }
         public DbSet<ChapterComments> ChapterComments { get; set; }
-
+        public DbSet<UserChapterRead> UserChapterReads { get; set; }
 
         public BasicWebNovelContext(DbContextOptions options) : base(options) 
         {
@@ -127,6 +127,18 @@ namespace BasicWebNovelAPI.Data
              .WithMany(n => n.Chapters)
              .HasForeignKey(c => c.NovelId)
              .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<UserChapterRead>()
+                .HasOne(ucr => ucr.User)
+                .WithMany(u => u.UserChapterRead)
+                .HasForeignKey(ucr => ucr.UserId)
+                .OnDelete(DeleteBehavior.Restrict); // Use Restrict
+
+            modelBuilder.Entity<UserChapterRead>()
+                .HasOne(ucr => ucr.Chapter)
+                .WithMany(c => c.UserChapterRead)
+                .HasForeignKey(ucr => ucr.ChapterId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
 
     }

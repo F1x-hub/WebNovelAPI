@@ -34,8 +34,10 @@ namespace BasicWebNovelAPI.Helper
             CreateMap<CreateChapterDto, Chapter>();
             CreateMap<UpdateChapterDto, Chapter>();
 
+            CreateMap<Novel, GetNovelDto>()
+            .ForMember(dest => dest.Genres, opt => opt.MapFrom(src =>
+                src.NovelGenres.Select(ng => ng.Genre.Name).ToList()));
 
-            
 
             CreateMap<CreateGenreDto, Genre>();
 

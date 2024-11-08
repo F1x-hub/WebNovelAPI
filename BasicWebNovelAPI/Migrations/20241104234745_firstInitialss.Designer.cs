@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BasicWebNovelAPI.Migrations
 {
     [DbContext(typeof(BasicWebNovelContext))]
-    [Migration("20241101214414_updateComments")]
-    partial class updateComments
+    [Migration("20241104234745_firstInitialss")]
+    partial class firstInitialss
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -235,6 +235,32 @@ namespace BasicWebNovelAPI.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Ratings");
+                });
+
+            modelBuilder.Entity("BasicWebNovelAPI.Model.Novels.UserChapterRead", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ChapterId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChapterId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserChapterReads");
                 });
 
             modelBuilder.Entity("BasicWebNovelAPI.Model.UserManagement.Role", b =>
@@ -471,6 +497,25 @@ namespace BasicWebNovelAPI.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("BasicWebNovelAPI.Model.Novels.UserChapterRead", b =>
+                {
+                    b.HasOne("BasicWebNovelAPI.Model.Novels.Chapter", "Chapter")
+                        .WithMany("UserChapterRead")
+                        .HasForeignKey("ChapterId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("BasicWebNovelAPI.Model.UserManagement.User", "User")
+                        .WithMany("UserChapterRead")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Chapter");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("BasicWebNovelAPI.Model.UserManagement.User", b =>
                 {
                     b.HasOne("BasicWebNovelAPI.Model.UserManagement.Role", "Role")
@@ -515,6 +560,8 @@ namespace BasicWebNovelAPI.Migrations
             modelBuilder.Entity("BasicWebNovelAPI.Model.Novels.Chapter", b =>
                 {
                     b.Navigation("ChapterComments");
+
+                    b.Navigation("UserChapterRead");
                 });
 
             modelBuilder.Entity("BasicWebNovelAPI.Model.Novels.Genre", b =>
@@ -549,6 +596,8 @@ namespace BasicWebNovelAPI.Migrations
                     b.Navigation("NovelComments");
 
                     b.Navigation("Novels");
+
+                    b.Navigation("UserChapterRead");
 
                     b.Navigation("UserImages");
                 });

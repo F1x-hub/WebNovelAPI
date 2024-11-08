@@ -3,40 +3,140 @@
   "WorkspaceRootPath": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\novels\\novelcomments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\novels\\novelcomments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\implementations\\novelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\implementations\\novelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\novels\\chaptercomments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\novels\\chaptercomments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\helper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\helper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\novels\\chapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\novels\\chapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\abstractions\\inovelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\abstractions\\inovelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\getnoveldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\getnoveldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\getgenredto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\getgenredto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\implementations\\genrerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\implementations\\genrerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\extensions\\serviceextensions\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\extensions\\serviceextensions\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\extensions\\serviceextensions\\authserviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\extensions\\serviceextensions\\authserviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\novels\\novel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\novels\\novel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\usermanagement\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\usermanagement\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\controllers\\novelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\controllers\\novelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101214414_updateComments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BasicWebNovelAPI\\Migrations\\20241101214414_updateComments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\implementations\\commentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\implementations\\commentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\abstractions\\icommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\abstractions\\icommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\getchapterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\getchapterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\implementations\\chapterrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\implementations\\chapterrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\abstractions\\ichapterrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\abstractions\\ichapterrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\controllers\\chaptercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\controllers\\chaptercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\data\\basicwebnovelcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\data\\basicwebnovelcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101213515_firstInitial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BasicWebNovelAPI\\Migrations\\20241101213515_firstInitial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\novels\\userchapterread.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\novels\\userchapterread.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\controllers\\chaptercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\controllers\\chaptercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\usermanagement\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\usermanagement\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\novels\\chapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\novels\\chapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241104225353_firstInitial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BasicWebNovelAPI\\Migrations\\20241104225353_firstInitial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241104224718_addReadInAnotherClaas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BasicWebNovelAPI\\Migrations\\20241104224718_addReadInAnotherClaas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241104223050_addReadInChapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BasicWebNovelAPI\\Migrations\\20241104223050_addReadInChapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\userlibrarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\userlibrarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\updatenoveldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\updatenoveldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\updatechapterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\updatechapterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\getuserlibrarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\getuserlibrarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\createchapterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\createchapterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\usermanagement\\userlibrary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\usermanagement\\userlibrary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\novels\\novelcomments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\novels\\novelcomments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\novels\\chaptercomments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\novels\\chaptercomments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101205157_addComment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -67,40 +167,12 @@
       "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\user\\getlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\userlibrarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\userlibrarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\createchapterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\createchapterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\creategenredto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\creategenredto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\createnoveldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\createnoveldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\getchapterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\getchapterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\getgenredto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\getgenredto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\getnoveldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\getnoveldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\updatechapterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\updatechapterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\updatenoveldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\updatenoveldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\user\\verifycodedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -113,10 +185,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\user\\registeruserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\user\\registeruserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\usermanagement\\userlibrary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\usermanagement\\userlibrary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\usermanagement\\userimages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -139,16 +207,8 @@
       "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\novels\\novelimages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\extensions\\serviceextensions\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\extensions\\serviceextensions\\serviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\controllers\\genrecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\controllers\\genrecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\implementations\\chapterrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\implementations\\chapterrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\extensions\\redisextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -157,14 +217,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\backgroundservices\\codeexpireservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\backgroundservices\\codeexpireservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\implementations\\novelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\implementations\\novelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\implementations\\genrerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\implementations\\genrerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\implementations\\imagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -177,14 +229,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\implementations\\authorizationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\implementations\\authorizationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\controllers\\novelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\controllers\\novelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -259,24 +303,8 @@
       "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\abstractions\\iuserlibraryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\abstractions\\ichapterrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\abstractions\\ichapterrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\dto\\novel\\getuserlibrarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\dto\\novel\\getuserlibrarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\model\\usermanagement\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\model\\usermanagement\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\helper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\helper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\abstractions\\inovelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\abstractions\\inovelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\validation\\uservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -297,18 +325,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\service\\abstractions\\iimagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\service\\abstractions\\iimagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\extensions\\serviceextensions\\authserviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\extensions\\serviceextensions\\authserviceregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\basicwebnovelapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
@@ -357,6 +373,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20240927153941_firstInitial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BasicWebNovelAPI\\Migrations\\20240927153941_firstInitial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|d:\\programing\\324\\c#\\basicwebnovelapi\\basicwebnovelapi\\migrations\\20241104230405_firstinitial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08A00801-DEAF-46D1-B333-99F682EBA67B}|BasicWebNovelAPI\\BasicWebNovelAPI.csproj|solutionrelative:basicwebnovelapi\\migrations\\20241104230405_firstinitial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -366,7 +386,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -382,280 +402,58 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "20241101214414_updateComments.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101214414_updateComments.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241101214414_updateComments.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101214414_updateComments.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Migrations\\20241101214414_updateComments.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T21:44:14.848Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "20241101213515_firstInitial.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101213515_firstInitial.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241101213515_firstInitial.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101213515_firstInitial.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Migrations\\20241101213515_firstInitial.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ServiceRegistration.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\ServiceExtensions\\ServiceRegistration.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Extensions\\ServiceExtensions\\ServiceRegistration.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\ServiceExtensions\\ServiceRegistration.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Extensions\\ServiceExtensions\\ServiceRegistration.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwDoAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T21:35:15.212Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-02T17:41:25.464Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ChapterComments.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\ChapterComments.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\ChapterComments.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\ChapterComments.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\ChapterComments.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAswBAAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\UserController.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T21:17:21.009Z",
+              "WhenOpened": "2024-10-14T19:40:57.016Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "NovelComments.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\NovelComments.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\NovelComments.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\NovelComments.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\NovelComments.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAvAAAAAAAAAA==",
+              "Title": "NovelRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\NovelRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\NovelRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\NovelRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\NovelRepository.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAowHUAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T20:44:55.287Z",
+              "WhenOpened": "2024-10-09T17:07:44.944Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ChapterController.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\ChapterController.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\ChapterController.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\ChapterController.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\ChapterController.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAkwBYAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "GenreRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\GenreRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\GenreRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\GenreRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\GenreRepository.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAACkAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T19:07:15.462Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Chapter.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Chapter.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\Chapter.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Chapter.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\Chapter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T16:24:39.447Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Novel.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Novel.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\Novel.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Novel.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\Novel.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBgAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T17:08:28.585Z",
+              "WhenOpened": "2024-10-14T19:00:07.313Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\User.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\UserManagement\\User.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\User.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\UserManagement\\User.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAYwB0AAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T17:07:22.041Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BasicWebNovelContext.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Data\\BasicWebNovelContext.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Data\\BasicWebNovelContext.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Data\\BasicWebNovelContext.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Data\\BasicWebNovelContext.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAqwHQAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T16:28:53.15Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "20241101205157_addComment.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101205157_addComment.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241101205157_addComment.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101205157_addComment.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Migrations\\20241101205157_addComment.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAAwCYAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T20:51:57.174Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "20241101213022_updateChapterCommentsClasss.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101213022_updateChapterCommentsClasss.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241101213022_updateChapterCommentsClasss.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101213022_updateChapterCommentsClasss.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Migrations\\20241101213022_updateChapterCommentsClasss.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T21:30:22.84Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "20241101213158_firstInitial.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101213158_firstInitial.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241101213158_firstInitial.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101213158_firstInitial.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Migrations\\20241101213158_firstInitial.cs",
-              "ViewState": "AgIAAD8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T21:31:58.192Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "20241101212702_updateChapterCommentsClass.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101212702_updateChapterCommentsClass.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241101212702_updateChapterCommentsClass.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101212702_updateChapterCommentsClass.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Migrations\\20241101212702_updateChapterCommentsClass.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAAwGAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T21:27:02.646Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ExceptionMiddleware.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Middleware\\ExceptionMiddleware.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Middleware\\ExceptionMiddleware.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Middleware\\ExceptionMiddleware.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Middleware\\ExceptionMiddleware.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAkwB4AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T02:23:47.321Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ErrorDetail.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Errors\\ErrorDetail.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Errors\\ErrorDetail.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Errors\\ErrorDetail.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Errors\\ErrorDetail.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-02T15:24:34.201Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "GetLoginDto.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\GetLoginDto.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\User\\GetLoginDto.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\GetLoginDto.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\User\\GetLoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T15:58:18.648Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "UserLibraryDto.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\UserLibraryDto.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\UserLibraryDto.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\UserLibraryDto.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\UserLibraryDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T00:20:09.371Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "CreateChapterDto.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateChapterDto.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateChapterDto.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateChapterDto.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateChapterDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T17:32:01.805Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "CreateGenreDto.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateGenreDto.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateGenreDto.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateGenreDto.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateGenreDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-11T13:56:07.88Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "CreateNovelDto.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateNovelDto.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateNovelDto.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateNovelDto.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateNovelDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T17:29:43.515Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "GetChapterDto.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\GetChapterDto.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\GetChapterDto.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\GetChapterDto.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\GetChapterDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T17:31:44.93Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
               "Title": "GetGenreDto.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\GetGenreDto.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\GetGenreDto.cs",
@@ -668,7 +466,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 3,
               "Title": "GetNovelDto.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\GetNovelDto.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\GetNovelDto.cs",
@@ -681,560 +479,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "UpdateChapterDto.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateChapterDto.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateChapterDto.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateChapterDto.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateChapterDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T17:32:22.655Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "UpdateNovelDto.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateNovelDto.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateNovelDto.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateNovelDto.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateNovelDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T17:30:03.415Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "VerifyCodeDto.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\VerifyCodeDto.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\User\\VerifyCodeDto.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\VerifyCodeDto.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\User\\VerifyCodeDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T17:11:19.573Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "UpdateUserDto.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\UpdateUserDto.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\User\\UpdateUserDto.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\UpdateUserDto.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\User\\UpdateUserDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T02:48:35.307Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "RegisterUserDto.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\RegisterUserDto.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\User\\RegisterUserDto.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\RegisterUserDto.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\User\\RegisterUserDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T15:59:34.361Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "UserLibrary.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\UserLibrary.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\UserManagement\\UserLibrary.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\UserLibrary.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\UserManagement\\UserLibrary.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T00:11:47.809Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "UserImages.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\UserImages.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\UserManagement\\UserImages.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\UserImages.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\UserManagement\\UserImages.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T19:01:55.14Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "Genre.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Genre.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\Genre.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Genre.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\Genre.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T17:09:09.709Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "NovelGenre.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\NovelGenre.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\NovelGenre.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\NovelGenre.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\NovelGenre.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T17:09:30.719Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Rating.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Rating.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\Rating.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Rating.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\Rating.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T01:16:24.72Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "NovelImages.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\NovelImages.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\NovelImages.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\NovelImages.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\NovelImages.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:26:18.867Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "GenreController.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\GenreController.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\GenreController.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\GenreController.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\GenreController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAUwDQAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T19:04:52.524Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "RedisExtensions.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\RedisExtensions.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Extensions\\RedisExtensions.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\RedisExtensions.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Extensions\\RedisExtensions.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAQwB8AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T23:46:39.376Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "CodeExpireService.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\BackgroundServices\\CodeExpireService.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\BackgroundServices\\CodeExpireService.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\BackgroundServices\\CodeExpireService.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\BackgroundServices\\CodeExpireService.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAACMAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T16:57:17.774Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "GenreRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\GenreRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\GenreRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\GenreRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\GenreRepository.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAYwC0AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T19:00:07.313Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "ServiceRegistration.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\ServiceExtensions\\ServiceRegistration.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Extensions\\ServiceExtensions\\ServiceRegistration.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\ServiceExtensions\\ServiceRegistration.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Extensions\\ServiceExtensions\\ServiceRegistration.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAgwBYAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-02T17:41:25.464Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "ImageRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\ImageRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\ImageRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\ImageRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\ImageRepository.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAiwDoAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:51:52.806Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "ChapterRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\ChapterRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\ChapterRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\ChapterRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\ChapterRepository.cs",
-              "ViewState": "AgIAAJEAAAAAAAAAAAAQwKQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T18:51:50.342Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "EmailRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\EmailRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\EmailRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\EmailRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\EmailRepository.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAcwDAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T15:02:57.499Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "AuthorizationRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\AuthorizationRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\AuthorizationRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\AuthorizationRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\AuthorizationRepository.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAAwI0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T15:21:04.331Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\UserController.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\UserController.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBkAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T19:40:57.016Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "NovelRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\NovelRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\NovelRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\NovelRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\NovelRepository.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAYwBwAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T17:07:44.944Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "NovelController.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\NovelController.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\NovelController.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\NovelController.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\NovelController.cs",
-              "ViewState": "AgIAANAAAAAAAAAAAAAgwI4AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T17:11:28.832Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "RatingController.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\RatingController.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\RatingController.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\RatingController.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\RatingController.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAiwB0AAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T01:29:28.399Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "RegistrationController.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\RegistrationController.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\RegistrationController.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\RegistrationController.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\RegistrationController.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAIwFgAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T19:44:17.804Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "ImageController.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\ImageController.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\ImageController.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\ImageController.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\ImageController.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAiwBUAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T19:09:09.227Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAADwvygAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T16:17:16.023Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "UserLibraryController.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\UserLibraryController.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\UserLibraryController.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\UserLibraryController.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\UserLibraryController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAABQAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T00:27:30.533Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "IGenreRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IGenreRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IGenreRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IGenreRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IGenreRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T18:59:17.293Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "UserLibraryRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\UserLibraryRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\UserLibraryRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\UserLibraryRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\UserLibraryRepository.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAcwBgAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T00:21:22.537Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\UserRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\UserRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\UserRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\UserRepository.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAwwB4AAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T19:24:13.448Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "TokenRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\TokenRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\TokenRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\TokenRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\TokenRepository.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAUwCkAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T15:21:34.215Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "RatingRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\RatingRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\RatingRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\RatingRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\RatingRepository.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAYwEAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T01:25:19.314Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IUserRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IUserRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T19:24:02.321Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "GetUserDto.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\GetUserDto.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\User\\GetUserDto.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\GetUserDto.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\User\\GetUserDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T15:58:39.727Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "BadRequestException.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Exceptions\\BadRequestException.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Exceptions\\BadRequestException.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Exceptions\\BadRequestException.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Exceptions\\BadRequestException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-02T15:21:03.806Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 60,
-              "Title": "Descriptive.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\Descriptive.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Extensions\\Descriptive.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\Descriptive.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Extensions\\Descriptive.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAA2wBQAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:31:27.795Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 63,
-              "Title": "IUserLibraryRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IUserLibraryRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IUserLibraryRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IUserLibraryRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IUserLibraryRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T00:21:11.01Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "NotFoundException.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Exceptions\\NotFoundException.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Exceptions\\NotFoundException.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Exceptions\\NotFoundException.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Exceptions\\NotFoundException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-02T15:19:44.952Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 64,
-              "Title": "IChapterRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IChapterRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IChapterRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IChapterRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IChapterRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T18:51:26.791Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 62,
-              "Title": "IRatingRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IRatingRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IRatingRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IRatingRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IRatingRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T01:25:08.039Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 61,
-              "Title": "DependencyServiceRegistration.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\ServiceExtensions\\DependencyServiceRegistration.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Extensions\\ServiceExtensions\\DependencyServiceRegistration.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\ServiceExtensions\\DependencyServiceRegistration.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Extensions\\ServiceExtensions\\DependencyServiceRegistration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T19:48:46.965Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 65,
-              "Title": "GetUserLibraryDto.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\GetUserLibraryDto.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\GetUserLibraryDto.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\GetUserLibraryDto.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\GetUserLibraryDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T00:33:11.556Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 66,
-              "Title": "Role.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\Role.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\UserManagement\\Role.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\Role.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Model\\UserManagement\\Role.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T17:08:01.546Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 67,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Helper\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Helper\\MappingProfile.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Helper\\MappingProfile.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Helper\\MappingProfile.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAmwDYAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T15:38:07.22Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 2,
               "Title": "INovelRepository.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\INovelRepository.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\INovelRepository.cs",
@@ -1242,71 +487,25 @@
               "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\INovelRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T17:05:48.398Z"
+              "WhenOpened": "2024-10-09T17:05:48.398Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
-              "Title": "RegistrationRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\RegistrationRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\RegistrationRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\RegistrationRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\RegistrationRepository.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwFAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Helper\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Helper\\MappingProfile.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Helper\\MappingProfile.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Helper\\MappingProfile.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA4wCYAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T19:28:55.023Z"
+              "WhenOpened": "2024-09-27T15:38:07.22Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
-              "Title": "UserValidator.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Validation\\UserValidator.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Validation\\UserValidator.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Validation\\UserValidator.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Validation\\UserValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T15:46:36.155Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 71,
-              "Title": "IRegistrationRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IRegistrationRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IRegistrationRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IRegistrationRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IRegistrationRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T19:28:45.132Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 72,
-              "Title": "IAuthorizationRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IAuthorizationRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IAuthorizationRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IAuthorizationRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IAuthorizationRepository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAIA5wBIAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T17:19:40.354Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 73,
-              "Title": "IImageRepository.cs",
-              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IImageRepository.cs",
-              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IImageRepository.cs",
-              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IImageRepository.cs",
-              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IImageRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T15:49:35.017Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 9,
               "Title": "AuthServiceRegistration.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\ServiceExtensions\\AuthServiceRegistration.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Extensions\\ServiceExtensions\\AuthServiceRegistration.cs",
@@ -1318,7 +517,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 10,
+              "Title": "Novel.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Novel.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\Novel.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Novel.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\Novel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T17:08:28.585Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\appsettings.json",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\appsettings.json",
@@ -1330,19 +541,859 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Program.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Program.cs",
               "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Program.cs",
               "RelativeToolTip": "BasicWebNovelAPI\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-07T17:52:11.565Z"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "NovelController.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\NovelController.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\NovelController.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\NovelController.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\NovelController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T17:11:28.832Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "20241104225353_firstInitial.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241104225353_firstInitial.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241104225353_firstInitial.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241104225353_firstInitial.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Migrations\\20241104225353_firstInitial.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T22:53:53.38Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ChapterRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\ChapterRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\ChapterRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\ChapterRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\ChapterRepository.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAHQAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T18:51:50.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Chapter.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Chapter.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\Chapter.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Chapter.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\Chapter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T16:24:39.447Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\User.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\UserManagement\\User.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\User.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\UserManagement\\User.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T17:07:22.041Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CommentRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\CommentRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\CommentRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\CommentRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\CommentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T20:01:19.149Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BasicWebNovelContext.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Data\\BasicWebNovelContext.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Data\\BasicWebNovelContext.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Data\\BasicWebNovelContext.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Data\\BasicWebNovelContext.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAAAIoAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T16:28:53.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "GetChapterDto.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\GetChapterDto.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\GetChapterDto.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\GetChapterDto.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\GetChapterDto.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T17:31:44.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ICommentRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\ICommentRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\ICommentRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\ICommentRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\ICommentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T20:01:02.588Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IChapterRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IChapterRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IChapterRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IChapterRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IChapterRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T18:51:26.791Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ChapterController.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\ChapterController.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\ChapterController.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\ChapterController.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\ChapterController.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAkwGwAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T19:07:15.462Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "UserChapterRead.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\UserChapterRead.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\UserChapterRead.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\UserChapterRead.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\UserChapterRead.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T22:40:57.596Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 93,
+              "Title": "20241104230405_firstInitial.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241104230405_firstInitial.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241104230405_firstInitial.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241104230405_firstInitial.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Migrations\\20241104230405_firstInitial.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T23:04:05.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "20241104224718_addReadInAnotherClaas.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241104224718_addReadInAnotherClaas.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241104224718_addReadInAnotherClaas.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241104224718_addReadInAnotherClaas.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Migrations\\20241104224718_addReadInAnotherClaas.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T22:47:18.489Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "UserLibraryDto.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\UserLibraryDto.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\UserLibraryDto.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\UserLibraryDto.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\UserLibraryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T00:20:09.371Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "UpdateChapterDto.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateChapterDto.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateChapterDto.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateChapterDto.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateChapterDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T17:32:22.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "UpdateNovelDto.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateNovelDto.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateNovelDto.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateNovelDto.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\UpdateNovelDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T17:30:03.415Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "CreateChapterDto.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateChapterDto.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateChapterDto.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateChapterDto.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateChapterDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T17:32:01.805Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "20241104223050_addReadInChapter.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241104223050_addReadInChapter.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241104223050_addReadInChapter.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241104223050_addReadInChapter.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Migrations\\20241104223050_addReadInChapter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T22:30:50.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "GetUserLibraryDto.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\GetUserLibraryDto.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\GetUserLibraryDto.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\GetUserLibraryDto.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\GetUserLibraryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T00:33:11.556Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "UserLibrary.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\UserLibrary.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\UserManagement\\UserLibrary.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\UserLibrary.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\UserManagement\\UserLibrary.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T00:11:47.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "NovelComments.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\NovelComments.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\NovelComments.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\NovelComments.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\NovelComments.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T20:44:55.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "ChapterComments.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\ChapterComments.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\ChapterComments.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\ChapterComments.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\ChapterComments.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAswBAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T21:17:21.009Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "20241101205157_addComment.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101205157_addComment.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241101205157_addComment.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101205157_addComment.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Migrations\\20241101205157_addComment.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAwCYAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T20:51:57.174Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "20241101213022_updateChapterCommentsClasss.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101213022_updateChapterCommentsClasss.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241101213022_updateChapterCommentsClasss.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101213022_updateChapterCommentsClasss.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Migrations\\20241101213022_updateChapterCommentsClasss.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T21:30:22.84Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "20241101213158_firstInitial.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101213158_firstInitial.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241101213158_firstInitial.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101213158_firstInitial.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Migrations\\20241101213158_firstInitial.cs",
+              "ViewState": "AgIAAD8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T21:31:58.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "20241101212702_updateChapterCommentsClass.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101212702_updateChapterCommentsClass.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241101212702_updateChapterCommentsClass.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241101212702_updateChapterCommentsClass.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Migrations\\20241101212702_updateChapterCommentsClass.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAAwGAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T21:27:02.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ExceptionMiddleware.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Middleware\\ExceptionMiddleware.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Middleware\\ExceptionMiddleware.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Middleware\\ExceptionMiddleware.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Middleware\\ExceptionMiddleware.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAkwB4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T02:23:47.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "ErrorDetail.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Errors\\ErrorDetail.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Errors\\ErrorDetail.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Errors\\ErrorDetail.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Errors\\ErrorDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-02T15:24:34.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "GetLoginDto.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\GetLoginDto.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\User\\GetLoginDto.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\GetLoginDto.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\User\\GetLoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-27T15:58:18.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "CreateGenreDto.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateGenreDto.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateGenreDto.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateGenreDto.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateGenreDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T13:56:07.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "CreateNovelDto.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateNovelDto.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateNovelDto.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateNovelDto.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\Novel\\CreateNovelDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T17:29:43.515Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "VerifyCodeDto.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\VerifyCodeDto.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\User\\VerifyCodeDto.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\VerifyCodeDto.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\User\\VerifyCodeDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T17:11:19.573Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "UpdateUserDto.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\UpdateUserDto.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\User\\UpdateUserDto.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\UpdateUserDto.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\User\\UpdateUserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T02:48:35.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "RegisterUserDto.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\RegisterUserDto.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\User\\RegisterUserDto.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\RegisterUserDto.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\User\\RegisterUserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-27T15:59:34.361Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "UserImages.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\UserImages.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\UserManagement\\UserImages.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\UserImages.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\UserManagement\\UserImages.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T19:01:55.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Genre.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Genre.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\Genre.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Genre.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\Genre.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T17:09:09.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "NovelGenre.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\NovelGenre.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\NovelGenre.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\NovelGenre.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\NovelGenre.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T17:09:30.719Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "Rating.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Rating.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\Rating.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\Rating.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\Rating.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T01:16:24.72Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "NovelImages.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\NovelImages.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Novels\\NovelImages.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Novels\\NovelImages.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Novels\\NovelImages.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T15:26:18.867Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "GenreController.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\GenreController.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\GenreController.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\GenreController.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\GenreController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAUwDQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T19:04:52.524Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "RedisExtensions.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\RedisExtensions.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Extensions\\RedisExtensions.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\RedisExtensions.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Extensions\\RedisExtensions.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwB8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T23:46:39.376Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "CodeExpireService.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\BackgroundServices\\CodeExpireService.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\BackgroundServices\\CodeExpireService.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\BackgroundServices\\CodeExpireService.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\BackgroundServices\\CodeExpireService.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAACMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T16:57:17.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "ImageRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\ImageRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\ImageRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\ImageRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\ImageRepository.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAiwDoAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T15:51:52.806Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "EmailRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\EmailRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\EmailRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\EmailRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\EmailRepository.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAcwDAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T15:02:57.499Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "AuthorizationRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\AuthorizationRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\AuthorizationRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\AuthorizationRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\AuthorizationRepository.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAAwI0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-27T15:21:04.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "RatingController.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\RatingController.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\RatingController.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\RatingController.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\RatingController.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAiwB0AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T01:29:28.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "RegistrationController.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\RegistrationController.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\RegistrationController.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\RegistrationController.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\RegistrationController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAIwFgAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T19:44:17.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "ImageController.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\ImageController.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\ImageController.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\ImageController.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\ImageController.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAiwBUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T19:09:09.227Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAADwvygAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-27T16:17:16.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "UserLibraryController.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\UserLibraryController.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Controllers\\UserLibraryController.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Controllers\\UserLibraryController.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Controllers\\UserLibraryController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAABQAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T00:27:30.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "IGenreRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IGenreRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IGenreRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IGenreRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IGenreRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T18:59:17.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "UserLibraryRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\UserLibraryRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\UserLibraryRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\UserLibraryRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\UserLibraryRepository.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAcwBgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T00:21:22.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\UserRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\UserRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\UserRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\UserRepository.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAwwB4AAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T19:24:13.448Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "TokenRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\TokenRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\TokenRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\TokenRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\TokenRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAUwCkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-27T15:21:34.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "RatingRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\RatingRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\RatingRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\RatingRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\RatingRepository.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAYwEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T01:25:19.314Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IUserRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IUserRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T19:24:02.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "GetUserDto.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\GetUserDto.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\Dto\\User\\GetUserDto.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\Dto\\User\\GetUserDto.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\Dto\\User\\GetUserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-27T15:58:39.727Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "BadRequestException.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Exceptions\\BadRequestException.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Exceptions\\BadRequestException.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Exceptions\\BadRequestException.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Exceptions\\BadRequestException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-02T15:21:03.806Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "Descriptive.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\Descriptive.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Extensions\\Descriptive.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\Descriptive.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Extensions\\Descriptive.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA2wBQAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T15:31:27.795Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "IUserLibraryRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IUserLibraryRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IUserLibraryRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IUserLibraryRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IUserLibraryRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T00:21:11.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "NotFoundException.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Exceptions\\NotFoundException.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Exceptions\\NotFoundException.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Exceptions\\NotFoundException.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Exceptions\\NotFoundException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-02T15:19:44.952Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "IRatingRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IRatingRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IRatingRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IRatingRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IRatingRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T01:25:08.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "DependencyServiceRegistration.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\ServiceExtensions\\DependencyServiceRegistration.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Extensions\\ServiceExtensions\\DependencyServiceRegistration.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\ServiceExtensions\\DependencyServiceRegistration.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Extensions\\ServiceExtensions\\DependencyServiceRegistration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T19:48:46.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "Role.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\Role.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Model\\UserManagement\\Role.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Model\\UserManagement\\Role.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Model\\UserManagement\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T17:08:01.546Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 77,
+              "Title": "RegistrationRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\RegistrationRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Implementations\\RegistrationRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Implementations\\RegistrationRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Implementations\\RegistrationRepository.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwFAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T19:28:55.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "UserValidator.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Validation\\UserValidator.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Validation\\UserValidator.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Validation\\UserValidator.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Validation\\UserValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T15:46:36.155Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "IRegistrationRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IRegistrationRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IRegistrationRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IRegistrationRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IRegistrationRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T19:28:45.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "IAuthorizationRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IAuthorizationRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IAuthorizationRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IAuthorizationRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IAuthorizationRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAIA5wBIAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T17:19:40.354Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "IImageRepository.cs",
+              "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IImageRepository.cs",
+              "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IImageRepository.cs",
+              "ToolTip": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IImageRepository.cs",
+              "RelativeToolTip": "BasicWebNovelAPI\\Service\\Abstractions\\IImageRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T15:49:35.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
               "Title": "BasicWebNovelAPI.http",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\BasicWebNovelAPI.http",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\BasicWebNovelAPI.http",
@@ -1354,7 +1405,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 82,
               "Title": "20241011192801_deletePdfProperty.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241011192801_deletePdfProperty.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241011192801_deletePdfProperty.cs",
@@ -1365,7 +1416,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 83,
               "Title": "20241011164352_FirstInitialsss.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241011164352_FirstInitialsss.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241011164352_FirstInitialsss.cs",
@@ -1376,7 +1427,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 84,
               "Title": "20241011164216_FirstInitials.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241011164216_FirstInitials.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241011164216_FirstInitials.cs",
@@ -1387,7 +1438,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 86,
               "Title": "20241011135131_updateNovel.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241011135131_updateNovel.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241011135131_updateNovel.cs",
@@ -1398,7 +1449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 85,
               "Title": "20241011140532_FirstInitial.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20241011140532_FirstInitial.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20241011140532_FirstInitial.cs",
@@ -1409,7 +1460,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 87,
               "Title": "HashExtensions.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Extensions\\HashExtensions.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Extensions\\HashExtensions.cs",
@@ -1421,7 +1472,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 88,
               "Title": "IEmailRepository.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\IEmailRepository.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\IEmailRepository.cs",
@@ -1433,7 +1484,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
+              "DocumentIndex": 89,
               "Title": "AuthIssuer.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Enum\\AuthIssuer.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Enum\\AuthIssuer.cs",
@@ -1445,7 +1496,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 86,
+              "DocumentIndex": 90,
               "Title": "20240929193804_addImageInUser.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20240929193804_addImageInUser.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20240929193804_addImageInUser.cs",
@@ -1456,7 +1507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 87,
+              "DocumentIndex": 91,
               "Title": "ITokenRepository.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Service\\Abstractions\\ITokenRepository.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Service\\Abstractions\\ITokenRepository.cs",
@@ -1468,7 +1519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
+              "DocumentIndex": 92,
               "Title": "20240927153941_firstInitial.cs",
               "DocumentMoniker": "D:\\Programing\\324\\C#\\BasicWebNovelAPI\\BasicWebNovelAPI\\Migrations\\20240927153941_firstInitial.cs",
               "RelativeDocumentMoniker": "BasicWebNovelAPI\\Migrations\\20240927153941_firstInitial.cs",

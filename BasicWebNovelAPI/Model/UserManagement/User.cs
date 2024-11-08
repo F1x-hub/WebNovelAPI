@@ -28,6 +28,9 @@ namespace BasicWebNovelAPI.Model.UserManagement
         public ICollection<UserLibrary> Library { get; set; }
         public ICollection<NovelComments> NovelComments { get; set; }
         public ICollection<ChapterComments> ChapterComments { get; set; }
+        public ICollection<UserChapterRead> UserChapterRead { get; set; }
+
+
 
 
     }

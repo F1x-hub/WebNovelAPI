@@ -38,6 +38,8 @@ namespace BasicWebNovelAPI.Service.Implementations
 
             var novels = await _context.Novels
                 .Include(n => n.Chapters)
+                .Include(n => n.NovelGenres)
+                .ThenInclude(ng => ng.Genre)
                 .ToListAsync();
 
             var novelDtos = _mapper.Map<List<GetNovelDto>>(novels);
@@ -61,6 +63,8 @@ namespace BasicWebNovelAPI.Service.Implementations
 
             var novel = await _context.Novels
                 .Include(n => n.Chapters)
+                .Include(n => n.NovelGenres) 
+                .ThenInclude(ng => ng.Genre) 
                 .FirstOrDefaultAsync(n => n.Id == novelId);
 
             if (novel == null)
@@ -86,6 +90,8 @@ namespace BasicWebNovelAPI.Service.Implementations
             var novels = await _context.Novels
                 .Where(n => n.Title.ToLower().Contains(title.ToLower()))
                 .Include(n => n.Chapters)
+                .Include(n => n.NovelGenres)
+                .ThenInclude(ng => ng.Genre)
                 .ToListAsync();
 
             var novelDtos = _mapper.Map<List<GetNovelDto>>(novels);
@@ -108,6 +114,8 @@ namespace BasicWebNovelAPI.Service.Implementations
             var novels = await _context.Novels
                 .Where(n => n.UserId == userId)
                 .Include(n => n.Chapters)
+                .Include(n => n.NovelGenres)
+                .ThenInclude(ng => ng.Genre)
                 .ToListAsync();
 
             var novelDtos = _mapper.Map<List<GetNovelDto>>(novels);

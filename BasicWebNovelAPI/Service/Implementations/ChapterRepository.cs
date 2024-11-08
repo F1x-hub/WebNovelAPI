@@ -120,7 +120,20 @@ namespace BasicWebNovelAPI.Service.Implementations
             if (novel == null)
                 throw new Exception("Novel not found or access denied.");
 
-            var chapterDtos = _mapper.Map<List<GetChapterDto>>(novel.Chapters.OrderBy(c => c.ChapterNumber));
+            var readChapters = await _context.UserChapterReads
+                                      .Where(ur => ur.UserId == userId && ur.Chapter.NovelId == novelId)
+                                      .ToDictionaryAsync(ur => ur.ChapterId, ur => ur.IsRead);
+
+            
+            var chapterDtos = novel.Chapters
+                                   .OrderBy(c => c.ChapterNumber)
+                                   .Select(chapter =>
+                                   {
+                                       var dto = _mapper.Map<GetChapterDto>(chapter);
+                                       dto.IsRead = readChapters.ContainsKey(chapter.Id) && readChapters[chapter.Id];
+                                       return dto;
+                                   })
+                                   .ToList();
 
             await _cache.SetValue(cacheKey, chapterDtos);
 
@@ -144,6 +157,26 @@ namespace BasicWebNovelAPI.Service.Implementations
                 return null; 
             }
 
+            var userChapterRead = await _context.UserChapterReads
+                .FirstOrDefaultAsync(urc => urc.UserId == userId && urc.ChapterId == chapter.Id);
+
+            if (userChapterRead == null)
+            {
+                userChapterRead = new UserChapterRead()
+                {
+                    UserId = userId,
+                    ChapterId = chapter.Id,
+                    IsRead = true
+                };
+
+                _context.UserChapterReads.Add(userChapterRead);
+            }
+            else if (!userChapterRead.IsRead)
+            {
+                userChapterRead.IsRead = true;
+                _context.UserChapterReads.Add(userChapterRead);
+            }
+
             
             var userLibraryEntry = await _context.UserLibraries
                 .FirstOrDefaultAsync(ul => ul.UserId == userId && ul.NovelId == novelId);
@@ -157,9 +190,14 @@ namespace BasicWebNovelAPI.Service.Implementations
             }
 
             
+
+            
             var chapterDto = _mapper.Map<GetChapterDto>(chapter);
+            chapterDto.IsRead = userChapterRead?.IsRead ?? false;
 
             await _cache.SetValue(cacheKey, chapterDto);
+
+            await _context.SaveChangesAsync();
 
             return chapterDto;
         }
