@@ -1,4 +1,4 @@
-﻿namespace BasicWebNovelAPI.Model.Dto.Novel
+﻿namespace BasicWebNovelAPI.Model.Dto.Novel.Chapter
 {
     public class UpdateChapterDto
     {

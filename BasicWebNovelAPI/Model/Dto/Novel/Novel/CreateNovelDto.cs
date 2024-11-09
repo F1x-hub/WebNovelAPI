@@ -1,4 +1,4 @@
-﻿namespace BasicWebNovelAPI.Model.Dto.Novel
+﻿namespace BasicWebNovelAPI.Model.Dto.Novel.Novel
 {
     public class CreateNovelDto
     {
@@ -6,7 +6,7 @@
         public string Description { get; set; }
         public DateTime PublishedDate { get; set; }
 
-        
+
         public List<int> GenreIds { get; set; }
     }
 }

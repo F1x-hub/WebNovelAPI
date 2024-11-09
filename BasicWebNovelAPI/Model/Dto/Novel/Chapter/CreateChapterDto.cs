@@ -1,8 +1,8 @@
-﻿namespace BasicWebNovelAPI.Model.Dto.Novel
+﻿namespace BasicWebNovelAPI.Model.Dto.Novel.Chapter
 {
     public class CreateChapterDto
     {
-        public int ChapterNumber { get; set; } 
+        public int ChapterNumber { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
     }

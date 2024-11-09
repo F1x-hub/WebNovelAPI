@@ -1,4 +1,4 @@
-﻿using BasicWebNovelAPI.Model.Dto.Novel;
+﻿using BasicWebNovelAPI.Model.Dto.Novel.Chapter;
 using BasicWebNovelAPI.Model.Novels;
 
 namespace BasicWebNovelAPI.Service.Abstractions

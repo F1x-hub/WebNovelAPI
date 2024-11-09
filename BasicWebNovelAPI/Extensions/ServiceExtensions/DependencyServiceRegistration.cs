@@ -19,6 +19,7 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
             services.AddScoped<IRegistrationRepository, RegistrationRepository>();
             services.AddScoped<IUserLibraryRepository, UserLibraryRepository>();
             services.AddScoped<IRatingRepository, RatingRepository>();
+            services.AddScoped<ICommentRepository, CommentRepository>();
 
 
             //background services

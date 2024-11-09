@@ -1,4 +1,4 @@
-﻿using BasicWebNovelAPI.Model.Dto.Novel;
+﻿using BasicWebNovelAPI.Model.Dto.Novel.Library;
 
 namespace BasicWebNovelAPI.Service.Abstractions
 {

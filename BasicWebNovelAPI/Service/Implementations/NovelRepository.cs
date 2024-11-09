@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BasicWebNovelAPI.Data;
 using BasicWebNovelAPI.Extensions;
-using BasicWebNovelAPI.Model.Dto.Novel;
+using BasicWebNovelAPI.Model.Dto.Novel.Novel;
 using BasicWebNovelAPI.Model.Novels;
 using BasicWebNovelAPI.Model.UserManagement;
 using BasicWebNovelAPI.Service.Abstractions;

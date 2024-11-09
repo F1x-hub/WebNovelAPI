@@ -5,7 +5,7 @@ namespace BasicWebNovelAPI.Model.Novels
 {
     public class NovelComments
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string DisplayName { get; set; }
 
         public string Content { get; set; }

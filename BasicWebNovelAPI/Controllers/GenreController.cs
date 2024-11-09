@@ -1,5 +1,5 @@
 ﻿using BasicWebNovelAPI.Exceptions;
-using BasicWebNovelAPI.Model.Dto.Novel;
+using BasicWebNovelAPI.Model.Dto.Novel.Genre;
 using BasicWebNovelAPI.Model.UserManagement;
 using BasicWebNovelAPI.Service.Abstractions;
 using BasicWebNovelAPI.Service.Implementations;

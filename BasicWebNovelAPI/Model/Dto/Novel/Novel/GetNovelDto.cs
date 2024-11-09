@@ -1,4 +1,4 @@
-﻿namespace BasicWebNovelAPI.Model.Dto.Novel
+﻿namespace BasicWebNovelAPI.Model.Dto.Novel.Novel
 {
     public class GetNovelDto
     {

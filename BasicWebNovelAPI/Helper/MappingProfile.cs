@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
-using BasicWebNovelAPI.Model.Dto.Novel;
+using BasicWebNovelAPI.Model.Dto.Novel.Chapter;
+using BasicWebNovelAPI.Model.Dto.Novel.Genre;
+using BasicWebNovelAPI.Model.Dto.Novel.Library;
+using BasicWebNovelAPI.Model.Dto.Novel.Novel;
 using BasicWebNovelAPI.Model.Dto.User;
 using BasicWebNovelAPI.Model.Novels;
 using BasicWebNovelAPI.Model.UserManagement;
@@ -53,9 +56,15 @@ namespace BasicWebNovelAPI.Helper
             CreateMap<UserLibrary, GetUserLibraryDto>()
             .ForMember(dest => dest.NovelTitle, opt => opt.MapFrom(src => src.Novel.Title));
 
-            
-            
-            
+
+            //Comments
+
+            CreateMap<CreateNovelCommentDto, NovelComments>();
+            CreateMap<NovelComments, GetNovelCommentDto>();
+
+            CreateMap<CreateChapterCommentDto, ChapterComments>();
+            CreateMap<ChapterComments, GetChapterCommentDto>();
+
         }
     }
 }

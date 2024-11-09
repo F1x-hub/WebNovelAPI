@@ -83,7 +83,7 @@
       },
       {
         "Name": "chapterDto",
-        "Type": "BasicWebNovelAPI.Model.Dto.Novel.CreateChapterDto",
+        "Type": "BasicWebNovelAPI.Model.Dto.Novel.Chapter.CreateChapterDto",
         "IsRequired": true
       }
     ],
@@ -187,7 +187,91 @@
       },
       {
         "Name": "updateChapterDto",
-        "Type": "BasicWebNovelAPI.Model.Dto.Novel.UpdateChapterDto",
+        "Type": "BasicWebNovelAPI.Model.Dto.Novel.Chapter.UpdateChapterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
+    "Method": "GetChapterComments",
+    "RelativePath": "api/Comment/get-chapter-comment/{chapterId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chapterId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
+    "Method": "GetNovelComments",
+    "RelativePath": "api/Comment/get-novel-comment/{novelId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "novelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
+    "Method": "SendChapterComment",
+    "RelativePath": "api/Comment/send-chapter-comment/{userId}/{chapterId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createChapterCommentDto",
+        "Type": "BasicWebNovelAPI.Model.Dto.Novel.Chapter.CreateChapterCommentDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "chapterId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
+    "Method": "SendNovelComment",
+    "RelativePath": "api/Comment/send-novel-comment/{userId}/{novelId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createNovelCommentDto",
+        "Type": "BasicWebNovelAPI.Model.Dto.Novel.Novel.CreateNovelCommentDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "novelId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -203,7 +287,7 @@
     "Parameters": [
       {
         "Name": "createGenreDto",
-        "Type": "BasicWebNovelAPI.Model.Dto.Novel.CreateGenreDto",
+        "Type": "BasicWebNovelAPI.Model.Dto.Novel.Genre.CreateGenreDto",
         "IsRequired": true
       }
     ],
@@ -271,7 +355,7 @@
     "Parameters": [
       {
         "Name": "createNovelDto",
-        "Type": "BasicWebNovelAPI.Model.Dto.Novel.CreateNovelDto",
+        "Type": "BasicWebNovelAPI.Model.Dto.Novel.Novel.CreateNovelDto",
         "IsRequired": true
       },
       {
@@ -381,7 +465,7 @@
       },
       {
         "Name": "updateNovelDto",
-        "Type": "BasicWebNovelAPI.Model.Dto.Novel.UpdateNovelDto",
+        "Type": "BasicWebNovelAPI.Model.Dto.Novel.Novel.UpdateNovelDto",
         "IsRequired": true
       }
     ],

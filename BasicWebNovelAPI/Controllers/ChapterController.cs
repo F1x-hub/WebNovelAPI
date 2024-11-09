@@ -1,5 +1,5 @@
 ﻿using BasicWebNovelAPI.Exceptions;
-using BasicWebNovelAPI.Model.Dto.Novel;
+using BasicWebNovelAPI.Model.Dto.Novel.Chapter;
 using BasicWebNovelAPI.Model.Novels;
 using BasicWebNovelAPI.Service.Abstractions;
 using Microsoft.AspNetCore.Authorization;
