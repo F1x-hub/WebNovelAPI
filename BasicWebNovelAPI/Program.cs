@@ -11,12 +11,14 @@ using FluentValidation.AspNetCore;
 using System.Reflection;
 using BasicWebNovelAPI.Middleware;
 using BasicWebNovelAPI.Extensions.ServiceExtensions;
+using BasicWebNovelAPI.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddProjectServices(builder.Configuration);
 
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -32,6 +34,9 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.UseCors("AllowAngularApp");
+
+
+app.MapHub<CommentHub>("/commentHub");
 
 app.UseMiddleware<ExceptionMiddleware>();
 

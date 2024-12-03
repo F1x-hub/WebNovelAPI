@@ -64,6 +64,14 @@ namespace BasicWebNovelAPI.Helper
 
             CreateMap<CreateChapterCommentDto, ChapterComments>();
             CreateMap<ChapterComments, GetChapterCommentDto>();
+            
+            CreateMap<NovelComments, GetNovelCommentDto>()
+                .ForMember(dest => dest.LikesCount, 
+                    opt => opt.MapFrom(src => src.Likes.Count));
+            
+            CreateMap<ChapterComments, GetChapterCommentDto>()
+                .ForMember(dest => dest.LikesCount, 
+                    opt => opt.MapFrom(src => src.Likes.Count));
 
         }
     }

@@ -170,3 +170,7 @@ D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\refint\B
 D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\BasicWebNovelAPI.pdb
 D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\BasicWebNovelAPI.genruntimeconfig.cache
 D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\ref\BasicWebNovelAPI.dll
+D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll
+D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\BasicWebNovelAPI.staticwebassets.endpoints.json
+D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Programing\324\C#\BasicWebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\staticwebassets\msbuild.BasicWebNovelAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props

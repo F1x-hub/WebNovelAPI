@@ -10,7 +10,6 @@ namespace BasicWebNovelAPI.Model.Novels
 
         public string Content { get; set; }
         public DateTime PublishedDate { get; set; } = DateTime.Now;
-        public int LikeCount { get; set; } = 0;
 
         [JsonIgnore]
         public Novel Novel { get; set; }
@@ -18,5 +17,8 @@ namespace BasicWebNovelAPI.Model.Novels
         [JsonIgnore]
         public User User { get; set; }
         public int UserId { get; set; }
+
+
+        public ICollection<NovelCommentLikes> Likes { get; set; }
     }
 }

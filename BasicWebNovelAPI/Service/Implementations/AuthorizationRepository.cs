@@ -43,7 +43,36 @@ namespace BasicWebNovelAPI.Service.Implementations
             if (user == null)
                 throw new Exception("User not found");
 
+            bool isCorrectPassword = getLoginDto.Password.PasswordVerify(user.PasswordHash);
+
+
+            if (user.LockoutExpirationTime.HasValue && user.LockoutExpirationTime > DateTime.Now)
+            {
+                throw new Exception("Your account is locked. Please try again after an hour.");
+            }
             
+
+            if (!isCorrectPassword) 
+            {
+                user.FailedLoginAttempts++;
+
+                
+                if (user.FailedLoginAttempts >= 5)
+                {
+                    user.LockoutExpirationTime = DateTime.Now.AddHours(1);
+                    user.FailedLoginAttempts = 0; 
+                    await _context.SaveChangesAsync();
+                    throw new Exception("Too many failed login attempts. Your account is locked for an hour.");
+                }
+
+                await _context.SaveChangesAsync();
+                throw new Exception($"Incorrect password. You have {5 - user.FailedLoginAttempts} attempts left.");
+            }
+
+           
+            user.FailedLoginAttempts = 0;
+
+
             var temporaryCode = new Random().Next(100000,999999).ToString();
             user.TemporaryCode = temporaryCode;
             user.CodeExpirationTime = DateTime.Now.AddMinutes(10);

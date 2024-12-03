@@ -54,11 +54,15 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
 
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowAngularApp",
-                    policy => policy
-                        .WithOrigins("http://localhost:4200") 
+                options.AddPolicy("AllowAngularApp", policy =>
+                {
+                    policy.WithOrigins("http://localhost:4200", "http://localhost:5173") // добавляем Vite dev server порт
+                        .AllowAnyHeader()
                         .AllowAnyMethod()
-                        .AllowAnyHeader());
+                        .AllowCredentials()
+                        .SetIsOriginAllowed(_ => true) // для разработки
+                        .WithExposedHeaders("Content-Disposition");
+                });
             });
 
         }

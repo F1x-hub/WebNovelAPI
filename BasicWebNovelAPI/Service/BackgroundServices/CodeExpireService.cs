@@ -30,6 +30,19 @@ namespace BasicWebNovelAPI.Service.BackgroundServices
 
                     }
 
+
+                    var lockedOutUsers = await dbContext.Users
+                        .Where(u => u.LockoutExpirationTime < DateTime.Now && u.FailedLoginAttempts > 0)
+                        .ToListAsync(stoppingToken);
+
+                    foreach (var user in lockedOutUsers)
+                    {
+                        user.FailedLoginAttempts = 0;
+                        user.LockoutExpirationTime = null;
+                    }
+
+
+
                     await dbContext.SaveChangesAsync();
                 }
 

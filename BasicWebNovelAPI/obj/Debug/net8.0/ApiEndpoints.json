@@ -195,6 +195,58 @@
   },
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
+    "Method": "DeleteChapterComments",
+    "RelativePath": "api/Comment/delete-chapter-comments/{commentId}/{chapterId}/{userId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "chapterId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
+    "Method": "DeleteNovelComments",
+    "RelativePath": "api/Comment/delete-novel-comments/{commentId}/{novelId}/{userId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "novelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
     "Method": "GetChapterComments",
     "RelativePath": "api/Comment/get-chapter-comment/{chapterId}",
     "HttpMethod": "GET",
@@ -553,6 +605,11 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
       {
         "Name": "Email",
         "Type": "System.String",

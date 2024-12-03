@@ -19,6 +19,9 @@ namespace BasicWebNovelAPI.Data
         public DbSet<NovelComments> NovelComments { get; set; }
         public DbSet<ChapterComments> ChapterComments { get; set; }
         public DbSet<UserChapterRead> UserChapterReads { get; set; }
+        
+        public DbSet<NovelCommentLikes> NovelCommentLikes { get; set; }
+        public DbSet<ChapterCommentLikes> ChapterCommentLikes { get; set; }
 
         public BasicWebNovelContext(DbContextOptions options) : base(options) 
         {
@@ -139,6 +142,32 @@ namespace BasicWebNovelAPI.Data
                 .WithMany(c => c.UserChapterRead)
                 .HasForeignKey(ucr => ucr.ChapterId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ChapterCommentLikes>()
+                .HasOne(ccl => ccl.User)
+                .WithMany()
+                .HasForeignKey(ccl => ccl.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ChapterCommentLikes>()
+                .HasOne(ccl => ccl.ChapterComment)
+                .WithMany(cc => cc.Likes)
+                .HasForeignKey(ccl => ccl.ChapterCommentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<NovelCommentLikes>()
+                .HasOne(ccl => ccl.User)
+                .WithMany()
+                .HasForeignKey(ccl => ccl.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<NovelCommentLikes>()
+                .HasOne(ccl => ccl.NovelComment)
+                .WithMany(cc => cc.Likes)
+                .HasForeignKey(ccl => ccl.NovelCommentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
         }
 
     }

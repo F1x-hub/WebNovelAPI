@@ -7,6 +7,7 @@ namespace BasicWebNovelAPI.Model.UserManagement
     public class User
     {
         public int Id { get; set; }
+        public string UserName { get; set; }
         public string Email { get; set; }
         public string PasswordHash { get; set; }
         public string FirstName { get; set; }
@@ -15,6 +16,9 @@ namespace BasicWebNovelAPI.Model.UserManagement
 
         public string? TemporaryCode { get; set; } 
         public DateTime? CodeExpirationTime { get; set; }
+
+        public int FailedLoginAttempts { get; set; } = 0; 
+        public DateTime? LockoutExpirationTime { get; set; }
 
         public string Phone { get; set; }
 
