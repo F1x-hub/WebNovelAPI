@@ -193,6 +193,30 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
+        [HttpGet("has-user-liked-novel-comment/{commentId}/{userId}")]
+        public async Task<IActionResult> GetUserLikedNovelComment(int commentId, int userId)
+        {
+            try
+            {
+                var userLikedNovelComment = await _commentRepository.HasUserLikedNovelComment(commentId, userId);
+                return Ok(userLikedNovelComment);
+
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost("set-chapter-comment-like/{commentId}/{userId}")]
         public async Task<IActionResult> SetChapterCommentLike(int commentId, int userId)
         {
@@ -200,6 +224,30 @@ namespace BasicWebNovelAPI.Controllers
             {
                 var chapterCommentLike = await _commentRepository.ToggleChapterCommentLike(commentId, userId);
                 return Ok(chapterCommentLike);
+
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+        
+        [HttpGet("has-user-liked-chapter-comment/{commentId}/{userId}")]
+        public async Task<IActionResult> GetUserLikedChapterComment(int commentId, int userId)
+        {
+            try
+            {
+                var userLikedChapterComment = await _commentRepository.HasUserLikedChapterComment(commentId, userId);
+                return Ok(userLikedChapterComment);
 
             }
             catch (BadRequestException ex)

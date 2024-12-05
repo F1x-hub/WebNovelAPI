@@ -193,6 +193,13 @@ namespace BasicWebNovelAPI.Service.Implementations
                 return true;
             }
         }
+        
+        public async Task<bool> HasUserLikedNovelComment(int commentId, int userId)
+        {
+            // Проверяем, существует ли запись лайка для данного комментария и пользователя
+            return await _context.NovelCommentLikes
+                .AnyAsync(like => like.NovelCommentId == commentId && like.UserId == userId);
+        }
 
         public async Task<bool> ToggleChapterCommentLike(int commentId, int userId)
         {
@@ -220,6 +227,13 @@ namespace BasicWebNovelAPI.Service.Implementations
                 await _context.SaveChangesAsync();
                 return true;
             }
+        }
+        
+        public async Task<bool> HasUserLikedChapterComment(int commentId, int userId)
+        {
+            // Проверяем, существует ли запись лайка для данного комментария и пользователя
+            return await _context.ChapterCommentLikes
+                .AnyAsync(like => like.ChapterCommentId == commentId && like.UserId == userId);
         }
 
         public async Task<int> GetNovelCommentLikesCount(int commentId)

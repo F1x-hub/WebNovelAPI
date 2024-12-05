@@ -13,7 +13,9 @@ namespace BasicWebNovelAPI.Service.Abstractions
         Task<bool> DeleteNovelComments(int commentId, int novelId, int userId);
         Task<bool> DeleteChapterComments(int commentId, int chapterId, int userId);
         Task<bool> ToggleNovelCommentLike(int commentId, int userId);
+        Task<bool> HasUserLikedNovelComment(int commentId, int userId);
         Task<bool> ToggleChapterCommentLike(int commentId, int userId);
+        Task<bool> HasUserLikedChapterComment(int commentId, int userId);
         Task<int> GetNovelCommentLikesCount(int commentId);
         Task<int> GetChapterCommentLikesCount(int commentId);
     }
