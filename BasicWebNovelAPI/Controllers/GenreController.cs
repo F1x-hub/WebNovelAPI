@@ -50,7 +50,7 @@ namespace BasicWebNovelAPI.Controllers
         }
 
         [HttpPost("create-genre")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateGenre([FromBody] CreateGenreDto createGenreDto)
         {
             try

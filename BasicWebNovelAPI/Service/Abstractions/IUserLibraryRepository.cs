@@ -6,5 +6,6 @@ namespace BasicWebNovelAPI.Service.Abstractions
     {
         Task<bool> AddNovelToUserLibraryAsync(int userId, int novelId, int lastReadChapter);
         Task<List<GetUserLibraryDto>> GetUserLibraryAsync(int userId);
+        Task<bool> IsNovelInUserLibraryAsync(int userId, int novelId);
     }
 }

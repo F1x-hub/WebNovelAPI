@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
+    "Method": "Error",
+    "RelativePath": "api/Auth/error",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "error",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
     "Method": "AuthorizationFacebook",
     "RelativePath": "api/Auth/facebook-authorization",
     "HttpMethod": "POST",
@@ -24,7 +40,33 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "accessToken",
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
+    "Method": "GoogleCallback",
+    "RelativePath": "api/Auth/google-callback",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.AuthController",
+    "Method": "GoogleLogin",
+    "RelativePath": "api/Auth/google-login",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "returnUrl",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -65,24 +107,24 @@
   },
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.ChapterController",
-    "Method": "AddChapterToNovel",
-    "RelativePath": "api/Chapter/add-chapter/{novelId}/{userId}",
+    "Method": "CreateChapter",
+    "RelativePath": "api/Chapter/create-chapter/{userId}/{novelId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
-      {
-        "Name": "novelId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
       {
         "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
       },
       {
-        "Name": "chapterDto",
+        "Name": "novelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "createChapterDto",
         "Type": "BasicWebNovelAPI.Model.Dto.Novel.Chapter.CreateChapterDto",
         "IsRequired": true
       }
@@ -92,7 +134,7 @@
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.ChapterController",
     "Method": "DeleteChapter",
-    "RelativePath": "api/Chapter/delete-chapter/{novelId}/{userId}/{chapterId}",
+    "RelativePath": "api/Chapter/delete-chapter/{novelId}/{chapterId}/{userId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -103,12 +145,12 @@
         "IsRequired": true
       },
       {
-        "Name": "userId",
+        "Name": "chapterId",
         "Type": "System.Int32",
         "IsRequired": true
       },
       {
-        "Name": "chapterId",
+        "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -136,6 +178,32 @@
       {
         "Name": "userId",
         "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.ChapterController",
+    "Method": "IsCurrentChapter",
+    "RelativePath": "api/Chapter/is-current-chapter/{userId}/{novelId}/{chapterNumber}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "novelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "chapterNumber",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -144,7 +212,7 @@
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.ChapterController",
     "Method": "GetAllChapters",
-    "RelativePath": "api/Chapter/novel-all-chapters/{novelId}/{userId}",
+    "RelativePath": "api/Chapter/novel-all-chapters/{novelId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -153,9 +221,30 @@
         "Name": "novelId",
         "Type": "System.Int32",
         "IsRequired": true
-      },
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.ChapterController",
+    "Method": "ToggleLastReadChapter",
+    "RelativePath": "api/Chapter/toggle-last-read/{userId}/{novelId}/{chapterNumber}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
         "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "novelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "chapterNumber",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -165,7 +254,7 @@
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.ChapterController",
     "Method": "UpdateChapter",
-    "RelativePath": "api/Chapter/update-chapter/{novelId}/{userId}/{chapterId}",
+    "RelativePath": "api/Chapter/update-chapter/{novelId}/{chapterId}/{userId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -176,12 +265,12 @@
         "IsRequired": true
       },
       {
-        "Name": "userId",
+        "Name": "chapterId",
         "Type": "System.Int32",
         "IsRequired": true
       },
       {
-        "Name": "chapterId",
+        "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
       },
@@ -247,6 +336,22 @@
   },
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
+    "Method": "GetChapterCommentLike",
+    "RelativePath": "api/Comment/get-chapter-comment-like/{commentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
     "Method": "GetChapterComments",
     "RelativePath": "api/Comment/get-chapter-comment/{chapterId}",
     "HttpMethod": "GET",
@@ -263,6 +368,22 @@
   },
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
+    "Method": "GetNovelCommentLike",
+    "RelativePath": "api/Comment/get-novel-comment-like/{commentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
     "Method": "GetNovelComments",
     "RelativePath": "api/Comment/get-novel-comment/{novelId}",
     "HttpMethod": "GET",
@@ -271,6 +392,48 @@
     "Parameters": [
       {
         "Name": "novelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
+    "Method": "GetUserLikedChapterComment",
+    "RelativePath": "api/Comment/has-user-liked-chapter-comment/{commentId}/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
+    "Method": "GetUserLikedNovelComment",
+    "RelativePath": "api/Comment/has-user-liked-novel-comment/{commentId}/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -323,6 +486,48 @@
       },
       {
         "Name": "novelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
+    "Method": "SetChapterCommentLike",
+    "RelativePath": "api/Comment/set-chapter-comment-like/{commentId}/{userId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.CommentController",
+    "Method": "SetNovelCommentLike",
+    "RelativePath": "api/Comment/set-novel-comment-like/{commentId}/{userId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -398,6 +603,70 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BasicWebNovelAPI.Controllers.ImageController",
+    "Method": "DeleteNovelImage",
+    "RelativePath": "api/Image/delete-novel-image/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.ImageController",
+    "Method": "DeleteUserImage",
+    "RelativePath": "api/Image/delete-user-image/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.ImageController",
+    "Method": "GetNovelImage",
+    "RelativePath": "api/Image/get-novel-image/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.ImageController",
+    "Method": "GetUserImage",
+    "RelativePath": "api/Image/get-user-image/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BasicWebNovelAPI.Controllers.NovelController",
     "Method": "CreateNovel",
     "RelativePath": "api/Novel/create-novel/{userId}",
@@ -446,7 +715,38 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "genreId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -461,6 +761,26 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "genreId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "requestUserId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -476,6 +796,26 @@
       {
         "Name": "name",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "genreId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],
@@ -493,6 +833,32 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.NovelController",
+    "Method": "IncrementViews",
+    "RelativePath": "api/Novel/increment-views/{novelId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "novelId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -525,6 +891,22 @@
   },
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.RatingController",
+    "Method": "GetNovelsByRating",
+    "RelativePath": "api/Rating/by-rating",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "limit",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.RatingController",
     "Method": "GetNovelRating",
     "RelativePath": "api/Rating/get-novel-rating/{novelId}",
     "HttpMethod": "GET",
@@ -535,6 +917,22 @@
         "Name": "novelId",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.RatingController",
+    "Method": "GetMostPopularNovelsLastWeek",
+    "RelativePath": "api/Rating/most-popular-last-week",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "limit",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -567,6 +965,48 @@
   },
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.RegistrationController",
+    "Method": "CompleteProfile",
+    "RelativePath": "api/Registration/complete-profile",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "profileDto",
+        "Type": "BasicWebNovelAPI.Controllers.CompleteProfileDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.RegistrationController",
+    "Method": "CompleteRegistration",
+    "RelativePath": "api/Registration/complete-registration",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.RegistrationController",
+    "Method": "Error",
+    "RelativePath": "api/Registration/error",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "error",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.RegistrationController",
     "Method": "RegistrationFacebook",
     "RelativePath": "api/Registration/facebook-registration",
     "HttpMethod": "POST",
@@ -583,6 +1023,26 @@
   },
   {
     "ContainingType": "BasicWebNovelAPI.Controllers.RegistrationController",
+    "Method": "GoogleCallback",
+    "RelativePath": "api/Registration/google-callback",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.RegistrationController",
+    "Method": "GoogleLogin",
+    "RelativePath": "api/Registration/google-login",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.RegistrationController",
     "Method": "RegistrationGoogle",
     "RelativePath": "api/Registration/google-registration",
     "HttpMethod": "POST",
@@ -590,7 +1050,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "accessToken",
+        "Name": "token",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -631,19 +1091,40 @@
         "IsRequired": false
       },
       {
-        "Name": "Age",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Phone",
-        "Type": "System.String",
+        "Name": "IsAdult",
+        "Type": "System.Boolean",
         "IsRequired": false
       },
       {
         "Name": "RoleId",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.RegistrationController",
+    "Method": "Success",
+    "RelativePath": "api/Registration/success",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.UserController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/User/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "changePasswordDto",
+        "Type": "BasicWebNovelAPI.Model.Dto.User.ChangePasswordDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -659,6 +1140,22 @@
       {
         "Name": "userId",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.UserController",
+    "Method": "ForgotPassword",
+    "RelativePath": "api/User/forgot-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -684,6 +1181,38 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.UserController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/User/reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resetPasswordDto",
+        "Type": "BasicWebNovelAPI.Model.Dto.User.ResetPasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.UserController",
+    "Method": "SetUserAsAdult",
+    "RelativePath": "api/User/set-user-as-adult/{userId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -731,6 +1260,27 @@
       },
       {
         "Name": "lastReadChapter",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BasicWebNovelAPI.Controllers.UserLibraryController",
+    "Method": "IsNovelInUserLibrary",
+    "RelativePath": "api/UserLibrary/check-novel/{userId}/{novelId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "novelId",
         "Type": "System.Int32",
         "IsRequired": true
       }

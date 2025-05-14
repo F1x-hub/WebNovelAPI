@@ -1,11 +1,16 @@
 ﻿using BasicWebNovelAPI.Model.Dto.User;
+using BasicWebNovelAPI.Controllers;
 
 namespace BasicWebNovelAPI.Service.Abstractions
 {
     public interface IRegistrationRepository
     {
         Task<GetUserDto> Registration(RegisterUserDto registerUserDto);
-        Task<bool> GoogleRegister(string accessToken);
+        
         Task<bool> FaceBookRegister(string accesToken);
+        
+        Task<bool> GoogleRegister(string token);
+
+        Task<bool> CompleteGoogleRegistration(CompleteProfileDto profileDto);
     }
 }

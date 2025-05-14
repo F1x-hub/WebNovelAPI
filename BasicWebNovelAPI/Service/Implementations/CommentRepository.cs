@@ -139,6 +139,16 @@ namespace BasicWebNovelAPI.Service.Implementations
                 return false;
             }
 
+            var novelLikes = await _context.NovelCommentLikes
+                .Where(n => n.NovelCommentId == commentId)
+                .ToListAsync();
+
+            if (novelLikes.Any())
+            {
+                _context.NovelCommentLikes.RemoveRange(novelLikes);
+                await _context.SaveChangesAsync();
+            }
+
             _context.NovelComments.Remove(novelComment);
             await _context.SaveChangesAsync();
 
@@ -157,6 +167,18 @@ namespace BasicWebNovelAPI.Service.Implementations
                 return false;
             }
 
+            
+            var commentLikes = await _context.ChapterCommentLikes
+                .Where(l => l.ChapterCommentId == commentId)
+                .ToListAsync();
+        
+            if (commentLikes.Any())
+            {
+                _context.ChapterCommentLikes.RemoveRange(commentLikes);
+                await _context.SaveChangesAsync();
+            }
+
+            
             _context.ChapterComments.Remove(chapterComment);
             await _context.SaveChangesAsync();
 

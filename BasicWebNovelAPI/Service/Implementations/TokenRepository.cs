@@ -38,7 +38,7 @@ namespace BasicWebNovelAPI.Service.Implementations
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(120),
+                expires: DateTime.Now.AddDays(30),
                 signingCredentials: creds
             );
 

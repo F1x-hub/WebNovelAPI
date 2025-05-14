@@ -1,6 +1,7 @@
 ﻿using BasicWebNovelAPI.Exceptions;
 using BasicWebNovelAPI.Service.Abstractions;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -42,13 +43,27 @@ namespace BasicWebNovelAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
-            
+        }
+
+        [HttpGet("check-novel/{userId}/{novelId}")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> IsNovelInUserLibrary(int userId, int novelId)
+        {
+            try
+            {
+                var result = await _userLibraryRepository.IsNovelInUserLibraryAsync(userId, novelId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost("add-to-library/{userId}/{novelId}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> AddNovelToLibrary(int userId, int novelId, [FromBody] int lastReadChapter)
         {
             try 
@@ -57,10 +72,18 @@ namespace BasicWebNovelAPI.Controllers
 
                 if (result)
                 {
-                    return Ok("Novel added to the user's library successfully.");
+                    var isInLibrary = await _userLibraryRepository.IsNovelInUserLibraryAsync(userId, novelId);
+                    if (isInLibrary)
+                    {
+                        return Ok("Novel added to the user's library successfully.");
+                    }
+                    else
+                    {
+                        return Ok("Novel removed from the user's library successfully.");
+                    }
                 }
 
-                return BadRequest("Failed to add the novel to the user's library.");
+                return BadRequest("Failed to update the user's library.");
             }
             catch (BadRequestException ex)
             {
@@ -72,10 +95,8 @@ namespace BasicWebNovelAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
-            
         }
     }
 }

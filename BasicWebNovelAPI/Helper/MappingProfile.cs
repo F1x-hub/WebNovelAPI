@@ -23,6 +23,8 @@ namespace BasicWebNovelAPI.Helper
             CreateMap<User, RegisterUserDto>();
             CreateMap<RegisterUserDto, User>();
 
+            CreateMap<User, UpdateUserDto>().ReverseMap();
+
             CreateMap<RegisterUserDto, User>();
 
             CreateMap<GoogleJsonWebSignature.Payload, User>();

@@ -56,7 +56,6 @@ namespace BasicWebNovelAPI.Controllers
 
 
         [HttpGet("get-user/{id}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetUserId(int id)
         {
             try 
@@ -123,7 +122,7 @@ namespace BasicWebNovelAPI.Controllers
 
 
         [HttpPut("update/{userId}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,User")]
         public async Task<IActionResult> UpdateUser(int userId, [FromBody] UpdateUserDto userDto)
         {
             try 
@@ -151,6 +150,93 @@ namespace BasicWebNovelAPI.Controllers
                 return BadRequest(ex.Message);
             }
             
+        }
+        
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] string email)
+        {
+            try
+            {
+                var result = await _userRepository.ForgotPasswordAsync(email);
+                return Ok(new { Message = result });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto resetPasswordDto)
+        {
+            try
+            {
+                bool isReset = await _userRepository.ResetPasswordAsync(resetPasswordDto);
+                if (isReset)
+                {
+                    return Ok(new { Message = "Password has been reset successfully." });
+                }
+                return BadRequest("Failed to reset password.");
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+        
+        [HttpPost("change-password")]
+        [Authorize(Roles = "Admin,User")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto changePasswordDto)
+        {
+            try
+            {
+                bool isChanged = await _userRepository.ChangePasswordAsync(changePasswordDto);
+                if (isChanged)
+                {
+                    return Ok(new { Message = "Password has been changed successfully." });
+                }
+                return BadRequest("Failed to change password.");
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("set-user-as-adult/{userId}")]
+        [Authorize(Roles = "Admin,User")]
+        public async Task<IActionResult> SetUserAsAdult(int userId)
+        {
+            try
+            {
+                var result = await _userRepository.SetUserAsAdultAsync(userId);
+                if (result)
+                    return Ok(new { Message = "User has been successfully marked as an adult" });
+                    
+                return BadRequest("Failed to update user age status");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

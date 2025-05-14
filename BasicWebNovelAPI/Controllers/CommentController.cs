@@ -26,7 +26,7 @@ namespace BasicWebNovelAPI.Controllers
         }
 
         [HttpPost("send-novel-comment/{userId}/{novelId}")]
-        //[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> SendNovelComment([FromBody] CreateNovelCommentDto createNovelCommentDto, int userId, int novelId)
         {
             try
@@ -52,7 +52,7 @@ namespace BasicWebNovelAPI.Controllers
         }
 
         [HttpPost("send-chapter-comment/{userId}/{chapterId}")]
-        //[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> SendChapterComment([FromBody] CreateChapterCommentDto createChapterCommentDto, int userId, int chapterId)
         {
             try
@@ -266,7 +266,7 @@ namespace BasicWebNovelAPI.Controllers
         }
 
         [HttpDelete("delete-novel-comments/{commentId}/{novelId}/{userId}")]
-        //[Authorize(Roles = "User,Admin")]
+        [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> DeleteNovelComments(int commentId, int novelId, int userId)
         {
             try
@@ -295,7 +295,7 @@ namespace BasicWebNovelAPI.Controllers
         }
 
         [HttpDelete("delete-chapter-comments/{commentId}/{chapterId}/{userId}")]
-        //[Authorize(Roles = "User,Admin")]
+        [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> DeleteChapterComments(int commentId, int chapterId, int userId)
         {
             try

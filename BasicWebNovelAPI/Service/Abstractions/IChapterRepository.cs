@@ -8,7 +8,9 @@ namespace BasicWebNovelAPI.Service.Abstractions
         Task<GetChapterDto> AddChapterToNovelAsync(int novelId, int userId, CreateChapterDto chapterDto);
         Task<bool> UpdateChapterAsync(int novelId, int userId, int chapterId, UpdateChapterDto updateChapterDto);
         Task<bool> DeleteChapterAsync(int novelId, int userId, int chapterId);
-        Task<List<GetChapterDto>> GetAllChaptersAsync(int novelId, int userId);
+        Task<List<GetChapterDto>> GetAllChaptersAsync(int novelId);
         Task<GetChapterDto?> GetChapterAsync(int novelId, int chapterNumber, int userId);
+        Task<bool> UpdateLastReadChapterAsync(int userId, int novelId, int chapterNumber);
+        Task<int> GetLastReadChapterAsync(int userId, int novelId);
     }
 }

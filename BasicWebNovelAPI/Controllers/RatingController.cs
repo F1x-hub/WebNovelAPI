@@ -1,6 +1,7 @@
 ﻿using BasicWebNovelAPI.Exceptions;
 using BasicWebNovelAPI.Service.Abstractions;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,10 +18,8 @@ namespace BasicWebNovelAPI.Controllers
             _ratingRepository = ratingRepository;
         }
 
-
-
         [HttpPost("rate-novel/{novelId}/{userId}")]
-        [Authorize(Roles = "User")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "User")]
         public async Task<IActionResult> RateNovel(int novelId, int userId, [FromBody] double ratingValue)
         {
             try 
@@ -44,10 +43,8 @@ namespace BasicWebNovelAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
-            
         }
 
         [HttpGet("get-novel-rating/{novelId}")]
@@ -69,10 +66,54 @@ namespace BasicWebNovelAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
-            
+        }
+        
+        [HttpGet("most-popular-last-week")]
+        public async Task<IActionResult> GetMostPopularNovelsLastWeek(int limit = 10)
+        {
+            try 
+            {
+                var novels = await _ratingRepository.GetMostPopularNovelsLastWeekAsync(limit);
+                
+                return Ok(novels);
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        
+        [HttpGet("by-rating")]
+        public async Task<IActionResult> GetNovelsByRating(int limit = 10)
+        {
+            try 
+            {
+                var novels = await _ratingRepository.GetNovelsByRatingAsync(limit);
+                
+                return Ok(novels);
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

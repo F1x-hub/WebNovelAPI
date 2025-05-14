@@ -12,15 +12,13 @@ namespace BasicWebNovelAPI.Model.UserManagement
         public string PasswordHash { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int Age { get; set; }
+        public bool IsAdult { get; set; } = false;
 
         public string? TemporaryCode { get; set; } 
         public DateTime? CodeExpirationTime { get; set; }
 
         public int FailedLoginAttempts { get; set; } = 0; 
         public DateTime? LockoutExpirationTime { get; set; }
-
-        public string Phone { get; set; }
 
         public int RoleId { get; set; }
         public Role Role { get; set; }
@@ -33,9 +31,5 @@ namespace BasicWebNovelAPI.Model.UserManagement
         public ICollection<NovelComments> NovelComments { get; set; }
         public ICollection<ChapterComments> ChapterComments { get; set; }
         public ICollection<UserChapterRead> UserChapterRead { get; set; }
-
-
-
-
     }
 }

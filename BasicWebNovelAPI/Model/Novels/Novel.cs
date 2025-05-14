@@ -1,4 +1,5 @@
-﻿using BasicWebNovelAPI.Model.UserManagement;
+﻿using BasicWebNovelAPI.Enum;
+using BasicWebNovelAPI.Model.UserManagement;
 
 namespace BasicWebNovelAPI.Model.Novels
 {
@@ -10,6 +11,10 @@ namespace BasicWebNovelAPI.Model.Novels
         
 
         public DateTime PublishedDate { get; set; }
+        
+        public int Views { get; set; } = 0;
+        public NovelStatus Status { get; set; } = NovelStatus.InProgress;
+        public bool IsAdultContent { get; set; } = false;
 
         public int UserId { get; set; }
         public User User { get; set; }
@@ -20,6 +25,7 @@ namespace BasicWebNovelAPI.Model.Novels
 
         public ICollection<NovelImages>? NovelImages { get; set; }
         public ICollection<Rating>? Ratings { get; set; }
+        public ICollection<NovelView>? NovelViews { get; set; }
 
         public ICollection<NovelComments> NovelComments { get; set; }
         

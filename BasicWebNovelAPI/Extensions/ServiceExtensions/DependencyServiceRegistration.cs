@@ -1,4 +1,6 @@
-﻿using BasicWebNovelAPI.Service.Abstractions;
+﻿using Amazon.Extensions.NETCore.Setup;
+using Amazon.S3;
+using BasicWebNovelAPI.Service.Abstractions;
 using BasicWebNovelAPI.Service.BackgroundServices;
 using BasicWebNovelAPI.Service.Implementations;
 
@@ -21,6 +23,14 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
             services.AddScoped<IRatingRepository, RatingRepository>();
             services.AddScoped<ICommentRepository, CommentRepository>();
 
+            // Configure AWS S3 Client
+            services.AddAWSService<IAmazonS3>(new AWSOptions
+            {
+                Credentials = new Amazon.Runtime.BasicAWSCredentials(
+                    configuration["AWS:AccessKey"],
+                    configuration["AWS:SecretKey"]),
+                Region = Amazon.RegionEndpoint.GetBySystemName(configuration["AWS:Region"])
+            });
 
             //background services
             services.AddHostedService<CodeExpireService>();

@@ -10,5 +10,13 @@ namespace BasicWebNovelAPI.Service.Abstractions
         Task<User> GetUserIdAsync(int userId);
         Task<bool> UpdateUserAsync(int userId, UpdateUserDto userDto);
         Task<User> DeleteUserIdAsync(int userId);
+        
+        // Password management methods
+        Task<string> ForgotPasswordAsync(string email);
+        Task<bool> ResetPasswordAsync(ResetPasswordDto resetPasswordDto);
+        Task<bool> ChangePasswordAsync(ChangePasswordDto changePasswordDto);
+        
+        // Adult verification
+        Task<bool> SetUserAsAdultAsync(int userId);
     }
 }

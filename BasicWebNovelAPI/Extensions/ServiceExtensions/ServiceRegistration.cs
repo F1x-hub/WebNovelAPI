@@ -18,11 +18,46 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
                     v.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
                 });
 
-            services.AddStackExchangeRedisCache(options =>
+            // Add session state configuration
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
             {
-                options.Configuration = configuration["Redis:Configuration"];
-                options.InstanceName = configuration["Redis:InstanceName"];
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+                options.Cookie.SameSite = SameSiteMode.Lax;
             });
+
+            // Configure cookie policy options
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.CheckConsentNeeded = context => false;
+                options.MinimumSameSitePolicy = SameSiteMode.Lax;
+                options.Secure = CookieSecurePolicy.SameAsRequest;
+            });
+
+            // Make Redis optional
+            if (!string.IsNullOrEmpty(configuration["Redis:Configuration"]) && !string.IsNullOrEmpty(configuration["Redis:InstanceName"]))
+            {
+                try
+                {
+                    services.AddStackExchangeRedisCache(options =>
+                    {
+                        options.Configuration = configuration["Redis:Configuration"];
+                        options.InstanceName = configuration["Redis:InstanceName"];
+                    });
+                }
+                catch (Exception)
+                {
+                    // Fall back to memory cache if Redis is not available
+                    services.AddDistributedMemoryCache();
+                }
+            }
+            else
+            {
+                // Use in-memory cache if Redis is not configured
+                services.AddDistributedMemoryCache();
+            }
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
@@ -56,12 +91,16 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
             {
                 options.AddPolicy("AllowAngularApp", policy =>
                 {
-                    policy.WithOrigins("http://localhost:4200", "http://localhost:5173") // добавляем Vite dev server порт
+                    policy.WithOrigins(
+                            "http://localhost:4200",
+                            "https://localhost:4200", 
+                            "http://localhost:7153", 
+                            "https://localhost:7153",
+                            "http://localhost:5173"
+                        )
                         .AllowAnyHeader()
                         .AllowAnyMethod()
-                        .AllowCredentials()
-                        .SetIsOriginAllowed(_ => true) // для разработки
-                        .WithExposedHeaders("Content-Disposition");
+                        .AllowCredentials();
                 });
             });
 

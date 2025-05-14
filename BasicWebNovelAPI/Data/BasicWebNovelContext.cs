@@ -19,6 +19,7 @@ namespace BasicWebNovelAPI.Data
         public DbSet<NovelComments> NovelComments { get; set; }
         public DbSet<ChapterComments> ChapterComments { get; set; }
         public DbSet<UserChapterRead> UserChapterReads { get; set; }
+        public DbSet<NovelView> NovelViews { get; set; }
         
         public DbSet<NovelCommentLikes> NovelCommentLikes { get; set; }
         public DbSet<ChapterCommentLikes> ChapterCommentLikes { get; set; }
@@ -29,7 +30,17 @@ namespace BasicWebNovelAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<NovelView>()
+                .HasOne(nv => nv.Novel)
+                .WithMany(n => n.NovelViews)
+                .HasForeignKey(nv => nv.NovelId)
+                .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<NovelView>()
+                .HasOne(nv => nv.User)
+                .WithMany()
+                .HasForeignKey(nv => nv.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<User>()
                 .HasMany(u => u.UserImages)

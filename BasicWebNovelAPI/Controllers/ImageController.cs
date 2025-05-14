@@ -38,7 +38,6 @@ namespace BasicWebNovelAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
         }
@@ -62,10 +61,98 @@ namespace BasicWebNovelAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
         }
 
+        [HttpGet("get-novel-image/{id}")]
+        public async Task<IActionResult> GetNovelImage(int id)
+        {
+            try
+            {
+                var imageStream = await _imageRepository.GetNovelImageAsync(id);
+                return File(imageStream, "image/jpeg");
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("get-user-image/{id}")]
+        public async Task<IActionResult> GetUserImage(int id)
+        {
+            try
+            {
+                var imageStream = await _imageRepository.GetUserImageAsync(id);
+                return File(imageStream, "image/jpeg");
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("delete-novel-image/{id}")]
+        [Authorize(Roles = "Admin, User")]
+        public async Task<IActionResult> DeleteNovelImage(int id)
+        {
+            try
+            {
+                await _imageRepository.DeleteNovelImageAsync(id);
+                return Ok(new { Message = "Image deleted successfully!" });
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("delete-user-image/{id}")]
+        [Authorize]
+        public async Task<IActionResult> DeleteUserImage(int id)
+        {
+            try
+            {
+                await _imageRepository.DeleteUserImageAsync(id);
+                return Ok(new { Message = "Image deleted successfully!" });
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

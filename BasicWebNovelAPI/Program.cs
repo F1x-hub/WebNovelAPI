@@ -20,6 +20,39 @@ builder.Services.AddProjectServices(builder.Configuration);
 
 builder.Services.AddSignalR();
 
+// Add cookie policy to address SameSite issues
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    // This allows cookies to be sent in cross-site requests (important for OAuth)
+    options.MinimumSameSitePolicy = Microsoft.AspNetCore.Http.SameSiteMode.Lax;
+    // During development, match the scheme of your application
+    options.Secure = builder.Environment.IsDevelopment() 
+        ? Microsoft.AspNetCore.Http.CookieSecurePolicy.SameAsRequest 
+        : Microsoft.AspNetCore.Http.CookieSecurePolicy.Always;
+    options.HttpOnly = Microsoft.AspNetCore.CookiePolicy.HttpOnlyPolicy.Always;
+});
+
+// Add session services
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+    options.Cookie.SameSite = SameSiteMode.Lax;
+    // Match the secure policy with the cookie policy for consistency
+    options.Cookie.SecurePolicy = builder.Environment.IsDevelopment()
+        ? CookieSecurePolicy.SameAsRequest
+        : CookieSecurePolicy.Always;
+});
+
+// Add logger configuration to show detailed logs for Auth components
+builder.Logging.AddConsole();
+builder.Logging.SetMinimumLevel(LogLevel.Debug);
+builder.Logging.AddFilter("Microsoft.AspNetCore.Authentication", LogLevel.Debug);
+builder.Logging.AddFilter("BasicWebNovelAPI.Controllers.AuthController", LogLevel.Debug);
+builder.Logging.AddFilter("BasicWebNovelAPI.Service.Implementations.AuthorizationRepository", LogLevel.Debug);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,12 +62,17 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// IMPORTANT: Middleware order matters for authentication
+// Apply cookie policy and session before any authentication middleware
+app.UseCookiePolicy();
+app.UseSession();
+
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
 app.UseCors("AllowAngularApp");
 
+// Authentication should come before Authorization but after cookie policy
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapHub<CommentHub>("/commentHub");
 

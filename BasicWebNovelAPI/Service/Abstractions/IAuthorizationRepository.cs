@@ -11,12 +11,14 @@ namespace BasicWebNovelAPI.Service.Abstractions
         Task<string> LogIn(GetLoginDto getLoginDto);
         Task<string> VerifyCode(VerifyCodeDto verifyCodeDto);
         
-        Task<string> GoogleAuthorization(string accessToken);
         
         Task<string> FaceBookAuthorization(string accessToken);
 
-        Task<GoogleJsonWebSignature.Payload> GetPayLoad(string token);
+        
         Task<User> GetGraphData(string accessToken);
 
+        Task<string> GoogleAuthorization(string token);
+
+        Task<User> GetGoogleUserData(string token);
     }
 }
