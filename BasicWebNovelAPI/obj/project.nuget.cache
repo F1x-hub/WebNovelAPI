@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5z7DeahVBYY=",
+  "dgSpecHash": "ha1NyhNRLgM=",
   "success": true,
-  "projectFilePath": "D:\\Programing\\C#\\Projects\\WebNovelAPI\\WebNovel\\WebNovelAPI\\BasicWebNovelAPI\\BasicWebNovelAPI.csproj",
+  "projectFilePath": "D:\\Programing\\C#\\Projects\\WebNovelAPI\\WebNovelApi\\WebNovelAPI\\BasicWebNovelAPI\\BasicWebNovelAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\irakl\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\irakl\\.nuget\\packages\\awssdk.core\\3.7.402.39\\awssdk.core.3.7.402.39.nupkg.sha512",
