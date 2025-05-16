@@ -526,10 +526,11 @@ D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\o
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BasicWebNovelAPI.props
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BasicWebNovelAPI.props
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\staticwebassets.pack.json
-D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\BasicWeb.67755125.Up2Date
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\BasicWebNovelAPI.dll
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\refint\BasicWebNovelAPI.dll
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\BasicWebNovelAPI.pdb
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\BasicWebNovelAPI.genruntimeconfig.cache
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\ref\BasicWebNovelAPI.dll
+D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\BasicWebNovelAPI.xml
+D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\obj\Debug\net8.0\BasicWebNovelAPI.xml

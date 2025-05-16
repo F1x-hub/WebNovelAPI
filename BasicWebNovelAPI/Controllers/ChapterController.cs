@@ -9,8 +9,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BasicWebNovelAPI.Controllers
 {
+    /// <summary>
+    /// Controller for managing novel chapters
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class ChapterController : ControllerBase
     {
         private readonly IChapterRepository _chapterRepository;
@@ -20,8 +24,34 @@ namespace BasicWebNovelAPI.Controllers
             _chapterRepository = chapterRepository;
         }
 
+        /// <summary>
+        /// Creates a new chapter for a novel
+        /// </summary>
+        /// <param name="userId">The unique identifier of the user creating the chapter</param>
+        /// <param name="novelId">The unique identifier of the novel to add the chapter to</param>
+        /// <param name="createChapterDto">Object containing the new chapter details</param>
+        /// <returns>The newly created chapter with its assigned ID</returns>
+        /// <response code="201">Returns the created chapter</response>
+        /// <response code="400">If the chapter data is invalid</response>
+        /// <response code="404">If the novel is not found</response>
+        /// <remarks>
+        /// This endpoint is restricted to authenticated users with the "User" role.
+        /// Users can only add chapters to novels they have created, unless they are administrators.
+        /// 
+        /// Sample request:
+        ///
+        ///     POST /api/Chapter/create-chapter/1/2
+        ///     {
+        ///         "title": "Chapter One: The Beginning",
+        ///         "content": "Once upon a time in a land far away...",
+        ///         "chapterNumber": 1
+        ///     }
+        /// </remarks>
         [HttpPost("create-chapter/{userId}/{novelId}")]
         [Authorize(Roles = "User")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> CreateChapter(int userId, int novelId, [FromBody] CreateChapterDto createChapterDto)
         {
             try 
@@ -45,8 +75,35 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates an existing chapter
+        /// </summary>
+        /// <param name="novelId">The unique identifier of the novel</param>
+        /// <param name="chapterId">The unique identifier of the chapter to update</param>
+        /// <param name="userId">The unique identifier of the user making the update</param>
+        /// <param name="updateChapterDto">Object containing the updated chapter information</param>
+        /// <returns>Confirmation of successful update</returns>
+        /// <response code="200">Chapter updated successfully</response>
+        /// <response code="404">If the novel or chapter is not found</response>
+        /// <response code="400">If the update data is invalid</response>
+        /// <remarks>
+        /// This endpoint is restricted to authenticated users with the "User" role.
+        /// Users can only update chapters for novels they have created, unless they are administrators.
+        /// 
+        /// Sample request:
+        ///
+        ///     PUT /api/Chapter/update-chapter/2/3/1
+        ///     {
+        ///         "title": "Updated Chapter Title",
+        ///         "content": "Updated chapter content goes here...",
+        ///         "isPublished": true
+        ///     }
+        /// </remarks>
         [HttpPut("update-chapter/{novelId}/{chapterId}/{userId}")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "User")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> UpdateChapter(int novelId, int chapterId, int userId, [FromBody] UpdateChapterDto updateChapterDto)
         {
             try 
@@ -73,9 +130,25 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Deletes a chapter
+        /// </summary>
+        /// <param name="novelId">The unique identifier of the novel</param>
+        /// <param name="chapterId">The unique identifier of the chapter to delete</param>
+        /// <param name="userId">The unique identifier of the user requesting deletion</param>
+        /// <returns>Confirmation of successful deletion</returns>
+        /// <response code="200">Chapter deleted successfully</response>
+        /// <response code="404">If the novel or chapter is not found</response>
+        /// <response code="400">If there was an error deleting the chapter</response>
+        /// <remarks>
+        /// This endpoint is restricted to authenticated users with the "Admin" or "User" role.
+        /// Users can only delete chapters for novels they have created, unless they are administrators.
+        /// </remarks>
         [HttpDelete("delete-chapter/{novelId}/{chapterId}/{userId}")]
         //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,User")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> DeleteChapter(int novelId, int chapterId, int userId)
         {
             try 
@@ -104,7 +177,21 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves all chapters for a novel
+        /// </summary>
+        /// <param name="novelId">The unique identifier of the novel</param>
+        /// <returns>List of all chapters for the specified novel</returns>
+        /// <response code="200">Returns the list of chapters</response>
+        /// <response code="404">If the novel is not found</response>
+        /// <response code="400">If there was an error retrieving the chapters</response>
+        /// <remarks>
+        /// Chapters are returned in order of their chapter numbers.
+        /// </remarks>
         [HttpGet("novel-all-chapters/{novelId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetAllChapters(int novelId)
         {
             try
@@ -127,7 +214,23 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves a specific chapter by its number
+        /// </summary>
+        /// <param name="novelId">The unique identifier of the novel</param>
+        /// <param name="chapterNumber">The sequential number of the chapter</param>
+        /// <param name="userId">Optional user ID for tracking reading progress (0 means anonymous)</param>
+        /// <returns>Chapter details and content</returns>
+        /// <response code="200">Returns the chapter details</response>
+        /// <response code="404">If the novel or chapter is not found</response>
+        /// <response code="400">If there was an error retrieving the chapter</response>
+        /// <remarks>
+        /// If a valid userId is provided, this endpoint will update the user's reading progress.
+        /// </remarks>
         [HttpGet("get-chapter/{novelId}/{chapterNumber}/{userId?}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetChapterByNumber(int novelId, int chapterNumber, int userId = 0)
         {
             try
@@ -153,7 +256,21 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Checks if a chapter is the user's current reading position
+        /// </summary>
+        /// <param name="userId">The unique identifier of the user</param>
+        /// <param name="novelId">The unique identifier of the novel</param>
+        /// <param name="chapterNumber">The sequential number of the chapter</param>
+        /// <returns>Boolean indicating whether this is the current chapter</returns>
+        /// <response code="200">Returns true if current chapter, false otherwise</response>
+        /// <response code="400">If there was an error checking the chapter status</response>
+        /// <remarks>
+        /// This endpoint is used to highlight the current reading position in the UI.
+        /// </remarks>
         [HttpGet("is-current-chapter/{userId}/{novelId}/{chapterNumber}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> IsCurrentChapter(int userId, int novelId, int chapterNumber)
         {
             try
@@ -182,8 +299,26 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Toggles a chapter as the user's current reading position
+        /// </summary>
+        /// <param name="userId">The unique identifier of the user</param>
+        /// <param name="novelId">The unique identifier of the novel</param>
+        /// <param name="chapterNumber">The sequential number of the chapter</param>
+        /// <returns>Updated reading progress information</returns>
+        /// <response code="200">Reading position updated successfully</response>
+        /// <response code="400">If there was an error updating the reading position</response>
+        /// <remarks>
+        /// This endpoint works as a toggle:
+        /// - If the chapter is already marked as last read, it will be unmarked
+        /// - If a different chapter is marked, this one will be marked instead
+        /// - If no chapter is marked, this one will be marked
+        /// </remarks>
         [HttpPost("toggle-last-read/{userId}/{novelId}/{chapterNumber}")]
         //pp[Authorize(Roles = "User")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> ToggleLastReadChapter(int userId, int novelId, int chapterNumber)
         {
             try

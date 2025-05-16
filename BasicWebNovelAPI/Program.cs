@@ -20,6 +20,33 @@ builder.Services.AddProjectServices(builder.Configuration);
 
 builder.Services.AddSignalR();
 
+// Configure Swagger with XML documentation
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { 
+        Title = "Basic Web Novel API", 
+        Version = "v1",
+        Description = "API for managing web novels, chapters, comments, and user libraries",
+        Contact = new OpenApiContact
+        {
+            Name = "API Support",
+            Email = "support@webnovelapi.com"
+        }
+    });
+    
+    // Include XML comments
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(xmlPath);
+    
+    // Add examples
+    c.ExampleFilters();
+    
+    
+});
+
+builder.Services.AddSwaggerExamplesFromAssemblyOf<Program>();
+
 // Add cookie policy to address SameSite issues
 builder.Services.Configure<CookiePolicyOptions>(options =>
 {

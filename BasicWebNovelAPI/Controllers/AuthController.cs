@@ -16,8 +16,12 @@ using System.Text.Json;
 
 namespace BasicWebNovelAPI.Controllers
 {
+    /// <summary>
+    /// Controller for handling user authentication and authorization operations
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthorizationRepository _authorizationRepository;
@@ -37,7 +41,14 @@ namespace BasicWebNovelAPI.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Initiates Google authentication flow
+        /// </summary>
+        /// <param name="returnUrl">URL to redirect after successful authentication (default: "/")</param>
+        /// <returns>Challenge result that redirects to Google authentication page</returns>
+        /// <response code="302">Redirects to Google authentication page</response>
         [HttpGet("google-login")]
+        [ProducesResponseType(StatusCodes.Status302Found)]
         public IActionResult GoogleLogin(string returnUrl = "/")
         {
             _logger.LogInformation("Starting Google login flow for return URL: {ReturnUrl}", returnUrl);
@@ -58,7 +69,15 @@ namespace BasicWebNovelAPI.Controllers
             return Challenge(properties, GoogleDefaults.AuthenticationScheme);
         }
         
+        /// <summary>
+        /// Handles the callback from Google OAuth authentication
+        /// </summary>
+        /// <returns>Redirect to frontend with authentication token or error page</returns>
+        /// <response code="302">Redirects to specified return URL with token</response>
+        /// <response code="200">Error response if authentication fails</response>
         [HttpGet("google-callback")]
+        [ProducesResponseType(StatusCodes.Status302Found)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GoogleCallback()
         {
             try
@@ -207,7 +226,28 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
         
+        /// <summary>
+        /// Authorizes a user with Google token
+        /// </summary>
+        /// <param name="token">Google authentication token</param>
+        /// <returns>JWT token for authenticated user</returns>
+        /// <response code="200">Returns JWT token for the user</response>
+        /// <response code="400">If token is invalid or authentication fails</response>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     POST /api/Auth/google-authorization
+        ///     "eyJhbGciOiJSUzI1NiIsImtpZCI6IjI..."
+        ///     
+        /// Sample response:
+        /// 
+        ///     {
+        ///         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        ///     }
+        /// </remarks>
         [HttpPost("google-authorization")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AuthorizationGoogle(string token)
         {
             try
@@ -245,7 +285,33 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Authenticates a user with email and password
+        /// </summary>
+        /// <param name="loginDto">Login credentials containing email and password</param>
+        /// <returns>JWT token upon successful authentication</returns>
+        /// <response code="200">Returns JWT token for the user</response>
+        /// <response code="400">If credentials are invalid</response>
+        /// <response code="404">If user is not found</response>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     POST /api/Auth/login
+        ///     {
+        ///         "email": "user@example.com",
+        ///         "password": "Password123!"
+        ///     }
+        ///     
+        /// Sample response:
+        /// 
+        ///     {
+        ///         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        ///     }
+        /// </remarks>
         [HttpPost("login")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> LogIn(GetLoginDto loginDto)
         {
             try
@@ -267,7 +333,31 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Verifies a 2FA code for user authentication
+        /// </summary>
+        /// <param name="verifyCodeDto">Object containing user email and verification code</param>
+        /// <returns>JWT token upon successful verification</returns>
+        /// <response code="200">Returns JWT token for the user after successful verification</response>
+        /// <response code="400">If the code is invalid</response>
+        /// <response code="404">If user is not found</response>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     POST /api/Auth/verify-code
+        ///     {
+        ///         "email": "user@example.com",
+        ///         "code": "123456"
+        ///     }
+        ///     
+        /// Sample response:
+        /// 
+        ///     "User successfully logged in. Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        /// </remarks>
         [HttpPost("verify-code")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> VerifyCode(VerifyCodeDto verifyCodeDto)
         {
             try
@@ -289,8 +379,30 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Authenticates a user with Facebook access token
+        /// </summary>
+        /// <param name="accessToken">Facebook access token</param>
+        /// <returns>JWT token upon successful authentication</returns>
+        /// <response code="200">Returns JWT token for the user</response>
+        /// <response code="400">If token is invalid or authentication fails</response>
+        /// <response code="404">If user is not found</response>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     POST /api/Auth/facebook-authorization
+        ///     "EAAZAWJOXgj4UBAGXLcpxN4v6cqZCWuiZB..."
+        ///     
+        /// Sample response:
+        /// 
+        ///     {
+        ///         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        ///     }
+        /// </remarks>
         [HttpPost("facebook-authorization")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> AuthorizationFacebook(string accessToken)
         {
             try
@@ -315,7 +427,23 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Returns authentication error information
+        /// </summary>
+        /// <param name="error">Error message from authentication process</param>
+        /// <returns>Formatted error object with redirect information</returns>
+        /// <response code="200">Returns error details and redirect information</response>
+        /// <remarks>
+        /// Sample response:
+        /// 
+        ///     {
+        ///         "error": true,
+        ///         "message": "Authentication error: Invalid token",
+        ///         "redirectTo": "/login"
+        ///     }
+        /// </remarks>
         [HttpGet("error")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult Error(string error)
         {
             _logger.LogWarning("Authentication error: {Error}", error);
@@ -327,6 +455,5 @@ namespace BasicWebNovelAPI.Controllers
                 redirectTo = "/login" // Frontend can use this to redirect the user
             });
         }
-
     }
 }

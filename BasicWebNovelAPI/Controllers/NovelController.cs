@@ -13,8 +13,12 @@ using BasicWebNovelAPI.Enum;
 
 namespace BasicWebNovelAPI.Controllers
 {
+    /// <summary>
+    /// Controller for managing web novels
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class NovelController : ControllerBase
     {
         private readonly INovelRepository _novelRepository;
@@ -26,8 +30,28 @@ namespace BasicWebNovelAPI.Controllers
             _context = context;
         }
 
-        
+        /// <summary>
+        /// Retrieves a paginated list of novels with optional filtering
+        /// </summary>
+        /// <param name="pageNumber">Page number for pagination (default: 1)</param>
+        /// <param name="pageSize">Number of results per page (default: 10)</param>
+        /// <param name="genreId">Optional filter by genre ID</param>
+        /// <param name="status">Optional filter by novel status (In Progress, Completed, Hiatus)</param>
+        /// <param name="sortBy">Optional sorting parameter (e.g., "title", "date", "rating")</param>
+        /// <param name="userId">Optional user ID to filter adult content (0 means unauthenticated)</param>
+        /// <returns>Paginated list of novels matching criteria</returns>
+        /// <response code="200">Returns the list of novels</response>
+        /// <response code="404">If no novels are found matching criteria</response>
+        /// <response code="400">If there was an error retrieving novels</response>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     GET /api/Novel/get-all-novels?pageNumber=1&amp;pageSize=10&amp;genreId=2&amp;status=Completed&amp;sortBy=rating
+        /// </remarks>
         [HttpGet("get-all-novels")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetNovels(
             int pageNumber = 1, 
             int pageSize = 10, 
@@ -62,8 +86,27 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
-        
+        /// <summary>
+        /// Retrieves a specific novel by ID and increments view count
+        /// </summary>
+        /// <param name="id">The unique identifier of the novel</param>
+        /// <param name="userId">Optional user ID to check adult content access (0 means unauthenticated)</param>
+        /// <returns>Detailed information about the requested novel</returns>
+        /// <response code="200">Returns the novel details</response>
+        /// <response code="404">If novel is not found</response>
+        /// <response code="400">If there was an error retrieving the novel</response>
+        /// <response code="401">If authentication is required for adult content</response>
+        /// <response code="403">If user is not authorized to access adult content</response>
+        /// <remarks>
+        /// This endpoint automatically increments the view count for the novel.
+        /// Adult content is restricted to authenticated users who are verified as adults.
+        /// </remarks>
         [HttpGet("get-novel/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<IActionResult> GetNovelById(int id, [FromQuery] int userId = 0)
         {
             try 
@@ -118,7 +161,30 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Searches novels by name with optional filtering
+        /// </summary>
+        /// <param name="name">Search query for novel title</param>
+        /// <param name="genreId">Optional filter by genre ID</param>
+        /// <param name="status">Optional filter by novel status (In Progress, Completed, Hiatus)</param>
+        /// <param name="sortBy">Optional sorting parameter (e.g., "title", "date", "rating")</param>
+        /// <param name="userId">Optional user ID to filter adult content (0 means unauthenticated)</param>
+        /// <returns>List of novels matching the search criteria</returns>
+        /// <response code="200">Returns novels matching the search</response>
+        /// <response code="404">If no novels match the criteria</response>
+        /// <response code="400">If there was an error processing the search</response>
+        /// <remarks>
+        /// Adult content is automatically filtered based on user authentication status and age verification.
+        /// Unauthenticated users will not see adult content in results.
+        /// 
+        /// Sample request:
+        ///
+        ///     GET /api/Novel/get-novel-by-name?name=dragon&amp;genreId=2&amp;status=Completed
+        /// </remarks>
         [HttpGet("get-novel-by-name")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetNovelByName(
             string name, 
             [FromQuery] int? genreId = null,
@@ -172,7 +238,26 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves all novels created by a specific user
+        /// </summary>
+        /// <param name="id">The unique identifier of the user whose novels to retrieve</param>
+        /// <param name="genreId">Optional filter by genre ID</param>
+        /// <param name="status">Optional filter by novel status (In Progress, Completed, Hiatus)</param>
+        /// <param name="sortBy">Optional sorting parameter (e.g., "title", "date", "rating")</param>
+        /// <param name="requestUserId">Optional ID of the requesting user (0 means unauthenticated)</param>
+        /// <returns>List of novels created by the specified user</returns>
+        /// <response code="200">Returns the list of user's novels</response>
+        /// <response code="404">If no novels are found for this user</response>
+        /// <response code="400">If there was an error retrieving the novels</response>
+        /// <remarks>
+        /// Adult content filtering is applied based on requestUserId's authentication status and age verification,
+        /// unless the requestUserId matches the target user id (authors can always see their own content).
+        /// </remarks>
         [HttpGet("get-all-user-novel/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetAllUserNovel(
             int id, 
             [FromQuery] int? genreId = null,
@@ -230,9 +315,35 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
-        
+        /// <summary>
+        /// Creates a new novel for a specified user
+        /// </summary>
+        /// <param name="createNovelDto">Object containing the new novel details</param>
+        /// <param name="userId">The unique identifier of the user creating the novel</param>
+        /// <returns>The newly created novel with its assigned ID</returns>
+        /// <response code="200">Returns the created novel</response>
+        /// <response code="400">If the novel data is invalid or user is not allowed to create adult content</response>
+        /// <response code="404">If user is not found</response>
+        /// <remarks>
+        /// This endpoint is restricted to authenticated users with the "User" role.
+        /// To mark a novel as adult content, the user must be verified as an adult (18+).
+        /// 
+        /// Sample request:
+        ///
+        ///     POST /api/Novel/create-novel/1
+        ///     {
+        ///         "title": "My Amazing Novel",
+        ///         "description": "A fantastic story of adventure",
+        ///         "genreIds": [1, 2],
+        ///         "isAdultContent": false,
+        ///         "status": "InProgress"
+        ///     }
+        /// </remarks>
         [HttpPost("create-novel/{userId}")]
         [Authorize(Roles = "User")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> CreateNovel([FromBody] CreateNovelDto createNovelDto, int userId)
         {
             try 
@@ -264,8 +375,36 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates an existing novel
+        /// </summary>
+        /// <param name="novelId">The unique identifier of the novel to update</param>
+        /// <param name="userId">The unique identifier of the user making the update</param>
+        /// <param name="updateNovelDto">Object containing the updated novel information</param>
+        /// <returns>Confirmation of successful update</returns>
+        /// <response code="200">Novel updated successfully</response>
+        /// <response code="404">If novel is not found</response>
+        /// <response code="400">If update data is invalid or user is not allowed to mark as adult content</response>
+        /// <remarks>
+        /// This endpoint is restricted to authenticated users with the "User" role.
+        /// Users can only update novels they have created, unless they are administrators.
+        /// To mark a novel as adult content, the user must be verified as an adult (18+).
+        /// 
+        /// Sample request:
+        ///
+        ///     PUT /api/Novel/update-novel/1/2
+        ///     {
+        ///         "title": "Updated Novel Title",
+        ///         "description": "New description for the novel",
+        ///         "isAdultContent": false,
+        ///         "status": "Completed"
+        ///     }
+        /// </remarks>
         [HttpPut("update-novel/{novelId}/{userId}")]
         [Authorize(Roles = "User")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> UpdateNovel(int novelId, int userId, [FromBody] UpdateNovelDto updateNovelDto)
         {
             try 
@@ -302,9 +441,24 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Deletes a novel
+        /// </summary>
+        /// <param name="novelId">The unique identifier of the novel to delete</param>
+        /// <param name="userId">The unique identifier of the user requesting deletion</param>
+        /// <returns>Confirmation of successful deletion</returns>
+        /// <response code="200">Novel deleted successfully</response>
+        /// <response code="404">If novel is not found</response>
+        /// <response code="400">If there was an error deleting the novel</response>
+        /// <remarks>
+        /// This endpoint is restricted to authenticated users with the "Admin" or "User" role.
+        /// Users can only delete novels they have created, unless they are administrators.
+        /// </remarks>
         [HttpDelete("delete-novel/{novelId}/{userId}")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,User")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> DeleteNovel(int novelId, int userId)
         {
             try 
@@ -331,7 +485,24 @@ namespace BasicWebNovelAPI.Controllers
             }
         }
         
+        /// <summary>
+        /// Increments the view count for a novel
+        /// </summary>
+        /// <param name="novelId">The unique identifier of the novel</param>
+        /// <param name="userId">Optional user ID for tracking (0 means anonymous view)</param>
+        /// <returns>Confirmation of view count increment</returns>
+        /// <response code="200">View count incremented successfully</response>
+        /// <response code="404">If novel is not found</response>
+        /// <response code="400">If there was an error incrementing the view count</response>
+        /// <remarks>
+        /// The system tracks IP addresses to prevent duplicate views in a short time period.
+        /// This endpoint is typically called automatically when a novel is viewed,
+        /// but can be called manually if needed.
+        /// </remarks>
         [HttpPost("increment-views/{novelId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> IncrementViews(int novelId, [FromQuery] int userId = 0)
         {
             try
