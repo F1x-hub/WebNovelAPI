@@ -2,6 +2,18 @@
 
 ![.NET Core](https://img.shields.io/badge/.NET-8.0-512BD4) ![License](https://img.shields.io/badge/license-MIT-blue) ![Status](https://img.shields.io/badge/status-development-yellow)
 
+## 📋 Table of Contents
+- [Project Overview](#-project-overview)
+- [Installation and Setup](#-installation-and-setup)
+- [Configuration](#-configuration)
+- [API Endpoints](#-api-endpoints)
+- [Architecture and Modules](#-architecture-and-modules)
+- [Migrations and Database](#-migrations-and-database)
+- [Testing](#-testing)
+- [Best Practices and Tips](#-best-practices-and-tips)
+- [Documentation and Resources](#-documentation-and-resources)
+- [Author and License](#-author-and-license)
+
 ## 🎯 Project Overview
 
 WebNovelAPI is a powerful RESTful API for managing web novels, providing authors with the ability to publish their works and readers to discover, read, and track interesting content.
@@ -750,7 +762,7 @@ builder.Services.AddSwaggerGen(c =>
 
 **Fix**
 - Email: iraklilagvilava975@gmail.com
-- GitHub: [github.com/yourusername](https://github.com/F1x-hub)
+- GitHub: [github.com/F1x-hub](https://github.com/F1x-hub)
 - LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
 
 ### License
