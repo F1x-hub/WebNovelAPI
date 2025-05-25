@@ -26,6 +26,31 @@ namespace BasicWebNovelAPI.Service.Implementations
             _cache = cache;
             _mapper = mapper;
             _hubContext = hubContext;
+            
+            // Ensure all chapter comments have NovelId set correctly
+            InitializeChapterCommentNovelIds().GetAwaiter().GetResult();
+        }
+        
+        private async Task InitializeChapterCommentNovelIds()
+        {
+            // Find chapter comments with missing or zero NovelId
+            var commentsWithMissingNovelId = await _context.ChapterComments
+                .Where(c => c.NovelId == 0)
+                .ToListAsync();
+                
+            if (commentsWithMissingNovelId.Any())
+            {
+                foreach (var comment in commentsWithMissingNovelId)
+                {
+                    var chapter = await _context.Chapters.FindAsync(comment.ChapterId);
+                    if (chapter != null)
+                    {
+                        comment.NovelId = chapter.NovelId;
+                    }
+                }
+                
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task<GetNovelCommentDto> SendNovelComment(CreateNovelCommentDto createNovelCommentDto, int userId, int novelId)
@@ -63,17 +88,20 @@ namespace BasicWebNovelAPI.Service.Implementations
         public async Task<GetChapterCommentDto> SendChapterComment(CreateChapterCommentDto createChapterCommentDto, int userId, int chapterId)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
-
             if (user == null)
                 throw new Exception("User Not Found");
 
+            var chapter = await _context.Chapters
+                .FirstOrDefaultAsync(c => c.Id == chapterId);
+            if (chapter == null)
+                throw new Exception("Chapter Not Found");
 
             var comment = _mapper.Map<ChapterComments>(createChapterCommentDto);
             comment.UserId = userId;
             comment.ChapterId = chapterId;
+            comment.NovelId = chapter.NovelId;
             comment.DisplayName = user.UserName;
             
-
             comment.PublishedDate = DateTime.Now;
 
             if (comment.Content == "")
@@ -85,6 +113,8 @@ namespace BasicWebNovelAPI.Service.Implementations
             await _context.SaveChangesAsync();
 
             var chapterCommentDto = _mapper.Map<GetChapterCommentDto>(comment);
+            
+            await _hubContext.Clients.All.SendAsync("ReceiveChapterComment", chapterCommentDto);
 
             return chapterCommentDto;
         }
@@ -111,10 +141,16 @@ namespace BasicWebNovelAPI.Service.Implementations
 
         public async Task<List<GetChapterCommentDto>> GetAllCommentChapter(int chapterId)
         {
-            
+            // Get the chapter to determine its novel
+            var chapter = await _context.Chapters
+                .FirstOrDefaultAsync(c => c.Id == chapterId);
+                
+            if (chapter == null)
+                throw new Exception("Chapter Not Found");
+                
             var chapterComment = await _context.ChapterComments
                 .Include(nc => nc.Likes)  // Ensure likes are loaded
-                .Where(n => n.ChapterId == chapterId)
+                .Where(c => c.ChapterId == chapterId && c.NovelId == chapter.NovelId)
                 .ToListAsync();
 
             if (chapterComment.Count <= 0)
@@ -123,9 +159,7 @@ namespace BasicWebNovelAPI.Service.Implementations
             }
 
             var chapterCommentDto = _mapper.Map<List<GetChapterCommentDto>>(chapterComment);
-
             
-
             return chapterCommentDto;
         }
 

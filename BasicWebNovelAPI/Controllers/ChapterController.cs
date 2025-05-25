@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
 
 namespace BasicWebNovelAPI.Controllers
 {
@@ -18,10 +19,55 @@ namespace BasicWebNovelAPI.Controllers
     public class ChapterController : ControllerBase
     {
         private readonly IChapterRepository _chapterRepository;
+        private readonly IWebHostEnvironment _environment;
 
-        public ChapterController(IChapterRepository chapterRepository)
+        public ChapterController(IChapterRepository chapterRepository, IWebHostEnvironment environment)
         {
             _chapterRepository = chapterRepository;
+            _environment = environment;
+        }
+
+        /// <summary>
+        /// Uploads a PDF file to use as chapter content
+        /// </summary>
+        /// <param name="userId">User ID of the uploader</param>
+        /// <param name="novelId">Novel ID that the chapter belongs to</param>
+        /// <param name="chapterId">Chapter ID (0 if creating a new chapter)</param>
+        /// <param name="file">The PDF file to upload</param>
+        /// <returns>The path to the uploaded PDF file</returns>
+        /// <response code="200">File uploaded successfully</response>
+        /// <response code="400">If file is invalid or upload fails</response>
+        [HttpPost("upload-pdf/{userId}/{novelId}/{chapterId?}")]
+        [Authorize(Roles = "User")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> UploadPdf(int userId, int novelId, int chapterId, IFormFile file)
+        {
+            try
+            {
+                if (file == null || file.Length == 0)
+                    return BadRequest("No file was provided.");
+
+                if (!file.ContentType.Equals("application/pdf", StringComparison.OrdinalIgnoreCase))
+                    return BadRequest("Only PDF files are allowed.");
+
+                // Upload to S3 instead of local storage
+                string s3PdfUrl = await _chapterRepository.UploadPdfToS3Async(file, userId, novelId);
+                
+                // Parse the URL to extract the filename for relative URL
+                var uri = new Uri(s3PdfUrl);
+                string fileName = Path.GetFileName(uri.AbsolutePath);
+                string relativeFilePath = $"/pdf-files/{fileName}";
+                
+                return Ok(new { 
+                    pdfPath = s3PdfUrl,     // S3 URL for server-side operations
+                    pdfUrl = relativeFilePath  // Relative URL for client-side access
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Failed to upload file: {ex.Message}");
+            }
         }
 
         /// <summary>

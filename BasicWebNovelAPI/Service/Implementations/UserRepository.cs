@@ -24,13 +24,16 @@ namespace BasicWebNovelAPI.Service.Implementations
 
         public async Task<List<User>> GetUsersAsync()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Users
+                .Include(u => u.Library)
+                .ToListAsync();
         }
 
 
         public async Task<User> GetUserIdAsync(int userId)
         {
             return await _context.Users
+                         .Include(u => u.Library)
                          .FirstOrDefaultAsync(u => u.Id == userId);
         }
 
@@ -92,7 +95,7 @@ namespace BasicWebNovelAPI.Service.Implementations
             
             // Send email with the code
             string emailBody = $"Your password reset code is: {code}\n\nThis code will expire in 1 hour.";
-            await _emailRepository.SendToEmail("iraklilagvilava975@gmail.com", emailBody);
+            await _emailRepository.SendToEmail( email, emailBody);
             
             return "Password reset code has been sent to your email";
         }

@@ -27,14 +27,14 @@ namespace BasicWebNovelAPI.Service.Implementations
         }
 
         
-        public async Task<List<GetNovelDto>> GetNovels(int pageNumber = 1, int pageSize = 10, int? genreId = null, NovelStatus? status = null, string sortBy = null)
+        public async Task<NovelPagedResult> GetNovels(int pageNumber = 1, int pageSize = 10, int? genreId = null, NovelStatus? status = null, string sortBy = null)
         {
             var cacheKey = $"novels_page{pageNumber}_size{pageSize}_genre{genreId}_status{status}_sort{sortBy}";
-            var cachedNovels = await _cache.GetValue<List<GetNovelDto>>(cacheKey);
+            var cachedResult = await _cache.GetValue<NovelPagedResult>(cacheKey);
 
             if (!string.IsNullOrEmpty(_cache.GetString(cacheKey)))
             {
-                return cachedNovels;
+                return cachedResult;
             }
 
             var query = _context.Novels.AsQueryable();
@@ -50,6 +50,10 @@ namespace BasicWebNovelAPI.Service.Implementations
             {
                 query = query.Where(n => n.Status == status.Value);
             }
+            
+            // Calculate total count before applying pagination
+            var totalItems = await query.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
             
             // Load related data
             query = query.Include(n => n.Chapters)
@@ -90,9 +94,18 @@ namespace BasicWebNovelAPI.Service.Implementations
                 novelDtos = novelDtos.OrderByDescending(n => n.AverageRating).ToList();
             }
 
-            await _cache.SetValue(cacheKey, novelDtos);
+            var result = new NovelPagedResult
+            {
+                Novels = novelDtos,
+                TotalPages = totalPages,
+                TotalItems = totalItems,
+                CurrentPage = pageNumber,
+                PageSize = pageSize
+            };
 
-            return novelDtos;
+            await _cache.SetValue(cacheKey, result);
+
+            return result;
         }
 
         
@@ -272,7 +285,11 @@ namespace BasicWebNovelAPI.Service.Implementations
 
             var novel = _mapper.Map<Novel>(createNovelDto);
             novel.UserId = user.Id;
-            novel.PublishedDate = DateTime.Now;
+            
+            // Set publication date to UTC+4
+            TimeZoneInfo utcPlus4 = TimeZoneInfo.CreateCustomTimeZone("UTC+4", TimeSpan.FromHours(4), "UTC+4", "UTC+4");
+            novel.PublishedDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, utcPlus4);
+            
             novel.Views = 0;
             novel.Status = createNovelDto.Status;
             novel.IsAdultContent = createNovelDto.IsAdultContent;
@@ -339,7 +356,7 @@ namespace BasicWebNovelAPI.Service.Implementations
             await _context.SaveChangesAsync();
             
             // Invalidate cache for this novel
-            await _cache.RemoveAsync($"novel_{novelId}");
+            await _cache.SafeRemoveAsync($"novel_{novelId}");
 
             return true;
         }
@@ -357,7 +374,7 @@ namespace BasicWebNovelAPI.Service.Implementations
             await _context.SaveChangesAsync();
             
             // Clear cache for this novel and related queries
-            await _cache.RemoveAsync($"novel_{novelId}");
+            await _cache.SafeRemoveAsync($"novel_{novelId}");
             // Also consider clearing other caches that might contain this novel
 
             return true;
@@ -390,7 +407,7 @@ namespace BasicWebNovelAPI.Service.Implementations
                         if (recentIpView == null)
                         {
                             // IP hasn't viewed this novel recently, record view and increment
-                            _context.NovelViews.Add(new NovelView
+                            await _context.NovelViews.AddAsync(new NovelView
                             {
                                 NovelId = novelId,
                                 IpAddress = ipAddress,
@@ -413,7 +430,7 @@ namespace BasicWebNovelAPI.Service.Implementations
                         if (recentUserView == null)
                         {
                             // User hasn't viewed this novel recently, record view and increment
-                            _context.NovelViews.Add(new NovelView
+                            await _context.NovelViews.AddAsync(new NovelView
                             {
                                 NovelId = novelId,
                                 UserId = userId,
@@ -434,8 +451,15 @@ namespace BasicWebNovelAPI.Service.Implementations
                     await _context.SaveChangesAsync();
                     await transaction.CommitAsync();
                     
-                    // Clear cache for this novel
-                    await _cache.RemoveAsync($"novel_{novelId}");
+                    // Clear cache for this novel - moved after transaction is committed
+                    try
+                    {
+                        await _cache.SafeRemoveAsync($"novel_{novelId}");
+                    }
+                    catch
+                    {
+                        // Silently continue if cache operation fails
+                    }
                     
                     return true;
                 }

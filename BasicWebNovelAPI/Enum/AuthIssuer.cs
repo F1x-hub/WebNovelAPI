@@ -14,11 +14,6 @@
         /// <summary>
         /// Authentication via Facebook OAuth
         /// </summary>
-        FACEBOOK,
-        
-        /// <summary>
-        /// Authentication via Google OAuth 2.0
-        /// </summary>
-        GOOGLE
+        FACEBOOK
     }
 }

@@ -6,7 +6,7 @@ namespace BasicWebNovelAPI.Service.Abstractions
 {
     public interface INovelRepository
     {
-        Task<List<GetNovelDto>> GetNovels(int pageNumber = 1, int pageSize = 10, int? genreId = null, NovelStatus? status = null, string sortBy = null);
+        Task<NovelPagedResult> GetNovels(int pageNumber = 1, int pageSize = 10, int? genreId = null, NovelStatus? status = null, string sortBy = null);
         Task<GetNovelDto> GetNovelById(int novelId);
         Task<List<GetNovelDto>> GetNovelByName(string title, int? genreId = null, NovelStatus? status = null, string sortBy = null);
         Task<List<GetNovelDto>> GetUserAllNovel(int userId, int? genreId = null, NovelStatus? status = null, string sortBy = null);

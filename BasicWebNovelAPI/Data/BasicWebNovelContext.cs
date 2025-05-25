@@ -23,6 +23,8 @@ namespace BasicWebNovelAPI.Data
         
         public DbSet<NovelCommentLikes> NovelCommentLikes { get; set; }
         public DbSet<ChapterCommentLikes> ChapterCommentLikes { get; set; }
+        
+        
 
         public BasicWebNovelContext(DbContextOptions options) : base(options) 
         {
@@ -178,7 +180,7 @@ namespace BasicWebNovelAPI.Data
                 .HasForeignKey(ccl => ccl.NovelCommentId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
+            
         }
 
     }

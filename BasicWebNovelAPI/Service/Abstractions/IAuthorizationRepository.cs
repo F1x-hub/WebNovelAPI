@@ -17,8 +17,6 @@ namespace BasicWebNovelAPI.Service.Abstractions
         
         Task<User> GetGraphData(string accessToken);
 
-        Task<string> GoogleAuthorization(string token);
-
-        Task<User> GetGoogleUserData(string token);
+        
     }
 }

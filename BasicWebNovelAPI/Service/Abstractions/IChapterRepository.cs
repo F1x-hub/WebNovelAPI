@@ -1,5 +1,6 @@
 ﻿using BasicWebNovelAPI.Model.Dto.Novel.Chapter;
 using BasicWebNovelAPI.Model.Novels;
+using Microsoft.AspNetCore.Http;
 
 namespace BasicWebNovelAPI.Service.Abstractions
 {
@@ -12,5 +13,8 @@ namespace BasicWebNovelAPI.Service.Abstractions
         Task<GetChapterDto?> GetChapterAsync(int novelId, int chapterNumber, int userId);
         Task<bool> UpdateLastReadChapterAsync(int userId, int novelId, int chapterNumber);
         Task<int> GetLastReadChapterAsync(int userId, int novelId);
+        Task<string> UploadPdfToS3Async(IFormFile pdfFile, int userId, int novelId);
+        Task<Stream> GetPdfFromS3Async(string pdfKey);
+        Task DeletePdfFromS3Async(string pdfKey);
     }
 }

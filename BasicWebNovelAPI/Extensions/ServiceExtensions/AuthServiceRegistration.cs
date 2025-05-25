@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authentication.Facebook;
-using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -7,6 +6,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Logging;
 using System.Security.Claims;
+using System.Web;
 
 namespace BasicWebNovelAPI.Extensions.ServiceExtensions
 {
@@ -149,40 +149,6 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
                         
                         return Task.CompletedTask;
                     }
-                };
-            })
-            .AddGoogle(GoogleDefaults.AuthenticationScheme, options =>
-            {
-                options.ClientId = configuration["Authentication:Google:ClientId"];
-                options.ClientSecret = configuration["Authentication:Google:ClientSecret"];
-                options.CallbackPath = "/signin-google";
-                options.SaveTokens = true;
-                
-                // Configure cookies for development environment
-                var isDevelopment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development";
-                
-                // Security enhancements for correlation cookie
-                options.CorrelationCookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Lax;
-                options.CorrelationCookie.SecurePolicy = isDevelopment 
-                    ? Microsoft.AspNetCore.Http.CookieSecurePolicy.SameAsRequest 
-                    : Microsoft.AspNetCore.Http.CookieSecurePolicy.Always;
-                options.CorrelationCookie.HttpOnly = true;
-                options.CorrelationCookie.IsEssential = true;
-                
-                // Maximum compatibility with most browsers
-                options.CorrelationCookie.Path = "/";
-                options.CorrelationCookie.MaxAge = TimeSpan.FromMinutes(15);
-                
-                // Request additional scopes
-                options.Scope.Add("openid");
-                options.Scope.Add("email");
-                options.Scope.Add("profile");
-                
-                // Handle events to prevent CSRF
-                options.Events.OnTicketReceived = context =>
-                {
-                    // Validate state parameter (CSRF protection)
-                    return Task.CompletedTask;
                 };
             })
             .AddFacebook(FacebookDefaults.AuthenticationScheme, options =>

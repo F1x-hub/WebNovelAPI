@@ -17,7 +17,8 @@ namespace BasicWebNovelAPI.Helper
             //User
             CreateMap<GetLoginDto, User>();
             CreateMap<User, GetLoginDto>();
-            CreateMap<User, GetUserDto>();
+            CreateMap<User, GetUserDto>()
+                .ForMember(dest => dest.HasNewChapters, opt => opt.MapFrom(src => src.HasNewChapters));
             CreateMap<GetUserDto, User>();
 
             CreateMap<User, RegisterUserDto>();

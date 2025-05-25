@@ -59,10 +59,10 @@ namespace BasicWebNovelAPI.Service.Implementations
             
             // Clear cache for rating data
             var cacheKey = $"novel_rating_{novelId}";
-            await _cache.RemoveAsync(cacheKey);
+            await _cache.SafeRemoveAsync(cacheKey);
             
             // Also clear cache for novels by rating
-            await _cache.RemoveAsync("novels_by_rating");
+            await _cache.SafeRemoveAsync("novels_by_rating");
 
             return true;
         }

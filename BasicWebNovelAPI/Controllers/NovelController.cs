@@ -62,15 +62,15 @@ namespace BasicWebNovelAPI.Controllers
         {
             try 
             {
-                var novels = await _novelRepository.GetNovels(pageNumber, pageSize, genreId, status, sortBy);
-                if (novels == null || !novels.Any())
+                var result = await _novelRepository.GetNovels(pageNumber, pageSize, genreId, status, sortBy);
+                if (result == null || result.Novels == null || !result.Novels.Any())
                 {
                     return NotFound("Novel not found.");
                 }
                 
                 // No filtering of adult content - return all novels regardless of IsAdultContent status
                 
-                return Ok(novels);
+                return Ok(result);
             }
             catch (BadRequestException ex)
             {
@@ -138,14 +138,22 @@ namespace BasicWebNovelAPI.Controllers
                     }
                 }
                 
-                // Increment views
-                bool viewIncremented = await _novelRepository.IncrementNovelViews(id, userId, ipAddress!);
-                if (!viewIncremented)
+                // Create the response first
+                var result = Ok(novel);
+                
+                // Then increment views asynchronously (this operation can happen after response is sent)
+                // This helps avoid transaction issues
+                try
                 {
-                    return NotFound("Novel not found.");
+                    _ = _novelRepository.IncrementNovelViews(id, userId, ipAddress!);
+                }
+                catch (Exception ex)
+                {
+                    // Log the error but don't fail the request
+                    Console.WriteLine($"Failed to increment view count: {ex.Message}");
                 }
                 
-                return Ok(novel);
+                return result;
             }
             catch (BadRequestException ex)
             {

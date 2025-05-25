@@ -13,5 +13,6 @@ namespace BasicWebNovelAPI.Model.UserManagement
         public Novel Novel { get; set; }
 
         public int LastReadChapter { get; set; }
+        public bool AddedChapter { get; set; } = false;
     }
 }

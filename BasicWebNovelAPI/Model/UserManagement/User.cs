@@ -31,5 +31,7 @@ namespace BasicWebNovelAPI.Model.UserManagement
         public ICollection<NovelComments> NovelComments { get; set; }
         public ICollection<ChapterComments> ChapterComments { get; set; }
         public ICollection<UserChapterRead> UserChapterRead { get; set; }
+        
+        public bool HasNewChapters => Library?.Any(item => item.AddedChapter) ?? false;
     }
 }

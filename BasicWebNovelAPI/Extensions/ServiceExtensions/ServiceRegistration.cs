@@ -1,4 +1,6 @@
 ﻿using BasicWebNovelAPI.Data;
+using BasicWebNovelAPI.Validation;
+using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -12,11 +14,12 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
     {
         public static void AddProjectServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddControllers()
-                .AddFluentValidation(v =>
-                {
-                    v.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-                });
+            services.AddControllers();
+            
+            // Updated FluentValidation configuration
+            services.AddFluentValidationAutoValidation();
+            services.AddFluentValidationClientsideAdapters();
+            services.AddValidatorsFromAssemblyContaining<UserValidator>();
 
             // Add session state configuration
             services.AddDistributedMemoryCache();
@@ -45,6 +48,11 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
                     {
                         options.Configuration = configuration["Redis:Configuration"];
                         options.InstanceName = configuration["Redis:InstanceName"];
+                        options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions
+                        {
+                            AbortOnConnectFail = false,
+                            EndPoints = { configuration["Redis:Configuration"] }
+                        };
                     });
                 }
                 catch (Exception)
@@ -82,6 +90,7 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
 
+            // Register dependency services including INovelRepository
             services.AddDependencyServices(configuration);
 
             services.AddAuthServices(configuration);
@@ -96,7 +105,11 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
                             "https://localhost:4200", 
                             "http://localhost:7153", 
                             "https://localhost:7153",
-                            "http://localhost:5173"
+                            "http://localhost:5173",
+                            "https://www.webnovel-project.click",
+                            "https://webnovel-project.click",
+                            "https://api.webnovel-project.click",
+                            "https://api.www.webnovel-project.click"
                         )
                         .AllowAnyHeader()
                         .AllowAnyMethod()

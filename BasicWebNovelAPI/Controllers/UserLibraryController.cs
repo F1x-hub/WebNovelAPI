@@ -171,5 +171,84 @@ namespace BasicWebNovelAPI.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        /// <summary>
+        /// Updates the last read chapter for a novel in the user's library
+        /// </summary>
+        /// <param name="userId">The unique identifier of the user</param>
+        /// <param name="novelId">The unique identifier of the novel</param>
+        /// <param name="lastReadChapter">The chapter number last read by the user</param>
+        /// <returns>Confirmation of chapter progress update</returns>
+        /// <response code="200">Reading progress updated successfully</response>
+        /// <response code="400">If there was an error updating the reading progress</response>
+        /// <response code="404">If the user or novel is not found</response>
+        [HttpPut("update-progress/{userId}/{novelId}")]
+        [Authorize(Roles = "User")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> UpdateReadingProgress(int userId, int novelId, [FromBody] int lastReadChapter)
+        {
+            try
+            {
+                var result = await _userLibraryRepository.UpdateLastReadChapterAsync(userId, novelId, lastReadChapter);
+                
+                if (result)
+                {
+                    return Ok("Reading progress updated successfully.");
+                }
+                
+                return BadRequest("Failed to update reading progress.");
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Resets the AddedChapter flag for a novel in the user's library
+        /// </summary>
+        /// <param name="userId">The unique identifier of the user</param>
+        /// <param name="novelId">The unique identifier of the novel</param>
+        /// <returns>Confirmation of reset operation</returns>
+        /// <response code="200">AddedChapter flag reset successfully</response>
+        /// <response code="400">If there was an error resetting the flag</response>
+        /// <response code="404">If the user or novel is not found</response>
+        [HttpPut("reset-added-chapter/{userId}/{novelId}")]
+        [Authorize(Roles = "User")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> ResetAddedChapter(int userId, int novelId)
+        {
+            try
+            {
+                var result = await _userLibraryRepository.ResetAddedChapterAsync(userId, novelId);
+                
+                if (result)
+                {
+                    return Ok("AddedChapter flag reset successfully.");
+                }
+                
+                return BadRequest("Failed to reset AddedChapter flag.");
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

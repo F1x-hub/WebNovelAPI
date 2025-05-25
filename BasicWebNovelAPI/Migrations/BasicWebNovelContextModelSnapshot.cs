@@ -43,9 +43,16 @@ namespace BasicWebNovelAPI.Migrations
                     b.Property<int>("NovelId")
                         .HasColumnType("int");
 
+                    b.Property<string>("PdfPath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("UsePdfContent")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -99,6 +106,9 @@ namespace BasicWebNovelAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("NovelId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("PublishedDate")
                         .HasColumnType("datetime2");
 
@@ -108,6 +118,8 @@ namespace BasicWebNovelAPI.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ChapterId");
+
+                    b.HasIndex("NovelId");
 
                     b.HasIndex("UserId");
 
@@ -394,6 +406,9 @@ namespace BasicWebNovelAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ExternalAuthId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("FailedLoginAttempts")
                         .HasColumnType("int");
 
@@ -462,6 +477,9 @@ namespace BasicWebNovelAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("AddedChapter")
+                        .HasColumnType("bit");
+
                     b.Property<int>("LastReadChapter")
                         .HasColumnType("int");
 
@@ -518,6 +536,12 @@ namespace BasicWebNovelAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BasicWebNovelAPI.Model.Novels.Novel", "Novel")
+                        .WithMany()
+                        .HasForeignKey("NovelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("BasicWebNovelAPI.Model.UserManagement.User", "User")
                         .WithMany("ChapterComments")
                         .HasForeignKey("UserId")
@@ -525,6 +549,8 @@ namespace BasicWebNovelAPI.Migrations
                         .IsRequired();
 
                     b.Navigation("Chapter");
+
+                    b.Navigation("Novel");
 
                     b.Navigation("User");
                 });
