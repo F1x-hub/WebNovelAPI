@@ -14,7 +14,7 @@
 - [Documentation and Resources](#-documentation-and-resources)
 - [Author and License](#-author-and-license)
 
-[📄 Download PDF Document](Webnovel-project-2025.pdf)
+[📄 Download PDF Document](https://drive.google.com/file/d/1-WhWNPPKVOwyOu75m3EblFrvEQEPOhDt/view?usp=drive_link)
 
 ## 🎯 Project Overview
 
