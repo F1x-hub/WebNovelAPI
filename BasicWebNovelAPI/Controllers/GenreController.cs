@@ -99,7 +99,7 @@ namespace BasicWebNovelAPI.Controllers
         ///     }
         /// </remarks>
         [HttpPost("create-genre")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -121,6 +121,99 @@ namespace BasicWebNovelAPI.Controllers
             catch (Exception ex)
             {
 
+                return BadRequest(ex.Message);
+            }
+        }
+        
+        /// <summary>
+        /// Updates an existing genre
+        /// </summary>
+        /// <param name="genreId">The ID of the genre to update</param>
+        /// <param name="updateGenreDto">Object containing the updated genre details</param>
+        /// <returns>The updated genre information</returns>
+        /// <response code="200">Returns the updated genre</response>
+        /// <response code="400">If the genre data is invalid</response>
+        /// <response code="404">If the genre is not found</response>
+        /// <remarks>
+        /// This endpoint is restricted to administrators only
+        /// 
+        /// Sample request:
+        ///
+        ///     PUT /api/Genre/update-genre/1
+        ///     {
+        ///         "name": "Updated Mystery"
+        ///     }
+        /// </remarks>
+        [HttpPut("update-genre/{genreId}")]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> UpdateGenre(int genreId, [FromBody] UpdateGenreDto updateGenreDto)
+        {
+            try
+            {
+                var updatedGenre = await _genreRepository.UpdateGenreAsync(genreId, updateGenreDto);
+                return Ok(updatedGenre);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        
+        /// <summary>
+        /// Deletes a genre
+        /// </summary>
+        /// <param name="genreId">The ID of the genre to delete</param>
+        /// <returns>A confirmation message</returns>
+        /// <response code="200">Genre deleted successfully</response>
+        /// <response code="400">If there was an error deleting the genre</response>
+        /// <response code="404">If the genre is not found</response>
+        /// <remarks>
+        /// This endpoint is restricted to administrators only.
+        /// Genres that are associated with novels cannot be deleted.
+        /// </remarks>
+        [HttpDelete("delete-genre/{genreId}")]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> DeleteGenre(int genreId)
+        {
+            try
+            {
+                var result = await _genreRepository.DeleteGenreAsync(genreId);
+                
+                if (!result)
+                {
+                    return NotFound($"Genre with ID {genreId} not found");
+                }
+                
+                return Ok("Genre deleted successfully");
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
                 return BadRequest(ex.Message);
             }
         }

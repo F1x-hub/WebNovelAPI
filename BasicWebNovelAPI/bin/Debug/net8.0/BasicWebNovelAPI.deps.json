@@ -27,13 +27,16 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.10",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.10",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "8.0.10",
+          "Newtonsoft.Json": "13.0.3",
           "StackExchange.Redis": "2.8.16",
           "Swashbuckle.AspNetCore": "6.9.0",
           "Swashbuckle.AspNetCore.Filters": "8.0.2",
+          "System.Drawing.Common": "9.0.5",
           "System.Formats.Asn1": "8.0.1",
           "System.Net.WebSockets.WebSocketProtocol": "5.1.0",
           "System.Text.Json": "9.0.4",
-          "itext7": "9.2.0"
+          "itext7": "9.2.0",
+          "itext7.pdfhtml": "6.2.0"
         },
         "runtime": {
           "BasicWebNovelAPI.dll": {}
@@ -344,9 +347,25 @@
           }
         }
       },
+      "itext.pdfhtml/6.2.0": {
+        "dependencies": {
+          "itext": "9.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/itext.html2pdf.dll": {
+            "assemblyVersion": "6.2.0.0",
+            "fileVersion": "6.2.0.0"
+          }
+        }
+      },
       "itext7/9.2.0": {
         "dependencies": {
           "itext": "9.2.0"
+        }
+      },
+      "itext7.pdfhtml/6.2.0": {
+        "dependencies": {
+          "itext.pdfhtml": "6.2.0"
         }
       },
       "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
@@ -1164,19 +1183,19 @@
           "System.Runtime.InteropServices": "4.3.0"
         }
       },
-      "Microsoft.Win32.SystemEvents/6.0.0": {
+      "Microsoft.Win32.SystemEvents/9.0.5": {
         "runtime": {
-          "lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
+          "lib/net8.0/Microsoft.Win32.SystemEvents.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.525.21509"
           }
         },
         "runtimeTargets": {
-          "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+          "runtimes/win/lib/net8.0/Microsoft.Win32.SystemEvents.dll": {
             "rid": "win",
             "assetType": "runtime",
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.525.21509"
           }
         }
       },
@@ -1509,28 +1528,18 @@
           "System.Runtime": "4.3.1"
         }
       },
-      "System.Drawing.Common/6.0.0": {
+      "System.Drawing.Common/9.0.5": {
         "dependencies": {
-          "Microsoft.Win32.SystemEvents": "6.0.0"
+          "Microsoft.Win32.SystemEvents": "9.0.5"
         },
         "runtime": {
-          "lib/net6.0/System.Drawing.Common.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/unix/lib/net6.0/System.Drawing.Common.dll": {
-            "rid": "unix",
-            "assetType": "runtime",
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
+          "lib/net8.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.525.21601"
           },
-          "runtimes/win/lib/net6.0/System.Drawing.Common.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
+          "lib/net8.0/System.Private.Windows.Core.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.525.21601"
           }
         }
       },
@@ -1968,7 +1977,7 @@
       },
       "System.Windows.Extensions/6.0.0": {
         "dependencies": {
-          "System.Drawing.Common": "6.0.0"
+          "System.Drawing.Common": "9.0.5"
         },
         "runtime": {
           "lib/net6.0/System.Windows.Extensions.dll": {
@@ -2180,12 +2189,26 @@
       "path": "itext.commons/9.2.0",
       "hashPath": "itext.commons.9.2.0.nupkg.sha512"
     },
+    "itext.pdfhtml/6.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-282C/F11reAXdmn6VFX/j1eDBZPraACVQTcegMSUW4DshC/7ip+ucx6oW9n0uMctkKKc0JNeyS2inTQZ2rEoTA==",
+      "path": "itext.pdfhtml/6.2.0",
+      "hashPath": "itext.pdfhtml.6.2.0.nupkg.sha512"
+    },
     "itext7/9.2.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-fsOz8BpXlMN5GJM+7gdpUCqYhOR4GWKT3krnhB6Tbwio7QxIMyos3x7DTfdYsDAPOojr+NW/iKmnDCB4Vc9xWg==",
       "path": "itext7/9.2.0",
       "hashPath": "itext7.9.2.0.nupkg.sha512"
+    },
+    "itext7.pdfhtml/6.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9s8akpRyZ4UmGxJUr15p++41mYvNZp5G/X9rZm75gMnZ610TcQeG0auQczah04G1OJtZ2+OFC42DLcFQOX8Zag==",
+      "path": "itext7.pdfhtml/6.2.0",
+      "hashPath": "itext7.pdfhtml.6.2.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
       "type": "package",
@@ -2684,12 +2707,12 @@
       "path": "microsoft.win32.registry/4.3.0",
       "hashPath": "microsoft.win32.registry.4.3.0.nupkg.sha512"
     },
-    "Microsoft.Win32.SystemEvents/6.0.0": {
+    "Microsoft.Win32.SystemEvents/9.0.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A==",
-      "path": "microsoft.win32.systemevents/6.0.0",
-      "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
+      "sha512": "sha512-D4OYNpmvAsF9MkaY2W8Jue2XuNHDhygvwzo019hs+lP85KaVnOlXmqsjDKr1dHb1DPxDnOKpe6mAgJN7S6ttwg==",
+      "path": "microsoft.win32.systemevents/9.0.5",
+      "hashPath": "microsoft.win32.systemevents.9.0.5.nupkg.sha512"
     },
     "Mono.TextTemplating/2.2.1": {
       "type": "package",
@@ -2999,12 +3022,12 @@
       "path": "system.diagnostics.tracing/4.3.0",
       "hashPath": "system.diagnostics.tracing.4.3.0.nupkg.sha512"
     },
-    "System.Drawing.Common/6.0.0": {
+    "System.Drawing.Common/9.0.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-NfuoKUiP2nUWwKZN6twGqXioIe1zVD0RIj2t976A+czLHr2nY454RwwXs6JU9Htc6mwqL6Dn/nEL3dpVf2jOhg==",
-      "path": "system.drawing.common/6.0.0",
-      "hashPath": "system.drawing.common.6.0.0.nupkg.sha512"
+      "sha512": "sha512-T/6nqx0B7/uTe5JjBwrKZilLuwfhHLOVmNKlT/wr4A9Dna94mgTdz3lTfrdJ72QRx7IHCv/LzoJPmFSfK/N6WA==",
+      "path": "system.drawing.common/9.0.5",
+      "hashPath": "system.drawing.common.9.0.5.nupkg.sha512"
     },
     "System.Formats.Asn1/8.0.1": {
       "type": "package",

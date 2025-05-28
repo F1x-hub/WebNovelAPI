@@ -49,7 +49,7 @@ namespace BasicWebNovelAPI.Controllers
         ///     ]
         /// </remarks>
         [HttpGet("user-library/{userId}")]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Admin,User")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -96,7 +96,7 @@ namespace BasicWebNovelAPI.Controllers
         ///     true
         /// </remarks>
         [HttpGet("check-novel/{userId}/{novelId}")]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Admin,User")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> IsNovelInUserLibrary(int userId, int novelId)
@@ -133,7 +133,7 @@ namespace BasicWebNovelAPI.Controllers
         ///     5
         /// </remarks>
         [HttpPost("add-to-library/{userId}/{novelId}")]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Admin,User")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -183,7 +183,7 @@ namespace BasicWebNovelAPI.Controllers
         /// <response code="400">If there was an error updating the reading progress</response>
         /// <response code="404">If the user or novel is not found</response>
         [HttpPut("update-progress/{userId}/{novelId}")]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Admin,User")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -220,7 +220,7 @@ namespace BasicWebNovelAPI.Controllers
         /// <response code="400">If there was an error resetting the flag</response>
         /// <response code="404">If the user or novel is not found</response>
         [HttpPut("reset-added-chapter/{userId}/{novelId}")]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Admin,User")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

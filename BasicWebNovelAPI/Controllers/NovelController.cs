@@ -348,7 +348,7 @@ namespace BasicWebNovelAPI.Controllers
         ///     }
         /// </remarks>
         [HttpPost("create-novel/{userId}")]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Admin,User")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -409,7 +409,7 @@ namespace BasicWebNovelAPI.Controllers
         ///     }
         /// </remarks>
         [HttpPut("update-novel/{novelId}/{userId}")]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Admin,User")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

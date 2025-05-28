@@ -7,5 +7,7 @@ namespace BasicWebNovelAPI.Service.Abstractions
         Task<GetUserDto> Registration(RegisterUserDto registerUserDto);
         
         Task<bool> FaceBookRegister(string accesToken);
+
+        Task<bool> VerifyEmail(VerifyCodeDto verifyCodeDto);
     }
 }

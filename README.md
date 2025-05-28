@@ -14,6 +14,8 @@
 - [Documentation and Resources](#-documentation-and-resources)
 - [Author and License](#-author-and-license)
 
+[📄 Download PDF Document](Webnovel-project-2025.pdf)
+
 ## 🎯 Project Overview
 
 WebNovelAPI is a powerful RESTful API for managing web novels, providing authors with the ability to publish their works and readers to discover, read, and track interesting content.

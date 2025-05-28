@@ -6,5 +6,7 @@ namespace BasicWebNovelAPI.Service.Abstractions
     {
         Task<GetGenreDto> CreateGenreAsync(CreateGenreDto createGenreDto);
         Task<List<GetGenreDto>> GetGenresAsync();
+        Task<GetGenreDto> UpdateGenreAsync(int genreId, UpdateGenreDto updateGenreDto);
+        Task<bool> DeleteGenreAsync(int genreId);
     }
 }

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
+using BasicWebNovelAPI.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BasicWebNovelAPI.Controllers
 {
@@ -20,11 +22,13 @@ namespace BasicWebNovelAPI.Controllers
     {
         private readonly IChapterRepository _chapterRepository;
         private readonly IWebHostEnvironment _environment;
+        private readonly BasicWebNovelContext _context;
 
-        public ChapterController(IChapterRepository chapterRepository, IWebHostEnvironment environment)
+        public ChapterController(IChapterRepository chapterRepository, IWebHostEnvironment environment, BasicWebNovelContext context)
         {
             _chapterRepository = chapterRepository;
             _environment = environment;
+            _context = context;
         }
 
         /// <summary>
@@ -38,7 +42,7 @@ namespace BasicWebNovelAPI.Controllers
         /// <response code="200">File uploaded successfully</response>
         /// <response code="400">If file is invalid or upload fails</response>
         [HttpPost("upload-pdf/{userId}/{novelId}/{chapterId?}")]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Admin,User")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> UploadPdf(int userId, int novelId, int chapterId, IFormFile file)
@@ -71,6 +75,79 @@ namespace BasicWebNovelAPI.Controllers
         }
 
         /// <summary>
+        /// Replaces a chapter's PDF file
+        /// </summary>
+        /// <param name="userId">User ID of the uploader</param>
+        /// <param name="novelId">Novel ID that the chapter belongs to</param>
+        /// <param name="chapterId">Chapter ID to update</param>
+        /// <param name="file">The new PDF file to upload</param>
+        /// <returns>Result with updated chapter information</returns>
+        /// <response code="200">File replaced successfully</response>
+        /// <response code="400">If file is invalid or upload fails</response>
+        /// <response code="404">If novel or chapter not found</response>
+        [HttpPost("replace-pdf/{userId}/{novelId}/{chapterId}")]
+        [Authorize(Roles = "Admin,User")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> ReplacePdf(int userId, int novelId, int chapterId, IFormFile file)
+        {
+            try
+            {
+                if (file == null || file.Length == 0)
+                    return BadRequest("No file was provided.");
+
+                if (!file.ContentType.Equals("application/pdf", StringComparison.OrdinalIgnoreCase))
+                    return BadRequest("Only PDF files are allowed.");
+                
+                // Get existing chapter to check for PDF
+                var chapter = await _context.Chapters
+                    .FirstOrDefaultAsync(c => c.Id == chapterId && c.NovelId == novelId);
+                
+                if (chapter == null)
+                    return NotFound("Chapter not found.");
+                
+                // Upload new PDF to S3
+                string s3PdfUrl = await _chapterRepository.UploadPdfToS3Async(file, userId, novelId);
+                
+                // Create update DTO with the new PDF path
+                var updateDto = new UpdateChapterDto
+                {
+                    Title = chapter.Title,
+                    Content = chapter.Content,
+                    ChapterNumber = chapter.ChapterNumber,
+                    PdfPath = s3PdfUrl,
+                    UsePdfContent = true // Set to true since we're uploading a PDF
+                };
+                
+                // Update the chapter - this will handle deleting the old PDF
+                bool updated = await _chapterRepository.UpdateChapterAsync(novelId, userId, chapterId, updateDto);
+                
+                if (!updated)
+                    return BadRequest("Failed to update chapter with new PDF.");
+                
+                // Parse the URL to extract the filename for relative URL
+                var uri = new Uri(s3PdfUrl);
+                string fileName = Path.GetFileName(uri.AbsolutePath);
+                string relativeFilePath = $"/pdf-files/{fileName}";
+                
+                return Ok(new { 
+                    pdfPath = s3PdfUrl,     // S3 URL for server-side operations
+                    pdfUrl = relativeFilePath,  // Relative URL for client-side access
+                    updated = true
+                });
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Failed to replace PDF file: {ex.Message}");
+            }
+        }
+
+        /// <summary>
         /// Creates a new chapter for a novel
         /// </summary>
         /// <param name="userId">The unique identifier of the user creating the chapter</param>
@@ -94,7 +171,7 @@ namespace BasicWebNovelAPI.Controllers
         ///     }
         /// </remarks>
         [HttpPost("create-chapter/{userId}/{novelId}")]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Admin,User")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -146,7 +223,7 @@ namespace BasicWebNovelAPI.Controllers
         ///     }
         /// </remarks>
         [HttpPut("update-chapter/{novelId}/{chapterId}/{userId}")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "User")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,User")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -191,7 +268,7 @@ namespace BasicWebNovelAPI.Controllers
         /// Users can only delete chapters for novels they have created, unless they are administrators.
         /// </remarks>
         [HttpDelete("delete-chapter/{novelId}/{chapterId}/{userId}")]
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,User")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin,User")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -361,7 +438,7 @@ namespace BasicWebNovelAPI.Controllers
         /// - If no chapter is marked, this one will be marked
         /// </remarks>
         [HttpPost("toggle-last-read/{userId}/{novelId}/{chapterNumber}")]
-        //pp[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

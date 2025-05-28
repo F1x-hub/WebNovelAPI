@@ -123,11 +123,30 @@ namespace BasicWebNovelAPI.Service.Implementations
             int originalChapterNumber = existingChapter.ChapterNumber;
             DateTime originalCreatedAt = existingChapter.CreatedAt;
             
+            // Store original PDF path to check if it changed
+            string originalPdfPath = existingChapter.PdfPath;
+            
             // Apply updates to the chapter
             _mapper.Map(updateChapterDto, existingChapter);
             
             // Preserve the original creation date
             existingChapter.CreatedAt = originalCreatedAt;
+            
+            // If PDF path changed and there was an original PDF, delete the old one from S3
+            if (!string.IsNullOrEmpty(originalPdfPath) && 
+                originalPdfPath != existingChapter.PdfPath && 
+                originalPdfPath.StartsWith("https://"))
+            {
+                try
+                {
+                    await DeletePdfFromS3Async(originalPdfPath);
+                }
+                catch (Exception ex)
+                {
+                    // Log the error but continue with the update
+                    Console.WriteLine($"Error deleting old PDF from S3: {ex.Message}");
+                }
+            }
             
             // If chapter number changed, handle renumbering
             if (originalChapterNumber != existingChapter.ChapterNumber)
@@ -195,6 +214,20 @@ namespace BasicWebNovelAPI.Service.Implementations
 
                         userLibrary.LastReadChapter = previousChapter?.ChapterNumber ?? 0;
                         _context.Update(userLibrary);
+                    }
+                    
+                    // Delete PDF from S3 if it exists
+                    if (!string.IsNullOrEmpty(chapter.PdfPath) && chapter.PdfPath.StartsWith("https://"))
+                    {
+                        try
+                        {
+                            await DeletePdfFromS3Async(chapter.PdfPath);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Log the error but continue with deletion
+                            Console.WriteLine($"Error deleting PDF from S3: {ex.Message}");
+                        }
                     }
 
                     // 4. Now delete the chapter itself

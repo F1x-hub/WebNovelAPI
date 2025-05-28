@@ -49,5 +49,57 @@ namespace BasicWebNovelAPI.Service.Implementations
 
             return genreDto;
         }
+
+        public async Task<GetGenreDto> UpdateGenreAsync(int genreId, UpdateGenreDto updateGenreDto)
+        {
+            var genre = await _context.Genres.FindAsync(genreId);
+            if (genre == null)
+            {
+                throw new KeyNotFoundException($"Genre with ID {genreId} not found");
+            }
+            
+            // Check if name is being changed to an existing name
+            if (!string.Equals(genre.Name, updateGenreDto.Name, StringComparison.OrdinalIgnoreCase))
+            {
+                var existingGenre = await _context.Genres
+                    .FirstOrDefaultAsync(g => g.Name == updateGenreDto.Name);
+                
+                if (existingGenre != null)
+                {
+                    throw new Exception("A genre with this name already exists");
+                }
+            }
+            
+            // Update genre properties
+            genre.Name = updateGenreDto.Name;
+            
+            _context.Genres.Update(genre);
+            await _context.SaveChangesAsync();
+            
+            return _mapper.Map<GetGenreDto>(genre);
+        }
+
+        public async Task<bool> DeleteGenreAsync(int genreId)
+        {
+            var genre = await _context.Genres
+                .Include(g => g.NovelGenres)
+                .FirstOrDefaultAsync(g => g.Id == genreId);
+                
+            if (genre == null)
+            {
+                return false;
+            }
+            
+            // Check if this genre is associated with any novels
+            if (genre.NovelGenres != null && genre.NovelGenres.Any())
+            {
+                throw new Exception("Cannot delete genre because it is used by one or more novels");
+            }
+            
+            _context.Genres.Remove(genre);
+            await _context.SaveChangesAsync();
+            
+            return true;
+        }
     }
 }

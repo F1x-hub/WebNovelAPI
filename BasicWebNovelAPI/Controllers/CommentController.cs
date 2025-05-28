@@ -51,7 +51,7 @@ namespace BasicWebNovelAPI.Controllers
         ///     }
         /// </remarks>
         [HttpPost("send-novel-comment/{userId}/{novelId}")]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Admin,User")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -101,7 +101,7 @@ namespace BasicWebNovelAPI.Controllers
         ///     }
         /// </remarks>
         [HttpPost("send-chapter-comment/{userId}/{chapterId}")]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Admin,User")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

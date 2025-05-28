@@ -501,9 +501,6 @@ D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\b
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Management.dll
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
@@ -546,3 +543,7 @@ D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\b
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\System.Text.Encodings.Web.dll
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\System.Text.Json.dll
 D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\BasicWebNovelAPI.staticwebassets.runtime.json
+D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\itext.html2pdf.dll
+D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\System.Private.Windows.Core.dll
+D:\Programing\C#\Projects\WebNovelAPI\WebNovelApi\WebNovelAPI\BasicWebNovelAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll
