@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication.Facebook;
+using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -16,7 +16,7 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
         {
             services.AddHttpClient();
             
-            var key = Encoding.UTF8.GetBytes(configuration["Jwt:Key"]);
+            var key = Encoding.UTF8.GetBytes(configuration["Jwt:Key"] ?? string.Empty);
 
             services.AddAuthentication(options =>
             {
@@ -79,7 +79,7 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
                         if (context.Exception is SecurityTokenExpiredException)
                         {
                             logger.LogWarning("Token expired");
-                            context.Response.Headers.Add("Token-Expired", "true");
+                            context.Response.Headers.Append("Token-Expired", "true");
                         }
                         
                         return Task.CompletedTask;
@@ -153,8 +153,8 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
             })
             .AddFacebook(FacebookDefaults.AuthenticationScheme, options =>
             {
-                options.AppId = configuration["Authentication:Facebook:AppId"];
-                options.AppSecret = configuration["Authentication:Facebook:AppSecret"];
+                options.AppId = configuration["Authentication:Facebook:AppId"] ?? string.Empty;
+                options.AppSecret = configuration["Authentication:Facebook:AppSecret"] ?? string.Empty;
                 options.CallbackPath = "/signin-facebook";
                 options.SaveTokens = true;
                 

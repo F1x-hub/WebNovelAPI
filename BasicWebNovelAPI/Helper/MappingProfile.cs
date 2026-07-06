@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using BasicWebNovelAPI.Model.Dto.Novel.Chapter;
 using BasicWebNovelAPI.Model.Dto.Novel.Genre;
 using BasicWebNovelAPI.Model.Dto.Novel.Library;
@@ -6,6 +6,8 @@ using BasicWebNovelAPI.Model.Dto.Novel.Novel;
 using BasicWebNovelAPI.Model.Dto.User;
 using BasicWebNovelAPI.Model.Novels;
 using BasicWebNovelAPI.Model.UserManagement;
+using BasicWebNovelAPI.Model.Coins;
+using BasicWebNovelAPI.Model.Dto.Coins;
 using Google.Apis.Auth;
 
 namespace BasicWebNovelAPI.Helper
@@ -76,6 +78,14 @@ namespace BasicWebNovelAPI.Helper
                 .ForMember(dest => dest.LikesCount, 
                     opt => opt.MapFrom(src => src.Likes.Count));
 
+            // Coins
+            CreateMap<UserWallet, UserWalletDto>();
+            CreateMap<CoinTransaction, CoinTransactionDto>()
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type.ToString()));
+            CreateMap<ChapterPricing, ChapterPricingDto>().ReverseMap();
+            CreateMap<UpdatePricingRequest, ChapterPricing>();
+            CreateMap<AuthorWithdrawal, WithdrawalDto>()
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()));
         }
     }
 }

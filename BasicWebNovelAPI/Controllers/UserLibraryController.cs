@@ -1,4 +1,4 @@
-﻿using BasicWebNovelAPI.Exceptions;
+using BasicWebNovelAPI.Exceptions;
 using BasicWebNovelAPI.Service.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -59,9 +59,9 @@ namespace BasicWebNovelAPI.Controllers
             {
                 var library = await _userLibraryRepository.GetUserLibraryAsync(userId);
 
-                if (library == null || library.Count == 0)
+                if (library == null)
                 {
-                    return NotFound("The user has no novels in their library.");
+                    library = new List<BasicWebNovelAPI.Model.Dto.Novel.Library.GetUserLibraryDto>();
                 }
 
                 return Ok(library);

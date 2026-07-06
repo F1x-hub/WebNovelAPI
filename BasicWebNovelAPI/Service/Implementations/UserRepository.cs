@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using BasicWebNovelAPI.Data;
 using BasicWebNovelAPI.Extensions;
 using BasicWebNovelAPI.Model.Dto.User;
@@ -30,7 +30,7 @@ namespace BasicWebNovelAPI.Service.Implementations
         }
 
 
-        public async Task<User> GetUserIdAsync(int userId)
+        public async Task<User?> GetUserIdAsync(int userId)
         {
             return await _context.Users
                          .Include(u => u.Library)
@@ -64,7 +64,7 @@ namespace BasicWebNovelAPI.Service.Implementations
         }
 
 
-        public async Task<User> DeleteUserIdAsync(int userId)
+        public async Task<User?> DeleteUserIdAsync(int userId)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (user != null)

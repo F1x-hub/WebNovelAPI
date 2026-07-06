@@ -1,4 +1,4 @@
-﻿using BasicWebNovelAPI.Data;
+using BasicWebNovelAPI.Data;
 using BasicWebNovelAPI.Validation;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -40,26 +40,23 @@ namespace BasicWebNovelAPI.Extensions.ServiceExtensions
             });
 
             // Make Redis optional
-            if (!string.IsNullOrEmpty(configuration["Redis:Configuration"]) && !string.IsNullOrEmpty(configuration["Redis:InstanceName"]))
+            var redisConfig = configuration["Redis:Configuration"];
+            var redisInstance = configuration["Redis:InstanceName"];
+
+            if (!string.IsNullOrEmpty(redisConfig) && !string.IsNullOrEmpty(redisInstance))
             {
-                try
+                services.AddStackExchangeRedisCache(options =>
                 {
-                    services.AddStackExchangeRedisCache(options =>
+                    options.Configuration = redisConfig;
+                    options.InstanceName = redisInstance;
+                    options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions
                     {
-                        options.Configuration = configuration["Redis:Configuration"];
-                        options.InstanceName = configuration["Redis:InstanceName"];
-                        options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions
-                        {
-                            AbortOnConnectFail = false,
-                            EndPoints = { configuration["Redis:Configuration"] }
-                        };
-                    });
-                }
-                catch (Exception)
-                {
-                    // Fall back to memory cache if Redis is not available
-                    services.AddDistributedMemoryCache();
-                }
+                        AbortOnConnectFail = false,
+                        EndPoints = { redisConfig },
+                        ConnectRetry = 1,
+                        ConnectTimeout = 1000
+                    };
+                });
             }
             else
             {

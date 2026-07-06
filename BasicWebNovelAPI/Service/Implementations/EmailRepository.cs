@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 using System.Net.Mail;
 using BasicWebNovelAPI.Service.Abstractions;
 
@@ -19,16 +19,20 @@ namespace BasicWebNovelAPI.Service.Implementations
             var password = _configuration["EmailSettings:Password"];
 
 
-            using (var client = new SmtpClient(_configuration["EmailSettings:SmtpServer"]))
+            var smtpServer = _configuration["EmailSettings:SmtpServer"] ?? string.Empty;
+            var portString = _configuration["EmailSettings:Port"] ?? "587";
+            var fromEmail = _configuration["EmailSettings:From"] ?? string.Empty;
+
+            using (var client = new SmtpClient(smtpServer))
             {
-                client.Port = int.Parse(_configuration["EmailSettings:Port"]);
+                client.Port = int.Parse(portString);
                 client.Credentials = new NetworkCredential(userName, password);
                 client.EnableSsl = true;
 
 
                 MailMessage mailMessage = new MailMessage()
                 {
-                    From = new MailAddress(_configuration["EmailSettings:From"]),
+                    From = new MailAddress(fromEmail),
                     Subject = "Login Code",
                     Body = text,
                     IsBodyHtml = false

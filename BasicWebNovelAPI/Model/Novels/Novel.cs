@@ -1,4 +1,4 @@
-﻿using BasicWebNovelAPI.Enum;
+using BasicWebNovelAPI.Enum;
 using BasicWebNovelAPI.Model.UserManagement;
 
 namespace BasicWebNovelAPI.Model.Novels
@@ -6,8 +6,8 @@ namespace BasicWebNovelAPI.Model.Novels
     public class Novel
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
         
 
         public DateTime PublishedDate { get; set; }
@@ -17,17 +17,17 @@ namespace BasicWebNovelAPI.Model.Novels
         public bool IsAdultContent { get; set; } = false;
 
         public int UserId { get; set; }
-        public User User { get; set; }
+        public User User { get; set; } = null!;
 
 
-        public ICollection<Chapter>? Chapters { get; set; }
-        public ICollection<NovelGenre> NovelGenres { get; set; }
+        public ICollection<Chapter> Chapters { get; set; } = new List<Chapter>();
+        public ICollection<NovelGenre> NovelGenres { get; set; } = new List<NovelGenre>();
 
-        public ICollection<NovelImages>? NovelImages { get; set; }
-        public ICollection<Rating>? Ratings { get; set; }
-        public ICollection<NovelView>? NovelViews { get; set; }
+        public ICollection<NovelImages> NovelImages { get; set; } = new List<NovelImages>();
+        public ICollection<Rating> Ratings { get; set; } = new List<Rating>();
+        public ICollection<NovelView> NovelViews { get; set; } = new List<NovelView>();
 
-        public ICollection<NovelComments> NovelComments { get; set; }
+        public ICollection<NovelComments> NovelComments { get; set; } = new List<NovelComments>();
         
     }
 }

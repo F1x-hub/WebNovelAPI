@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using BasicWebNovelAPI.Data;
 using BasicWebNovelAPI.Model.Dto.Novel.Novel;
 using BasicWebNovelAPI.Model.Novels;
@@ -71,10 +71,9 @@ namespace BasicWebNovelAPI.Service.Implementations
         {
             var cacheKey = $"novel_rating_{novelId}";
             var cachedRating = await _cache.GetValue<double?>(cacheKey);
-            
-            if (!string.IsNullOrEmpty(_cache.GetString(cacheKey)))
+            if (cachedRating.HasValue)
             {
-                return cachedRating ?? 0;
+                return cachedRating.Value;
             }
             
             var ratings = await _context.Ratings
@@ -98,7 +97,7 @@ namespace BasicWebNovelAPI.Service.Implementations
             var cacheKey = $"popular_novels_last_week_{limit}";
             var cachedNovels = await _cache.GetValue<List<GetNovelDto>>(cacheKey);
             
-            if (!string.IsNullOrEmpty(_cache.GetString(cacheKey)))
+            if (cachedNovels != null)
             {
                 return cachedNovels;
             }
@@ -145,7 +144,7 @@ namespace BasicWebNovelAPI.Service.Implementations
             var cacheKey = $"novels_by_rating_{limit}";
             var cachedNovels = await _cache.GetValue<List<GetNovelDto>>(cacheKey);
             
-            if (!string.IsNullOrEmpty(_cache.GetString(cacheKey)))
+            if (cachedNovels != null)
             {
                 return cachedNovels;
             }

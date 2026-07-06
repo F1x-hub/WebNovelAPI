@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using BasicWebNovelAPI.Exceptions;
 using BasicWebNovelAPI.Model.Dto.User;
 using BasicWebNovelAPI.Service.Abstractions;
@@ -95,6 +95,7 @@ namespace BasicWebNovelAPI.Controllers
         ///     }
         /// </remarks>
         [HttpGet("get-user/{id}")]
+        [HttpGet("get-user-by-id/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

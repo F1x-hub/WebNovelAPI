@@ -7,7 +7,7 @@ namespace BasicWebNovelAPI.Model.Novels
         public int Id { get; set; }
         
         public int NovelId { get; set; }
-        public Novel Novel { get; set; }
+        public Novel Novel { get; set; } = null!;
         
         public int? UserId { get; set; }
         public User? User { get; set; }

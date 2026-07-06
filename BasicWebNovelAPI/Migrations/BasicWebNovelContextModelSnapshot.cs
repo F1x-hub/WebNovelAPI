@@ -22,6 +22,233 @@ namespace BasicWebNovelAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("BasicWebNovelAPI.Model.Coins.AuthorWithdrawal", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CoinsAmount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NetCoins")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PlatformFeeCoins")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ProcessedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("RequestedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.ToTable("AuthorWithdrawals");
+                });
+
+            modelBuilder.Entity("BasicWebNovelAPI.Model.Coins.ChapterPricing", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CoinPricePerChapter")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FreeChaptersCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NovelId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ScheduleStartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UnlockIntervalDays")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("UnlockScheduleEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NovelId");
+
+                    b.ToTable("ChapterPricings");
+                });
+
+            modelBuilder.Entity("BasicWebNovelAPI.Model.Coins.CoinPackage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CoinsAmount")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsCustom")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("PriceUsd")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CoinPackages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CoinsAmount = 100,
+                            IsActive = true,
+                            IsCustom = false,
+                            PriceUsd = 1.00m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CoinsAmount = 200,
+                            IsActive = true,
+                            IsCustom = false,
+                            PriceUsd = 2.00m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CoinsAmount = 500,
+                            IsActive = true,
+                            IsCustom = false,
+                            PriceUsd = 5.00m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CoinsAmount = 1000,
+                            IsActive = true,
+                            IsCustom = false,
+                            PriceUsd = 10.00m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CoinsAmount = 0,
+                            IsActive = true,
+                            IsCustom = true,
+                            PriceUsd = 0.00m
+                        });
+                });
+
+            modelBuilder.Entity("BasicWebNovelAPI.Model.Coins.CoinTransaction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("RelatedChapterId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StripePaymentIntentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RelatedChapterId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CoinTransactions");
+                });
+
+            modelBuilder.Entity("BasicWebNovelAPI.Model.Coins.UserChapterUnlock", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ChapterId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UnlockedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChapterId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserChapterUnlocks");
+                });
+
+            modelBuilder.Entity("BasicWebNovelAPI.Model.Coins.UserWallet", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Balance")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalEarned")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserWallets");
+                });
+
             modelBuilder.Entity("BasicWebNovelAPI.Model.Novels.Chapter", b =>
                 {
                     b.Property<int>("Id")
@@ -141,6 +368,38 @@ namespace BasicWebNovelAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Fantasy"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Science Fiction"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Romance"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Action"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Horror"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Mystery"
+                        });
                 });
 
             modelBuilder.Entity("BasicWebNovelAPI.Model.Novels.Novel", b =>
@@ -406,9 +665,6 @@ namespace BasicWebNovelAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ExternalAuthId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("FailedLoginAttempts")
                         .HasColumnType("int");
 
@@ -496,6 +752,76 @@ namespace BasicWebNovelAPI.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserLibraries");
+                });
+
+            modelBuilder.Entity("BasicWebNovelAPI.Model.Coins.AuthorWithdrawal", b =>
+                {
+                    b.HasOne("BasicWebNovelAPI.Model.UserManagement.User", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+                });
+
+            modelBuilder.Entity("BasicWebNovelAPI.Model.Coins.ChapterPricing", b =>
+                {
+                    b.HasOne("BasicWebNovelAPI.Model.Novels.Novel", "Novel")
+                        .WithMany()
+                        .HasForeignKey("NovelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Novel");
+                });
+
+            modelBuilder.Entity("BasicWebNovelAPI.Model.Coins.CoinTransaction", b =>
+                {
+                    b.HasOne("BasicWebNovelAPI.Model.Novels.Chapter", "RelatedChapter")
+                        .WithMany()
+                        .HasForeignKey("RelatedChapterId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("BasicWebNovelAPI.Model.UserManagement.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("RelatedChapter");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BasicWebNovelAPI.Model.Coins.UserChapterUnlock", b =>
+                {
+                    b.HasOne("BasicWebNovelAPI.Model.Novels.Chapter", "Chapter")
+                        .WithMany()
+                        .HasForeignKey("ChapterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BasicWebNovelAPI.Model.UserManagement.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Chapter");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BasicWebNovelAPI.Model.Coins.UserWallet", b =>
+                {
+                    b.HasOne("BasicWebNovelAPI.Model.UserManagement.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BasicWebNovelAPI.Model.Novels.Chapter", b =>

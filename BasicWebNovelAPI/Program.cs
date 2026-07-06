@@ -19,10 +19,6 @@ using Microsoft.Extensions.FileProviders;
 var builder = WebApplication.CreateBuilder(args);
 
 
-
-
-
-
 builder.Services.AddProjectServices(builder.Configuration);
 builder.Services.AddSignalR();
 
@@ -100,6 +96,19 @@ app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(pdfPath),
     RequestPath = "/pdf-files"
+});
+
+// Configure static files for uploads directory
+string uploadsPath = Path.Combine(app.Environment.ContentRootPath, "uploads");
+if (!Directory.Exists(uploadsPath))
+{
+    Directory.CreateDirectory(uploadsPath);
+}
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(uploadsPath),
+    RequestPath = "/uploads"
 });
 
 app.UseCookiePolicy();

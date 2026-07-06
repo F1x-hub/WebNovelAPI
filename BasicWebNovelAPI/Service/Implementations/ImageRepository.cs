@@ -1,29 +1,32 @@
-﻿using Amazon.S3;
-using Amazon.S3.Model;
-using Amazon.S3.Transfer;
 using BasicWebNovelAPI.Data;
 using BasicWebNovelAPI.Extensions;
 using BasicWebNovelAPI.Model.Novels;
 using BasicWebNovelAPI.Model.UserManagement;
 using BasicWebNovelAPI.Service.Abstractions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 
 namespace BasicWebNovelAPI.Service.Implementations
 {
     public class ImageRepository : IImageRepository
     {
-        private readonly IAmazonS3 _s3Client;
         private readonly BasicWebNovelContext _context;
-        private readonly string _imageBucketName;
-        private readonly string _novelBucketName;
+        private readonly IWebHostEnvironment _environment;
+        private readonly string _userImagesFolder;
+        private readonly string _novelImagesFolder;
 
-        public ImageRepository(IAmazonS3 s3Client, BasicWebNovelContext context, IConfiguration configuration)
+        public ImageRepository(BasicWebNovelContext context, IWebHostEnvironment environment)
         {
-            _s3Client = s3Client;
             _context = context;
-            _imageBucketName = configuration["AWS:ImageBucketName"];
-            _novelBucketName = configuration["AWS:NovelBucketName"];
+            _environment = environment;
+            
+            var uploadsPath = Path.Combine(_environment.ContentRootPath, "uploads");
+            _userImagesFolder = Path.Combine(uploadsPath, "user-images");
+            _novelImagesFolder = Path.Combine(uploadsPath, "novel-images");
+
+            if (!Directory.Exists(_userImagesFolder)) Directory.CreateDirectory(_userImagesFolder);
+            if (!Directory.Exists(_novelImagesFolder)) Directory.CreateDirectory(_novelImagesFolder);
         }
 
         public async Task AddNovelImagesAsync(int novelId, IFormFile? imageFile)
@@ -41,12 +44,11 @@ namespace BasicWebNovelAPI.Service.Implementations
                 
                 if (existingImage != null)
                 {
-                    // Delete existing image from S3 if exists
-                    if (!string.IsNullOrWhiteSpace(existingImage.ImageSource))
+                    // Delete existing local file if exists
+                    if (!string.IsNullOrWhiteSpace(existingImage.ImageSource) && !existingImage.ImageSource.StartsWith("http"))
                     {
-                        var uri = new Uri(existingImage.ImageSource);
-                        var key = Uri.UnescapeDataString(uri.AbsolutePath.TrimStart('/'));
-                        await _s3Client.DeleteObjectAsync(_novelBucketName, key);
+                        var fullPath = Path.Combine(_environment.ContentRootPath, existingImage.ImageSource.TrimStart('/'));
+                        if (File.Exists(fullPath)) File.Delete(fullPath);
                     }
                     
                     // Update the existing record
@@ -80,12 +82,11 @@ namespace BasicWebNovelAPI.Service.Implementations
                 
                 if (existingImage != null)
                 {
-                    // Delete existing image from S3 if exists
-                    if (!string.IsNullOrWhiteSpace(existingImage.ImageSource))
+                    // Delete existing local file if exists
+                    if (!string.IsNullOrWhiteSpace(existingImage.ImageSource) && !existingImage.ImageSource.StartsWith("http"))
                     {
-                        var uri = new Uri(existingImage.ImageSource);
-                        var key = Uri.UnescapeDataString(uri.AbsolutePath.TrimStart('/'));
-                        await _s3Client.DeleteObjectAsync(_imageBucketName, key);
+                        var fullPath = Path.Combine(_environment.ContentRootPath, existingImage.ImageSource.TrimStart('/'));
+                        if (File.Exists(fullPath)) File.Delete(fullPath);
                     }
                     
                     // Update the existing record
@@ -107,27 +108,27 @@ namespace BasicWebNovelAPI.Service.Implementations
         public async Task<string> GenerateNovelImageSource(IFormFile imageFile)
         {
             var fileName = GenerateUniqueFileName(imageFile.FileName);
+            var filePath = Path.Combine(_novelImagesFolder, fileName);
             
-            using (var stream = imageFile.OpenReadStream())
+            using (var stream = new FileStream(filePath, FileMode.Create))
             {
-                var fileTransferUtility = new TransferUtility(_s3Client);
-                await fileTransferUtility.UploadAsync(stream, _novelBucketName, fileName);
+                await imageFile.CopyToAsync(stream);
             }
             
-            return $"https://{_novelBucketName}.s3.amazonaws.com/{fileName}";
+            return $"uploads/novel-images/{fileName}";
         }
 
         public async Task<string> GenerateUserImageSource(IFormFile imageFile)
         {
             var fileName = GenerateUniqueFileName(imageFile.FileName);
+            var filePath = Path.Combine(_userImagesFolder, fileName);
             
-            using (var stream = imageFile.OpenReadStream())
+            using (var stream = new FileStream(filePath, FileMode.Create))
             {
-                var fileTransferUtility = new TransferUtility(_s3Client);
-                await fileTransferUtility.UploadAsync(stream, _imageBucketName, fileName);
+                await imageFile.CopyToAsync(stream);
             }
             
-            return $"https://{_imageBucketName}.s3.amazonaws.com/{fileName}";
+            return $"uploads/user-images/{fileName}";
         }
 
         public async Task SaveNovelImageInDatabase(NovelImages novelImage)
@@ -151,11 +152,21 @@ namespace BasicWebNovelAPI.Service.Implementations
                 throw new Exceptions.NotFoundException($"Image for novel with id {novelId} not found");
             }
             
-            var uri = new Uri(novel.ImageSource);
-            var key = Uri.UnescapeDataString(uri.AbsolutePath.TrimStart('/'));
-            
-            var response = await _s3Client.GetObjectAsync(_novelBucketName, key);
-            return response.ResponseStream;
+            // Handle legacy S3 URLs or local paths
+            if (novel.ImageSource.StartsWith("http"))
+            {
+                // If it's a legacy S3 URL and user has no access, we should probably return a default image
+                // or try to download it once. For now, since user has NO access, let's just throw or return default.
+                throw new Exceptions.NotFoundException("Legacy AWS S3 image no longer accessible");
+            }
+
+            var fullPath = Path.Combine(_environment.ContentRootPath, novel.ImageSource.TrimStart('/'));
+            if (!File.Exists(fullPath))
+            {
+                throw new Exceptions.NotFoundException("Local image file not found");
+            }
+
+            return new FileStream(fullPath, FileMode.Open, FileAccess.Read);
         }
 
         public async Task<Stream> GetUserImageAsync(int userId)
@@ -167,11 +178,18 @@ namespace BasicWebNovelAPI.Service.Implementations
                 throw new Exceptions.NotFoundException($"Image for user with id {userId} not found");
             }
             
-            var uri = new Uri(user.ImageSource);
-            var key = Uri.UnescapeDataString(uri.AbsolutePath.TrimStart('/'));
-            
-            var response = await _s3Client.GetObjectAsync(_imageBucketName, key);
-            return response.ResponseStream;
+            if (user.ImageSource.StartsWith("http"))
+            {
+                throw new Exceptions.NotFoundException("Legacy AWS S3 image no longer accessible");
+            }
+
+            var fullPath = Path.Combine(_environment.ContentRootPath, user.ImageSource.TrimStart('/'));
+            if (!File.Exists(fullPath))
+            {
+                throw new Exceptions.NotFoundException("Local image file not found");
+            }
+
+            return new FileStream(fullPath, FileMode.Open, FileAccess.Read);
         }
 
         public async Task DeleteNovelImageAsync(int novelId)
@@ -183,15 +201,11 @@ namespace BasicWebNovelAPI.Service.Implementations
                 throw new Exception($"Image for novel with id {novelId} not found");
             }
             
-            if (string.IsNullOrWhiteSpace(novel.ImageSource))
+            if (!string.IsNullOrWhiteSpace(novel.ImageSource) && !novel.ImageSource.StartsWith("http"))
             {
-                return;
+                var fullPath = Path.Combine(_environment.ContentRootPath, novel.ImageSource.TrimStart('/'));
+                if (File.Exists(fullPath)) File.Delete(fullPath);
             }
-            
-            var uri = new Uri(novel.ImageSource);
-            var key = Uri.UnescapeDataString(uri.AbsolutePath.TrimStart('/'));
-            
-            await _s3Client.DeleteObjectAsync(_novelBucketName, key);
             
             _context.NovelImages.Remove(novel);
             await _context.SaveChangesAsync();
@@ -206,15 +220,11 @@ namespace BasicWebNovelAPI.Service.Implementations
                 throw new Exception($"Image for user with id {userId} not found");
             }
             
-            if (string.IsNullOrWhiteSpace(user.ImageSource))
+            if (!string.IsNullOrWhiteSpace(user.ImageSource) && !user.ImageSource.StartsWith("http"))
             {
-                return;
+                var fullPath = Path.Combine(_environment.ContentRootPath, user.ImageSource.TrimStart('/'));
+                if (File.Exists(fullPath)) File.Delete(fullPath);
             }
-            
-            var uri = new Uri(user.ImageSource);
-            var key = Uri.UnescapeDataString(uri.AbsolutePath.TrimStart('/'));
-            
-            await _s3Client.DeleteObjectAsync(_imageBucketName, key);
             
             _context.UserImages.Remove(user);
             await _context.SaveChangesAsync();

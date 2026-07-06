@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 using BasicWebNovelAPI.Model.UserManagement;
 
 namespace BasicWebNovelAPI.Model.Novels;
@@ -10,14 +10,14 @@ public class NovelCommentLikes
     
     
     [JsonIgnore]
-    public NovelComments NovelComment { get; set; }
+    public NovelComments NovelComment { get; set; } = null!;
 
     public int NovelCommentId { get; set; }
     
     
     
     [JsonIgnore]
-    public User User { get; set; }
+    public User User { get; set; } = null!;
     
     public int UserId { get; set; }
 }

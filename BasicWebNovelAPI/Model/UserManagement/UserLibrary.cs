@@ -1,4 +1,4 @@
-﻿using BasicWebNovelAPI.Model.Novels;
+using BasicWebNovelAPI.Model.Novels;
 
 namespace BasicWebNovelAPI.Model.UserManagement
 {
@@ -7,10 +7,10 @@ namespace BasicWebNovelAPI.Model.UserManagement
         public int Id { get; set; }
 
         public int UserId { get; set; }
-        public User User { get; set; }
+        public User User { get; set; } = null!;
 
         public int NovelId { get; set; }
-        public Novel Novel { get; set; }
+        public Novel Novel { get; set; } = null!;
 
         public int LastReadChapter { get; set; }
         public bool AddedChapter { get; set; } = false;

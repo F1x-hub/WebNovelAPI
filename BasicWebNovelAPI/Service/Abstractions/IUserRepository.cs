@@ -1,4 +1,4 @@
-﻿using BasicWebNovelAPI.Model.Dto.User;
+using BasicWebNovelAPI.Model.Dto.User;
 using BasicWebNovelAPI.Model.UserManagement;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,9 +7,9 @@ namespace BasicWebNovelAPI.Service.Abstractions
     public interface IUserRepository
     {
         Task<List<User>> GetUsersAsync();
-        Task<User> GetUserIdAsync(int userId);
+        Task<User?> GetUserIdAsync(int userId);
         Task<bool> UpdateUserAsync(int userId, UpdateUserDto userDto);
-        Task<User> DeleteUserIdAsync(int userId);
+        Task<User?> DeleteUserIdAsync(int userId);
         
         // Password management methods
         Task<string> ForgotPasswordAsync(string email);

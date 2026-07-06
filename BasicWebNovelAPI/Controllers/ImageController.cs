@@ -1,4 +1,4 @@
-﻿using BasicWebNovelAPI.Exceptions;
+using BasicWebNovelAPI.Exceptions;
 using BasicWebNovelAPI.Service.Abstractions;
 using BasicWebNovelAPI.Service.Implementations;
 using Microsoft.AspNetCore.Authorization;
@@ -12,7 +12,6 @@ namespace BasicWebNovelAPI.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    [Produces("application/json")]
     public class ImageController : ControllerBase
     {
         private readonly IImageRepository _imageRepository;
@@ -37,6 +36,7 @@ namespace BasicWebNovelAPI.Controllers
         /// </remarks>
         [HttpPost("add-novel-image/{id}")]
         [Authorize(Roles = "Admin, User")]
+        [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -75,6 +75,7 @@ namespace BasicWebNovelAPI.Controllers
         /// The image will be resized and optimized automatically for profile display.
         /// </remarks>
         [HttpPost("add-user-image/{id}")]
+        [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -112,7 +113,7 @@ namespace BasicWebNovelAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [Produces("image/jpeg")]
+        [Produces("image/jpeg", "image/png")]
         public async Task<IActionResult> GetNovelImage(int id)
         {
             try
@@ -146,7 +147,7 @@ namespace BasicWebNovelAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [Produces("image/jpeg")]
+        [Produces("image/jpeg", "image/png")]
         public async Task<IActionResult> GetUserImage(int id)
         {
             try
@@ -181,6 +182,7 @@ namespace BasicWebNovelAPI.Controllers
         /// </remarks>
         [HttpDelete("delete-novel-image/{id}")]
         [Authorize(Roles = "Admin, User")]
+        [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -219,6 +221,7 @@ namespace BasicWebNovelAPI.Controllers
         /// </remarks>
         [HttpDelete("delete-user-image/{id}")]
         [Authorize]
+        [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

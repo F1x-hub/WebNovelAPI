@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using BasicWebNovelAPI.Data;
 using BasicWebNovelAPI.Extensions;
 using BasicWebNovelAPI.Model.Dto.Novel.Chapter;
@@ -27,23 +27,24 @@ namespace BasicWebNovelAPI.Service.Implementations
         private readonly IMapper _mapper;
         private readonly IDistributedCache _cache;
         private readonly IUserLibraryRepository _userLibraryRepository;
-        private readonly IAmazonS3 _s3Client;
-        private readonly string _novelPdfBucketName;
+        private readonly IWebHostEnvironment _environment;
+        private readonly string _chaptersFolder;
 
         public ChapterRepository(
             BasicWebNovelContext context, 
             IMapper mapper, 
             IDistributedCache cache, 
             IUserLibraryRepository userLibraryRepository,
-            IAmazonS3 s3Client,
-            IConfiguration configuration)
+            IWebHostEnvironment environment)
         {
             _context = context;
             _mapper = mapper;
             _cache = cache;
             _userLibraryRepository = userLibraryRepository;
-            _s3Client = s3Client;
-            _novelPdfBucketName = configuration["AWS:NovelPdfBucketName"];
+            _environment = environment;
+            
+            _chaptersFolder = Path.Combine(_environment.ContentRootPath, "uploads", "chapters");
+            if (!Directory.Exists(_chaptersFolder)) Directory.CreateDirectory(_chaptersFolder);
         }
 
         public async Task<GetChapterDto> AddChapterToNovelAsync(int novelId, int userId, CreateChapterDto chapterDto)
@@ -132,19 +133,18 @@ namespace BasicWebNovelAPI.Service.Implementations
             // Preserve the original creation date
             existingChapter.CreatedAt = originalCreatedAt;
             
-            // If PDF path changed and there was an original PDF, delete the old one from S3
+            // If PDF path changed and there was an original PDF, delete the old one
             if (!string.IsNullOrEmpty(originalPdfPath) && 
-                originalPdfPath != existingChapter.PdfPath && 
-                originalPdfPath.StartsWith("https://"))
+                originalPdfPath != existingChapter.PdfPath)
             {
                 try
                 {
-                    await DeletePdfFromS3Async(originalPdfPath);
+                    await DeletePdfAsync(originalPdfPath);
                 }
                 catch (Exception ex)
                 {
                     // Log the error but continue with the update
-                    Console.WriteLine($"Error deleting old PDF from S3: {ex.Message}");
+                    Console.WriteLine($"Error deleting old PDF: {ex.Message}");
                 }
             }
             
@@ -216,17 +216,17 @@ namespace BasicWebNovelAPI.Service.Implementations
                         _context.Update(userLibrary);
                     }
                     
-                    // Delete PDF from S3 if it exists
-                    if (!string.IsNullOrEmpty(chapter.PdfPath) && chapter.PdfPath.StartsWith("https://"))
+                    // Delete PDF if it exists
+                    if (!string.IsNullOrEmpty(chapter.PdfPath))
                     {
                         try
                         {
-                            await DeletePdfFromS3Async(chapter.PdfPath);
+                            await DeletePdfAsync(chapter.PdfPath);
                         }
                         catch (Exception ex)
                         {
                             // Log the error but continue with deletion
-                            Console.WriteLine($"Error deleting PDF from S3: {ex.Message}");
+                            Console.WriteLine($"Error deleting PDF: {ex.Message}");
                         }
                     }
 
@@ -308,18 +308,13 @@ namespace BasicWebNovelAPI.Service.Implementations
         {
             var cacheKey = $"chapters_{novelId}";
             await _cache.SafeRemoveAsync(cacheKey);
-            
-            // Also invalidate individual chapter caches
-            // We don't know which users might have viewed which chapters
-            // so we can't precisely invalidate each chapter_novelId_chapterNumber_userId key
-            // This is a limitation of the current caching approach
         }
 
         public async Task<List<GetChapterDto>> GetAllChaptersAsync(int novelId)
         {
             var cacheKey = $"chapters_{novelId}";
             var cachedChapters = await _cache.GetValue<List<GetChapterDto>>(cacheKey);
-            if (!string.IsNullOrEmpty(_cache.GetString(cacheKey)))
+            if (cachedChapters != null)
             {
                 return cachedChapters;
             }
@@ -357,7 +352,7 @@ namespace BasicWebNovelAPI.Service.Implementations
         {
             var cacheKey = $"chapter_{novelId}_{chapterNumber}_{userId}";
             var cachedChapter = await _cache.GetValue<GetChapterDto>(cacheKey);
-            if (!string.IsNullOrEmpty(_cache.GetString(cacheKey)))
+            if (cachedChapter != null)
             {
                 return cachedChapter;
             }
@@ -377,14 +372,10 @@ namespace BasicWebNovelAPI.Service.Implementations
             {
                 try
                 {
-                    // If the path starts with https://, it's an S3 path
-                    if (chapter.PdfPath.StartsWith("https://"))
+                    var fullPath = Path.Combine(_environment.ContentRootPath, chapter.PdfPath.TrimStart('/'));
+                    if (File.Exists(fullPath))
                     {
-                        chapterDto.Content = await ExtractPdfContentFromS3(chapter.PdfPath);
-                    }
-                    else if (File.Exists(chapter.PdfPath))
-                    {
-                        chapterDto.Content = ExtractPdfContent(chapter.PdfPath);
+                        chapterDto.Content = ExtractPdfContent(fullPath);
                     }
                 }
                 catch (Exception ex)
@@ -431,7 +422,6 @@ namespace BasicWebNovelAPI.Service.Implementations
             return chapterDto;
         }
 
-        // Method for local PDF files
         private string ExtractPdfContent(string pdfPath)
         {
             using (PdfReader pdfReader = new PdfReader(pdfPath))
@@ -450,33 +440,7 @@ namespace BasicWebNovelAPI.Service.Implementations
             }
         }
 
-        // New method for S3 PDF files
-        private async Task<string> ExtractPdfContentFromS3(string pdfUrl)
-        {
-            var uri = new Uri(pdfUrl);
-            var key = Uri.UnescapeDataString(uri.AbsolutePath.TrimStart('/'));
-
-            var response = await _s3Client.GetObjectAsync(_novelPdfBucketName, key);
-            
-            using (var stream = response.ResponseStream)
-            using (PdfReader pdfReader = new PdfReader(stream))
-            using (PdfDocument pdfDoc = new PdfDocument(pdfReader))
-            {
-                StringBuilder textBuilder = new StringBuilder();
-                
-                for (int page = 1; page <= pdfDoc.GetNumberOfPages(); page++)
-                {
-                    ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
-                    string pageContent = PdfTextExtractor.GetTextFromPage(pdfDoc.GetPage(page), strategy);
-                    textBuilder.Append(pageContent);
-                }
-                
-                return textBuilder.ToString();
-            }
-        }
-
-        // Implementation of IChapterRepository S3 methods
-        public async Task<string> UploadPdfToS3Async(IFormFile pdfFile, int userId, int novelId)
+        public async Task<string> UploadPdfAsync(IFormFile pdfFile, int userId, int novelId)
         {
             if (pdfFile == null || pdfFile.Length == 0)
                 throw new ArgumentException("No file was provided.");
@@ -484,38 +448,44 @@ namespace BasicWebNovelAPI.Service.Implementations
             if (!pdfFile.ContentType.Equals("application/pdf", StringComparison.OrdinalIgnoreCase))
                 throw new ArgumentException("Only PDF files are allowed.");
             
-            var fileName = $"{userId}_{novelId}_{DateTime.Now:yyyyMMddHHmmss}_{Path.GetFileName(pdfFile.FileName)}";
+            var fileName = $"{Guid.NewGuid()}_{Path.GetFileName(pdfFile.FileName)}";
+            var filePath = Path.Combine(_chaptersFolder, fileName);
             
-            using (var stream = pdfFile.OpenReadStream())
+            using (var stream = new FileStream(filePath, FileMode.Create))
             {
-                var fileTransferUtility = new TransferUtility(_s3Client);
-                await fileTransferUtility.UploadAsync(stream, _novelPdfBucketName, fileName);
+                await pdfFile.CopyToAsync(stream);
             }
             
-            return $"https://{_novelPdfBucketName}.s3.amazonaws.com/{fileName}";
+            return $"uploads/chapters/{fileName}";
         }
 
-        public async Task<Stream> GetPdfFromS3Async(string pdfUrl)
+        public Task<Stream> GetPdfStreamAsync(string pdfPath)
         {
-            if (string.IsNullOrWhiteSpace(pdfUrl))
-                throw new ArgumentException("PDF URL cannot be null or empty");
+            if (string.IsNullOrWhiteSpace(pdfPath))
+                throw new ArgumentException("PDF path cannot be null or empty");
             
-            var uri = new Uri(pdfUrl);
-            var key = Uri.UnescapeDataString(uri.AbsolutePath.TrimStart('/'));
-            
-            var response = await _s3Client.GetObjectAsync(_novelPdfBucketName, key);
-            return response.ResponseStream;
+            var fullPath = Path.Combine(_environment.ContentRootPath, pdfPath.TrimStart('/'));
+            if (!File.Exists(fullPath))
+            {
+                throw new FileNotFoundException("PDF file not found locally");
+            }
+
+            return Task.FromResult<Stream>(new FileStream(fullPath, FileMode.Open, FileAccess.Read));
         }
 
-        public async Task DeletePdfFromS3Async(string pdfUrl)
+        public Task DeletePdfAsync(string pdfPath)
         {
-            if (string.IsNullOrWhiteSpace(pdfUrl))
-                return;
+            if (string.IsNullOrWhiteSpace(pdfPath))
+                return Task.CompletedTask;
             
-            var uri = new Uri(pdfUrl);
-            var key = Uri.UnescapeDataString(uri.AbsolutePath.TrimStart('/'));
-            
-            await _s3Client.DeleteObjectAsync(_novelPdfBucketName, key);
+            if (pdfPath.StartsWith("http")) return Task.CompletedTask; // Don't try to delete legacy S3 URLs from local filesystem
+
+            var fullPath = Path.Combine(_environment.ContentRootPath, pdfPath.TrimStart('/'));
+            if (File.Exists(fullPath))
+            {
+                File.Delete(fullPath);
+            }
+            return Task.CompletedTask;
         }
 
         public async Task<bool> UpdateLastReadChapterAsync(int userId, int novelId, int chapterNumber)

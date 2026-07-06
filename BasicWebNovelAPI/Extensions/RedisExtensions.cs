@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Distributed;
 using System.Text.Json;
 
 namespace BasicWebNovelAPI.Extensions
@@ -25,7 +25,7 @@ namespace BasicWebNovelAPI.Extensions
             }
         }
 
-        public static async Task<T> GetValue<T>(this IDistributedCache cache, string key)
+        public static async Task<T?> GetValue<T>(this IDistributedCache cache, string key)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace BasicWebNovelAPI.Extensions
 
                 if (string.IsNullOrEmpty(jsonData))
                 {
-                    return default(T);
+                    return default;
                 }
 
                 return JsonSerializer.Deserialize<T>(jsonData);
@@ -41,7 +41,7 @@ namespace BasicWebNovelAPI.Extensions
             catch
             {
                 // Return default value if cache read fails
-                return default(T);
+                return default;
             }
         }
         

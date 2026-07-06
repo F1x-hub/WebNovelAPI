@@ -1,28 +1,36 @@
-﻿using BasicWebNovelAPI.Model.Novels;
+using BasicWebNovelAPI.Model.Novels;
 using BasicWebNovelAPI.Model.UserManagement;
+using BasicWebNovelAPI.Model.Coins;
 using Microsoft.EntityFrameworkCore;
 
 namespace BasicWebNovelAPI.Data
 {
     public class BasicWebNovelContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public DbSet<UserImages> UserImages { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Novel> Novels { get; set; }
-        public DbSet<Chapter> Chapters { get; set; }
-        public DbSet<NovelImages> NovelImages { get; set; }
-        public DbSet<NovelGenre> NovelGenres { get; set; }
-        public DbSet<Rating> Ratings { get; set; }
-        public DbSet<Genre> Genres { get; set; }
-        public DbSet<UserLibrary> UserLibraries { get; set; }
-        public DbSet<NovelComments> NovelComments { get; set; }
-        public DbSet<ChapterComments> ChapterComments { get; set; }
-        public DbSet<UserChapterRead> UserChapterReads { get; set; }
-        public DbSet<NovelView> NovelViews { get; set; }
+        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<UserImages> UserImages { get; set; } = null!;
+        public DbSet<Role> Roles { get; set; } = null!;
+        public DbSet<Novel> Novels { get; set; } = null!;
+        public DbSet<Chapter> Chapters { get; set; } = null!;
+        public DbSet<NovelImages> NovelImages { get; set; } = null!;
+        public DbSet<NovelGenre> NovelGenres { get; set; } = null!;
+        public DbSet<Rating> Ratings { get; set; } = null!;
+        public DbSet<Genre> Genres { get; set; } = null!;
+        public DbSet<UserLibrary> UserLibraries { get; set; } = null!;
+        public DbSet<NovelComments> NovelComments { get; set; } = null!;
+        public DbSet<ChapterComments> ChapterComments { get; set; } = null!;
+        public DbSet<UserChapterRead> UserChapterReads { get; set; } = null!;
+        public DbSet<NovelView> NovelViews { get; set; } = null!;
         
-        public DbSet<NovelCommentLikes> NovelCommentLikes { get; set; }
-        public DbSet<ChapterCommentLikes> ChapterCommentLikes { get; set; }
+        public DbSet<CoinPackage> CoinPackages { get; set; } = null!;
+        public DbSet<UserWallet> UserWallets { get; set; } = null!;
+        public DbSet<CoinTransaction> CoinTransactions { get; set; } = null!;
+        public DbSet<ChapterPricing> ChapterPricings { get; set; } = null!;
+        public DbSet<UserChapterUnlock> UserChapterUnlocks { get; set; } = null!;
+        public DbSet<AuthorWithdrawal> AuthorWithdrawals { get; set; } = null!;
+        
+        public DbSet<NovelCommentLikes> NovelCommentLikes { get; set; } = null!;
+        public DbSet<ChapterCommentLikes> ChapterCommentLikes { get; set; } = null!;
         
         
 
@@ -180,7 +188,70 @@ namespace BasicWebNovelAPI.Data
                 .HasForeignKey(ccl => ccl.NovelCommentId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            
+            modelBuilder.Entity<Genre>().HasData(
+                new Genre { Id = 1, Name = "Fantasy" },
+                new Genre { Id = 2, Name = "Science Fiction" },
+                new Genre { Id = 3, Name = "Romance" },
+                new Genre { Id = 4, Name = "Action" },
+                new Genre { Id = 5, Name = "Horror" },
+                new Genre { Id = 6, Name = "Mystery" }
+            );
+
+            // Coin system entity configurations
+            modelBuilder.Entity<UserWallet>()
+                .HasOne(uw => uw.User)
+                .WithMany()
+                .HasForeignKey(uw => uw.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CoinTransaction>()
+                .HasOne(ct => ct.User)
+                .WithMany()
+                .HasForeignKey(ct => ct.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CoinTransaction>()
+                .HasOne(ct => ct.RelatedChapter)
+                .WithMany()
+                .HasForeignKey(ct => ct.RelatedChapterId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<ChapterPricing>()
+                .HasOne(cp => cp.Novel)
+                .WithMany()
+                .HasForeignKey(cp => cp.NovelId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<UserChapterUnlock>()
+                .HasOne(ucu => ucu.User)
+                .WithMany()
+                .HasForeignKey(ucu => ucu.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<UserChapterUnlock>()
+                .HasOne(ucu => ucu.Chapter)
+                .WithMany()
+                .HasForeignKey(ucu => ucu.ChapterId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<AuthorWithdrawal>()
+                .HasOne(aw => aw.Author)
+                .WithMany()
+                .HasForeignKey(aw => aw.AuthorId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CoinPackage>()
+                .Property(p => p.PriceUsd)
+                .HasColumnType("decimal(18,2)");
+
+            // Seed coin packages
+            modelBuilder.Entity<CoinPackage>().HasData(
+                new CoinPackage { Id = 1, CoinsAmount = 100, PriceUsd = 1.00m, IsCustom = false, IsActive = true },
+                new CoinPackage { Id = 2, CoinsAmount = 200, PriceUsd = 2.00m, IsCustom = false, IsActive = true },
+                new CoinPackage { Id = 3, CoinsAmount = 500, PriceUsd = 5.00m, IsCustom = false, IsActive = true },
+                new CoinPackage { Id = 4, CoinsAmount = 1000, PriceUsd = 10.00m, IsCustom = false, IsActive = true },
+                new CoinPackage { Id = 5, CoinsAmount = 0, PriceUsd = 0.00m, IsCustom = true, IsActive = true }
+            );
         }
 
     }

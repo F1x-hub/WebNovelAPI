@@ -1,4 +1,4 @@
-﻿using BasicWebNovelAPI.Exceptions;
+using BasicWebNovelAPI.Exceptions;
 using BasicWebNovelAPI.Model.Dto.Novel.Novel;
 using BasicWebNovelAPI.Model.Novels;
 using BasicWebNovelAPI.Service.Abstractions;
@@ -57,7 +57,7 @@ namespace BasicWebNovelAPI.Controllers
             int pageSize = 10, 
             [FromQuery] int? genreId = null,
             [FromQuery] NovelStatus? status = null,
-            [FromQuery] string sortBy = null,
+            [FromQuery] string? sortBy = null,
             [FromQuery] int userId = 0)
         {
             try 
@@ -197,7 +197,7 @@ namespace BasicWebNovelAPI.Controllers
             string name, 
             [FromQuery] int? genreId = null,
             [FromQuery] NovelStatus? status = null,
-            [FromQuery] string sortBy = null,
+            [FromQuery] string? sortBy = null,
             [FromQuery] int userId = 0)
         {
             try 
@@ -270,7 +270,7 @@ namespace BasicWebNovelAPI.Controllers
             int id, 
             [FromQuery] int? genreId = null,
             [FromQuery] NovelStatus? status = null,
-            [FromQuery] string sortBy = null,
+            [FromQuery] string? sortBy = null,
             [FromQuery] int requestUserId = 0)
         {
             try 

@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using BasicWebNovelAPI.Data;
 using BasicWebNovelAPI.Enum;
 using BasicWebNovelAPI.Extensions;
@@ -27,12 +27,12 @@ namespace BasicWebNovelAPI.Service.Implementations
         }
 
         
-        public async Task<NovelPagedResult> GetNovels(int pageNumber = 1, int pageSize = 10, int? genreId = null, NovelStatus? status = null, string sortBy = null)
+        public async Task<NovelPagedResult> GetNovels(int pageNumber = 1, int pageSize = 10, int? genreId = null, NovelStatus? status = null, string? sortBy = null)
         {
             var cacheKey = $"novels_page{pageNumber}_size{pageSize}_genre{genreId}_status{status}_sort{sortBy}";
             var cachedResult = await _cache.GetValue<NovelPagedResult>(cacheKey);
 
-            if (!string.IsNullOrEmpty(_cache.GetString(cacheKey)))
+            if (cachedResult != null)
             {
                 return cachedResult;
             }
@@ -109,7 +109,7 @@ namespace BasicWebNovelAPI.Service.Implementations
         }
 
         
-        public async Task<GetNovelDto> GetNovelById(int novelId)
+        public async Task<GetNovelDto?> GetNovelById(int novelId)
         {
             var novel = await _context.Novels
                 .Include(n => n.Chapters)
@@ -132,12 +132,12 @@ namespace BasicWebNovelAPI.Service.Implementations
             return novelDto;
         }
 
-        public async Task<List<GetNovelDto>> GetNovelByName(string title, int? genreId = null, NovelStatus? status = null, string sortBy = null)
+        public async Task<List<GetNovelDto>> GetNovelByName(string title, int? genreId = null, NovelStatus? status = null, string? sortBy = null)
         {
             var cacheKey = $"novel_{title}_genre{genreId}_status{status}_sort{sortBy}";
             var cachedNovels = await _cache.GetValue<List<GetNovelDto>>(cacheKey);
 
-            if (!string.IsNullOrEmpty(_cache.GetString(cacheKey)))
+            if (cachedNovels != null)
             {
                 return cachedNovels;
             }
@@ -201,12 +201,12 @@ namespace BasicWebNovelAPI.Service.Implementations
         }
 
 
-        public async Task<List<GetNovelDto>> GetUserAllNovel(int userId, int? genreId = null, NovelStatus? status = null, string sortBy = null)
+        public async Task<List<GetNovelDto>> GetUserAllNovel(int userId, int? genreId = null, NovelStatus? status = null, string? sortBy = null)
         {
             var cacheKey = $"user_novels_{userId}_genre{genreId}_status{status}_sort{sortBy}";
             var cachedNovels = await _cache.GetValue<List<GetNovelDto>>(cacheKey);
 
-            if (!string.IsNullOrEmpty(_cache.GetString(cacheKey)))
+            if (cachedNovels != null)
             {
                 return cachedNovels;
             }
@@ -454,7 +454,7 @@ namespace BasicWebNovelAPI.Service.Implementations
             return true;
         }
         
-        public async Task<bool> IncrementNovelViews(int novelId, int userId, string ipAddress = null)
+        public async Task<bool> IncrementNovelViews(int novelId, int userId, string? ipAddress = null)
         {
             // Check if the novel exists
             var novel = await _context.Novels.FindAsync(novelId);
@@ -549,7 +549,7 @@ namespace BasicWebNovelAPI.Service.Implementations
         }
 
         // Helper method to apply sorting
-        private void ApplySorting(ref IQueryable<Novel> query, string sortBy)
+        private void ApplySorting(ref IQueryable<Novel> query, string? sortBy)
         {
             switch (sortBy?.ToLower())
             {
@@ -611,11 +611,12 @@ namespace BasicWebNovelAPI.Service.Implementations
         }
 
         // New helper method to invalidate novel search caches
-        private async Task InvalidateNovelSearchCaches()
+        private Task InvalidateNovelSearchCaches()
         {
             // Since we don't know what search terms have been used,
             // we would need pattern matching support from the cache provider
             // For now, we'll just rely on cache expiration for search results
+            return Task.CompletedTask;
         }
     }
 }

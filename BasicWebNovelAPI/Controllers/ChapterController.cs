@@ -1,4 +1,4 @@
-﻿using BasicWebNovelAPI.Exceptions;
+using BasicWebNovelAPI.Exceptions;
 using BasicWebNovelAPI.Model.Dto.Novel.Chapter;
 using BasicWebNovelAPI.Model.Novels;
 using BasicWebNovelAPI.Service.Abstractions;
@@ -23,12 +23,18 @@ namespace BasicWebNovelAPI.Controllers
         private readonly IChapterRepository _chapterRepository;
         private readonly IWebHostEnvironment _environment;
         private readonly BasicWebNovelContext _context;
+        private readonly IChapterAccessService _chapterAccessService;
 
-        public ChapterController(IChapterRepository chapterRepository, IWebHostEnvironment environment, BasicWebNovelContext context)
+        public ChapterController(
+            IChapterRepository chapterRepository, 
+            IWebHostEnvironment environment, 
+            BasicWebNovelContext context,
+            IChapterAccessService chapterAccessService)
         {
             _chapterRepository = chapterRepository;
             _environment = environment;
             _context = context;
+            _chapterAccessService = chapterAccessService;
         }
 
         /// <summary>
@@ -55,17 +61,12 @@ namespace BasicWebNovelAPI.Controllers
                 if (!file.ContentType.Equals("application/pdf", StringComparison.OrdinalIgnoreCase))
                     return BadRequest("Only PDF files are allowed.");
 
-                // Upload to S3 instead of local storage
-                string s3PdfUrl = await _chapterRepository.UploadPdfToS3Async(file, userId, novelId);
-                
-                // Parse the URL to extract the filename for relative URL
-                var uri = new Uri(s3PdfUrl);
-                string fileName = Path.GetFileName(uri.AbsolutePath);
-                string relativeFilePath = $"/pdf-files/{fileName}";
+                // Upload to local storage
+                string pdfPath = await _chapterRepository.UploadPdfAsync(file, userId, novelId);
                 
                 return Ok(new { 
-                    pdfPath = s3PdfUrl,     // S3 URL for server-side operations
-                    pdfUrl = relativeFilePath  // Relative URL for client-side access
+                    pdfPath = pdfPath,     // Relative path for server-side operations
+                    pdfUrl = $"/{pdfPath}"  // URL for client-side access
                 });
             }
             catch (Exception ex)
@@ -107,8 +108,8 @@ namespace BasicWebNovelAPI.Controllers
                 if (chapter == null)
                     return NotFound("Chapter not found.");
                 
-                // Upload new PDF to S3
-                string s3PdfUrl = await _chapterRepository.UploadPdfToS3Async(file, userId, novelId);
+                // Upload new PDF to local storage
+                string pdfPath = await _chapterRepository.UploadPdfAsync(file, userId, novelId);
                 
                 // Create update DTO with the new PDF path
                 var updateDto = new UpdateChapterDto
@@ -116,7 +117,7 @@ namespace BasicWebNovelAPI.Controllers
                     Title = chapter.Title,
                     Content = chapter.Content,
                     ChapterNumber = chapter.ChapterNumber,
-                    PdfPath = s3PdfUrl,
+                    PdfPath = pdfPath,
                     UsePdfContent = true // Set to true since we're uploading a PDF
                 };
                 
@@ -126,14 +127,9 @@ namespace BasicWebNovelAPI.Controllers
                 if (!updated)
                     return BadRequest("Failed to update chapter with new PDF.");
                 
-                // Parse the URL to extract the filename for relative URL
-                var uri = new Uri(s3PdfUrl);
-                string fileName = Path.GetFileName(uri.AbsolutePath);
-                string relativeFilePath = $"/pdf-files/{fileName}";
-                
                 return Ok(new { 
-                    pdfPath = s3PdfUrl,     // S3 URL for server-side operations
-                    pdfUrl = relativeFilePath,  // Relative URL for client-side access
+                    pdfPath = pdfPath,     // Relative path for server-side operations
+                    pdfUrl = $"/{pdfPath}",  // URL for client-side access
                     updated = true
                 });
             }
@@ -320,6 +316,73 @@ namespace BasicWebNovelAPI.Controllers
             try
             {
                 var chapters = await _chapterRepository.GetAllChaptersAsync(novelId);
+                
+                // Get the current user ID if authenticated
+                int userId = 0;
+                if (User.Identity?.IsAuthenticated == true)
+                {
+                    var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+                    int.TryParse(userIdClaim, out userId);
+                }
+
+                // Evaluate access status for each chapter
+                bool isAuthorOrAdmin = false;
+                if (userId > 0)
+                {
+                    var user = await _context.Users
+                        .Include(u => u.Role)
+                        .FirstOrDefaultAsync(u => u.Id == userId);
+                    var novel = await _context.Novels.FindAsync(novelId);
+                    if (user != null && novel != null)
+                    {
+                        if (user.Role?.RoleName == "Admin" || novel.UserId == userId)
+                        {
+                            isAuthorOrAdmin = true;
+                        }
+                    }
+                }
+
+                var pricing = await _context.ChapterPricings.FirstOrDefaultAsync(p => p.NovelId == novelId);
+                int freeChaptersCount = pricing?.FreeChaptersCount ?? 10;
+                int coinPrice = pricing?.CoinPricePerChapter ?? 1;
+                bool scheduleEnabled = pricing?.UnlockScheduleEnabled ?? false;
+                int intervalDays = pricing?.UnlockIntervalDays ?? 7;
+                DateTime? startDate = pricing?.ScheduleStartDate;
+
+                var unlocks = new HashSet<int>();
+                if (userId > 0)
+                {
+                    unlocks = (await _context.UserChapterUnlocks
+                        .Where(u => u.UserId == userId && u.Chapter.NovelId == novelId)
+                        .Select(u => u.ChapterId)
+                        .ToListAsync())
+                        .ToHashSet();
+                }
+
+                var now = DateTime.UtcNow;
+
+                foreach (var chapter in chapters)
+                {
+                    bool isFree = chapter.ChapterNumber <= freeChaptersCount;
+                    bool isScheduleUnlocked = false;
+
+                    if (!isFree && scheduleEnabled && startDate.HasValue && now >= startDate.Value)
+                    {
+                        var daysSinceStart = (now - startDate.Value).TotalDays;
+                        var opened = (int)Math.Floor(daysSinceStart / intervalDays);
+                        if (chapter.ChapterNumber <= freeChaptersCount + opened)
+                        {
+                            isScheduleUnlocked = true;
+                        }
+                    }
+
+                    bool isPurchased = unlocks.Contains(chapter.Id);
+                    
+                    chapter.IsFree = isFree;
+                    chapter.CoinPrice = isFree ? 0 : coinPrice;
+                    chapter.IsAccessible = isAuthorOrAdmin || isFree || isScheduleUnlocked || isPurchased;
+                }
+
                 return Ok(chapters);
             }
             catch (BadRequestException ex)
@@ -363,6 +426,14 @@ namespace BasicWebNovelAPI.Controllers
                 {
                     return NotFound("Chapter not found");
                 }
+
+                var accessStatus = await _chapterAccessService.GetChapterAccessStatusAsync(userId, chapter.Id);
+                if (!accessStatus.IsAccessible)
+                {
+                    chapter.Content = "This chapter is locked. Please unlock it to read.";
+                    chapter.PdfPath = "";
+                }
+
                 return Ok(chapter);
             }
             catch (BadRequestException ex)

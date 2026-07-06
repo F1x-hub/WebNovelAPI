@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace BasicWebNovelAPI.Model.Novels
@@ -8,9 +8,9 @@ namespace BasicWebNovelAPI.Model.Novels
         public int Id { get; set; }
         [NotMapped]
         [JsonIgnore]
-        public Novel Novels { get; set; }
+        public Novel Novels { get; set; } = null!;
         public int NovelId { get; set; }
-        public string ImageSource { get; set; }
+        public string ImageSource { get; set; } = string.Empty;
 
     }
 }

@@ -1,4 +1,4 @@
-﻿using BasicWebNovelAPI.Exceptions;
+using BasicWebNovelAPI.Exceptions;
 using BasicWebNovelAPI.Model;
 using BasicWebNovelAPI.Model.Errors;
 using System.Diagnostics;
@@ -48,7 +48,7 @@ namespace BasicWebNovelAPI.Middleware
                 StatusCode = context.Response.StatusCode,
                 Message = ex.Message,
                 RequestId = context.TraceIdentifier,
-                StackTrace = ex.StackTrace
+                StackTrace = ex.StackTrace ?? string.Empty
             };
 
             await context.Response.WriteAsync(response.ToString());
